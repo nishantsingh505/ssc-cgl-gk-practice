@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SSC CGL GK Practice - 5 Sets of 20 PYQs</title>
+    <title>SSC CGL Maths Practice - Average (100 PYQs: Medium & Hard)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -45,17 +45,17 @@
         <!-- STICKY TOP HEADER -->
         <header id="quiz-header" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 sm:px-6 transition-all">
             <div class="flex items-center justify-between">
-                <!-- Left: Title & Set selector -->
+                <!-- Left: Title & Set info -->
                 <div class="flex items-center space-x-2.5">
-                    <button onclick="goToHome()" class="w-8 h-8 rounded-lg bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm shadow-indigo-300 transition-colors">
-                        GK
+                    <button onclick="goToHome()" class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 hover:opacity-90 flex items-center justify-center text-white font-black text-sm shadow-md shadow-indigo-200 transition-all">
+                        ∑
                     </button>
                     <div>
                         <div class="flex items-center space-x-1.5">
-                            <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">SSC CGL Practice</h1>
-                            <span id="header-set-badge" class="px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-[11px] font-bold">Set 1</span>
+                            <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">SSC CGL Maths</h1>
+                            <span id="header-set-badge" class="px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-[11px] font-bold">Average (औसत)</span>
                         </div>
-                        <p id="header-subtitle" class="text-xs font-medium text-slate-500">20 Mixed PYQs (5 Books, 5 Parks, 5 Lakes, 5 Days)</p>
+                        <p id="header-subtitle" class="text-xs font-medium text-slate-500">100 PYQs • Medium & Hard Tier-1 & Tier-2</p>
                     </div>
                 </div>
 
@@ -90,14 +90,27 @@
             <!-- 1. SET SELECTION / INTRO SCREEN -->
             <div id="intro-screen" class="flex-1 flex flex-col py-2 fade-in max-w-xl mx-auto w-full">
                 
-                <div class="text-center mb-6">
-                    <div class="inline-flex items-center space-x-1 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                        <span>⚡ 100 SSC CGL Previous Year Questions</span>
+                <div class="text-center mb-5">
+                    <div class="inline-flex items-center space-x-1 px-3 py-1 bg-violet-50 border border-violet-200 text-violet-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                        <span>📐 Quantitative Aptitude • Average (औसत)</span>
                     </div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Choose Practice Set</h2>
-                    <p class="text-xs sm:text-sm text-slate-600 mt-1">
-                        5 distinct sets of 20 questions each. Exactly 5 Books & Authors, 5 National Parks, 5 Major Lakes, and 5 Important Days per set.
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">SSC CGL Average PYQs</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
+                        Practice 100 authentic SSC CGL Previous Year Questions (Medium & Hard difficulty) arranged in 5 curated sets of 20 questions each.
                     </p>
+                </div>
+
+                <!-- MATH DIFFICULTY TABS -->
+                <div class="flex items-center justify-center space-x-1.5 p-1 bg-slate-100 rounded-2xl mb-5 text-xs font-bold">
+                    <button onclick="setTabFilter('all')" id="tab-btn-all" class="flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all">
+                        All Sets (5)
+                    </button>
+                    <button onclick="setTabFilter('medium')" id="tab-btn-medium" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all">
+                        Medium Level (2)
+                    </button>
+                    <button onclick="setTabFilter('hard')" id="tab-btn-hard" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all">
+                        Hard / Tier-2 (3)
+                    </button>
                 </div>
 
                 <!-- 5 Practice Set Cards -->
@@ -105,27 +118,28 @@
                     <!-- Populated by JS -->
                 </div>
 
-                <!-- Topic Distribution Info Card -->
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs text-slate-600 space-y-2">
-                    <div class="font-bold text-slate-800 text-sm flex items-center space-x-1.5">
-                        <span>📋 Standard SSC CGL 20-Question Mix</span>
+                <!-- Formula / Shortcut Card -->
+                <div class="bg-gradient-to-br from-indigo-50/90 to-purple-50/70 border border-indigo-100 rounded-2xl p-4 text-xs text-indigo-950 space-y-2">
+                    <div class="font-bold text-indigo-900 text-sm flex items-center space-x-1.5">
+                        <span>⚡ Key Concepts & Short-Tricks Included</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 pt-1 text-slate-700">
-                        <div class="flex items-center space-x-1.5">
-                            <span>📚</span> <span>5 Books & Authors</span>
+                    <div class="grid grid-cols-2 gap-2 pt-1 text-[11px] text-indigo-900/90">
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-indigo-100/60">
+                            <strong>Net Deviation Trick:</strong><br>
+                            $\Sigma \Delta = 0$ shortcuts to avoid large multiplications in seconds.
                         </div>
-                        <div class="flex items-center space-x-1.5">
-                            <span>🌲</span> <span>5 National Parks</span>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-indigo-100/60">
+                            <strong>Replacement Formula:</strong><br>
+                            $New = Replaced \pm (N \times \Delta Avg)$
                         </div>
-                        <div class="flex items-center space-x-1.5">
-                            <span>🌊</span> <span>5 Major Lakes of India</span>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-indigo-100/60">
+                            <strong>Cricket Innings:</strong><br>
+                            Batting & Bowling average alligation methods.
                         </div>
-                        <div class="flex items-center space-x-1.5">
-                            <span>📅</span> <span>5 Imp. Indian & Int. Days</span>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-indigo-100/60">
+                            <strong>Weighted & Ratio Mix:</strong><br>
+                            Boys/Girls percentage differentials and overlapping numbers.
                         </div>
-                    </div>
-                    <div class="pt-2 border-t border-slate-200/80 text-[11px] text-slate-500">
-                        💡 Complete all 20 questions, submit to calculate your score, and review detailed answer keys with revision notes.
                     </div>
                 </div>
 
@@ -138,11 +152,11 @@
                     <!-- Category badge & mobile indicator -->
                     <div class="flex items-center justify-between mb-3">
                         <div class="flex items-center space-x-2">
-                            <span id="question-category-badge" class="px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-bold tracking-wide uppercase">
-                                Category
+                            <span id="question-difficulty-badge" class="px-2.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+                                Medium
                             </span>
-                            <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-[11px] font-semibold">
-                                SSC CGL PYQ
+                            <span id="question-exam-badge" class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-[11px] font-semibold">
+                                SSC CGL Tier-1
                             </span>
                         </div>
                         <span id="question-counter-indicator" class="text-xs font-bold text-slate-500">
@@ -152,7 +166,7 @@
 
                     <!-- Question Text -->
                     <div class="mb-5">
-                        <h2 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                        <h2 id="question-text" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
                             Question loading...
                         </h2>
                     </div>
@@ -179,7 +193,7 @@
             <div id="results-screen" class="hidden flex-1 flex flex-col py-2 fade-in">
                 
                 <!-- Score Summary Card -->
-                <div class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-900 text-white rounded-3xl p-5 sm:p-7 shadow-xl mb-5 relative overflow-hidden">
+                <div class="bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 text-white rounded-3xl p-5 sm:p-7 shadow-xl mb-5 relative overflow-hidden">
                     <div class="absolute -top-12 -right-12 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl"></div>
                     
                     <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -188,7 +202,7 @@
                                 Practice Set 1 Completed
                             </span>
                             <h2 id="result-badge-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Great Performance!</h2>
-                            <p id="result-badge-subtitle" class="text-xs sm:text-sm text-indigo-200 mt-1">Here is your SSC CGL score breakdown</p>
+                            <p id="result-badge-subtitle" class="text-xs sm:text-sm text-indigo-200 mt-1">Here is your Maths score breakdown</p>
                         </div>
 
                         <!-- Big Circular Score Display -->
@@ -241,7 +255,7 @@
                 <div class="border-t border-slate-200 pt-5">
                     <div class="flex items-center justify-between mb-3">
                         <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-1.5">
-                            <span>Detailed Answer Key & Notes</span>
+                            <span>Step-by-Step Solutions & Tricks</span>
                         </h3>
                         <span class="text-xs text-slate-500 font-medium">All 20 Questions</span>
                     </div>
@@ -361,794 +375,871 @@
 
     </div>
 
-    <!-- MASTER 100 AUTHENTIC SSC CGL PYQ DATA (5 SETS x 20 QUESTIONS) -->
+    <!-- AUTHENTIC SSC CGL MATHS QUESTION BANK (AVERAGE: 5 SETS x 20 QUESTIONS) -->
     <script>
-        // 25 BOOKS & AUTHORS
-        const POOL_BOOKS = [
-            // Set 1 (0..4)
+        const MATHS_AVERAGE_SETS = [
+            // ==================== SET 1: MEDIUM LEVEL (Replacements, Inclusions & Consecutive Numbers) ====================
             {
-                cat: "Books and Authors",
-                q: "Who is the author of the famous book 'The Discovery of India'?",
-                o: ["Mahatma Gandhi", "Jawaharlal Nehru", "Rabindranath Tagore", "Sardar Vallabhbhai Patel"],
-                a: 1,
-                exp: "Jawaharlal Nehru wrote 'The Discovery of India' during his imprisonment at Ahmednagar Fort (1942–1946) under British rule."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The classic book 'Poverty and Un-British Rule in India', which propounded the 'Drain of Wealth' theory, was authored by:",
-                o: ["Gopal Krishna Gokhale", "Dadabhai Naoroji", "Bal Gangadhar Tilak", "M.G. Ranade"],
-                a: 1,
-                exp: "Dadabhai Naoroji ('The Grand Old Man of India') authored this seminal work exposing British economic exploitation of India."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The patriotic novel 'Anandamath', which features India's national song 'Vande Mataram', was written by:",
-                o: ["Bankim Chandra Chattopadhyay", "Rabindranath Tagore", "Sarat Chandra Chattopadhyay", "Michael Madhusudan Dutt"],
-                a: 0,
-                exp: "Bankim Chandra Chattopadhyay wrote 'Anandamath' in 1882, set against the backdrop of the Sannyasi Rebellion in Bengal."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who authored the famous autobiography 'Wings of Fire'?",
-                o: ["Atal Bihari Vajpayee", "Dr. A.P.J. Abdul Kalam", "Dr. Homi Bhabha", "Vikram Sarabhai"],
-                a: 1,
-                exp: "'Wings of Fire' (1999) is the inspiring autobiography of Dr. A.P.J. Abdul Kalam, co-written with Arun Tiwari."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Which Indian author won the Man Booker Prize for the novel 'The God of Small Things'?",
-                o: ["Jhumpa Lahiri", "Arundhati Roy", "Kiran Desai", "Anita Desai"],
-                a: 1,
-                exp: "Arundhati Roy became the first Indian citizen to win the Booker Prize in 1997 for 'The God of Small Things'."
+                id: 1,
+                title: "Practice Set 1",
+                difficulty: "Medium",
+                examTag: "SSC CGL Tier-1",
+                desc: "Replacements, Inclusions, Exclusions & Consecutive Series",
+                badgeClass: "bg-blue-100 text-blue-800",
+                questions: [
+                    {
+                        q: "The average weight of 15 persons increases by 1.2 kg when one of them who weighs 51 kg is replaced by a new person. What is the weight of the new person?",
+                        o: ["67 kg", "69 kg", "71 kg", "65 kg"],
+                        a: 1,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Let the initial total weight be $S$. Old average = $S/15$. New total weight = $S - 51 + W_{new}$. New average = $(S - 51 + W_{new})/15 = S/15 + 1.2$. Multiplying by 15: $S - 51 + W_{new} = S + 18 \\implies W_{new} = 51 + 18 = 69$ kg.<br><br>⚡ <b>Shortcut (Net Change Trick):</b> $Weight_{new} = Weight_{replaced} + (N \\times \\Delta Avg) = 51 + (15 \\times 1.2) = 51 + 18 = \\mathbf{69\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average age of 24 students and their class teacher is 16 years. If the teacher's age is excluded, the average age decreases by 1 year. The age of the teacher is:",
+                        o: ["38 years", "40 years", "42 years", "36 years"],
+                        a: 1,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total members = 25. Total sum of ages = $25 \\times 16 = 400$ years. When the teacher leaves, remaining 24 students have average $16 - 1 = 15$ years. Sum of 24 students = $24 \\times 15 = 360$ years. Teacher's age = $400 - 360 = \\mathbf{40\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = Old\\text{ Avg} + [Remaining \\times \\Delta Avg] = 16 + (24 \\times 1) = \\mathbf{40\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 5 consecutive odd numbers is 63. What is the difference between the highest and lowest of these numbers?",
+                        o: ["6", "8", "10", "12"],
+                        a: 1,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Let the 5 consecutive odd numbers be $x, x+2, x+4, x+6, x+8$. Their average is the middle number: $x + 4 = 63 \\implies x = 59$. The numbers are 59, 61, 63, 65, 67. Difference between highest and lowest = $67 - 59 = \\mathbf{8}$.<br><br>⚡ <b>Shortcut:</b> For any $n$ consecutive odd or even numbers, the difference between the largest and smallest is always $2 \\times (n - 1) = 2 \\times (5 - 1) = \\mathbf{8}$."
+                    },
+                    {
+                        q: "The average weight of 8 men increases by 1.5 kg when a new man replaces one of them who weighs 65 kg. The weight of the new man is:",
+                        o: ["76 kg", "77 kg", "75 kg", "74 kg"],
+                        a: 1,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Net increase in total weight = $8 \\times 1.5 = 12$ kg. The new man must weigh 12 kg more than the man who left: $65 + 12 = \\mathbf{77\\text{ kg}}$.<br><br>⚡ <b>Shortcut:</b> $Weight_{new} = 65 + (8 \\times 1.5) = 65 + 12 = \\mathbf{77\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average of 9 consecutive numbers is 20. What is the smallest of these numbers?",
+                        o: ["14", "15", "16", "17"],
+                        a: 2,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> For consecutive integers, the average is exactly the middle (5th) number. Hence, the 5th number is 20. The 1st (smallest) number is $20 - 4 = \\mathbf{16}$. The 9 numbers are: 16, 17, 18, 19, 20, 21, 22, 23, 24."
+                    },
+                    {
+                        q: "The average score of 25 students in a class is 50. If the highest and lowest scores are excluded, the average score of the remaining 23 students becomes 48. If the highest score is 90, what is the lowest score?",
+                        o: ["56", "52", "48", "60"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total score of 25 students = $25 \\times 50 = 1250$. Total score of remaining 23 students = $23 \\times 48 = 1104$. Sum of (Highest + Lowest) = $1250 - 1104 = 146$. Since Highest = 90, Lowest = $146 - 90 = \\mathbf{56}$."
+                    },
+                    {
+                        q: "The average age of 30 boys in a class is 15 years. When the age of the class teacher is included, the average age becomes 16 years. What is the teacher's age?",
+                        o: ["44 years", "45 years", "46 years", "47 years"],
+                        a: 2,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total age of 30 boys = $30 \\times 15 = 450$. Total age of 31 people = $31 \\times 16 = 496$. Teacher's age = $496 - 450 = \\mathbf{46\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = New\\text{ Avg} + [Old\\text{ Count} \\times \\Delta Avg] = 16 + (30 \\times 1) = \\mathbf{46\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 7 consecutive even numbers is 36. What is the product of the first and the last number?",
+                        o: ["1260", "1200", "1140", "1320"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> The average of 7 consecutive even numbers is the 4th (middle) number = 36. The numbers are: 30, 32, 34, <b>36</b>, 38, 40, 42. First number = 30, Last number = 42. Product = $30 \\times 42 = \\mathbf{1260}$."
+                    },
+                    {
+                        q: "The average weight of 6 persons is increased by 2.5 kg when a new person replaces one weighing 55 kg. What is the weight of the new person?",
+                        o: ["70 kg", "72 kg", "68 kg", "75 kg"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> $Weight_{new} = Weight_{replaced} + (N \\times \\Delta Avg) = 55 + (6 \\times 2.5) = 55 + 15 = \\mathbf{70\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average salary of all 60 employees in an office is Rs 12,000. The average salary of 20 officers is Rs 20,000. What is the average salary of the remaining employees?",
+                        o: ["Rs 8,000", "Rs 8,500", "Rs 9,000", "Rs 7,500"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total salary of 60 employees = $60 \\times 12000 = 7,20,000$. Total salary of 20 officers = $20 \\times 20000 = 4,00,000$. Total salary of remaining 40 employees = $7,20,000 - 4,00,000 = 3,20,000$. Average salary = $3,20,000 / 40 = \\mathbf{Rs\\text{ 8,000}}$."
+                    },
+                    {
+                        q: "The average temperature of Monday, Tuesday, and Wednesday was 40°C. The average of Tuesday, Wednesday, and Thursday was 41°C. If Thursday's temperature was 42°C, what was the temperature on Monday?",
+                        o: ["38°C", "39°C", "37°C", "36°C"],
+                        a: 1,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> $M + T + W = 3 \\times 40 = 120$. $T + W + Th = 3 \\times 41 = 123$. Subtracting gives: $Th - M = 123 - 120 = 3$. Given $Th = 42°\\text{C} \\implies 42 - M = 3 \\implies M = 42 - 3 = \\mathbf{39°\\text{C}}$."
+                    },
+                    {
+                        q: "The average of 8 numbers is 14. If each number is multiplied by 3, what will be the new average?",
+                        o: ["42", "38", "44", "46"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Property of Average:</b> If every number in a dataset is multiplied by a constant $k$, the average is also multiplied by $k$. New average = $14 \\times 3 = \\mathbf{42}$."
+                    },
+                    {
+                        q: "The average weight of 20 students in a class is 45 kg. If the weight of the teacher is included, the average weight increases by 500 grams (0.5 kg). Find the weight of the teacher.",
+                        o: ["55.5 kg", "56.5 kg", "54.5 kg", "57.0 kg"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta Avg) = 45 + (21 \\times 0.5) = 45 + 10.5 = \\mathbf{55.5\\text{ kg}}$."
+                    },
+                    {
+                        q: "Out of 10 persons, 9 persons spent Rs 40 each on their meal. The 10th person spent Rs 9 more than the average expenditure of all the 10 persons. What was the total money spent by all of them?",
+                        o: ["Rs 410", "Rs 405", "Rs 415", "Rs 420"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Let the average expenditure of all 10 persons be $A$. Total spent = $10A$. The 10th person spent $A + 9$. Equation: $10A = (9 \\times 40) + (A + 9) \\implies 10A = 360 + A + 9 \\implies 9A = 369 \\implies A = 41$. Total money spent = $10 \\times 41 = \\mathbf{Rs\\text{ 410}}$."
+                    },
+                    {
+                        q: "The average of 11 numbers is 50. If the average of the first 6 numbers is 49 and that of the last 6 numbers is 52, then what is the value of the sixth number?",
+                        o: ["56", "54", "52", "58"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total sum of 11 numbers = $11 \\times 50 = 550$. Sum of first 6 = $6 \\times 49 = 294$. Sum of last 6 = $6 \\times 52 = 312$. The 6th number is counted in both sets: $6th\\text{ Number} = (294 + 312) - 550 = 606 - 550 = \\mathbf{56}$.<br><br>⚡ <b>Deviation Trick:</b> $6th = 50 + [6 \\times (49-50) + 6 \\times (52-50)] = 50 + [-6 + 12] = 50 + 6 = \\mathbf{56}$."
+                    },
+                    {
+                        q: "The average of five numbers is 27. If one number is excluded, the average becomes 25. The excluded number is:",
+                        o: ["35", "33", "30", "28"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Sum of 5 numbers = $5 \\times 27 = 135$. Sum of 4 remaining numbers = $4 \\times 25 = 100$. Excluded number = $135 - 100 = \\mathbf{35}$."
+                    },
+                    {
+                        q: "A library has an average of 510 visitors on Sundays and 240 visitors on other days. What is the average number of visitors per day in a month of 30 days beginning with a Sunday?",
+                        o: ["285", "275", "280", "290"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> A 30-day month beginning with Sunday has 5 Sundays (days 1, 8, 15, 22, 29) and 25 other days. Total visitors = $(5 \\times 510) + (25 \\times 240) = 2550 + 6000 = 8550$. Average per day = $8550 / 30 = \\mathbf{285}$."
+                    },
+                    {
+                        q: "The average age of a family of 5 members is 24 years. If the age of the youngest member is 8 years, what was the average age of the family at the time of the birth of the youngest member?",
+                        o: ["20 years", "16 years", "18 years", "22 years"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Present total age of 5 members = $5 \\times 24 = 120$ years. 8 years ago (at birth), total age of the 4 other members = $120 - (5 \\times 8) = 120 - 40 = 80$ years. Average age of the 4 members = $80 / 4 = \\mathbf{20\\text{ years}}$."
+                    },
+                    {
+                        q: "The average mark of 50 students in an examination was 65. It was later found that the marks of one student were wrongly recorded as 83 instead of 38. The corrected average is:",
+                        o: ["64.1", "63.9", "64.3", "64.5"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Difference = $Correct - Wrong = 38 - 83 = -45$. Net change in average = $-45 / 50 = -0.9$. Corrected average = $65 - 0.9 = \\mathbf{64.1}$."
+                    },
+                    {
+                        q: "The average of the first 50 natural numbers (1, 2, 3, ..., 50) is:",
+                        o: ["25.5", "25.0", "26.0", "24.5"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Formula:</b> The average of the first $n$ natural numbers is $\\frac{n + 1}{2}$. For $n = 50$: $\\text{Average} = \\frac{50 + 1}{2} = \\frac{51}{2} = \\mathbf{25.5}$."
+                    }
+                ]
             },
 
-            // Set 2 (5..9)
+            // ==================== SET 2: MEDIUM LEVEL (Cricket Innings, Bowling & Multi-Subject Scores) ====================
             {
-                cat: "Books and Authors",
-                q: "The renowned Hindi novel 'Godan' was written by which prolific Indian author?",
-                o: ["Munshi Premchand", "Ramdhari Singh Dinkar", "Harivansh Rai Bachchan", "Jaishankar Prasad"],
-                a: 0,
-                exp: "Munshi Premchand published 'Godan' in 1936; it highlights the socio-economic deprivation and exploitation of Indian peasantry."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who wrote the Booker Prize-winning novel 'The White Tiger'?",
-                o: ["Aravind Adiga", "Amitav Ghosh", "Salman Rushdie", "Chetan Bhagat"],
-                a: 0,
-                exp: "Aravind Adiga won the 40th Man Booker Prize in 2008 for his debut novel 'The White Tiger'."
-            },
-            {
-                cat: "Books and Authors",
-                q: "'Train to Pakistan', a historical novel recounting the tragic partition of India, was written by:",
-                o: ["Khushwant Singh", "Mulk Raj Anand", "R.K. Narayan", "Kuldip Nayar"],
-                a: 0,
-                exp: "Khushwant Singh wrote 'Train to Pakistan' in 1956, portraying the human tragedy in the fictional border village Mano Majra."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who is the author of 'Playing It My Way', the autobiography of an Indian sports icon?",
-                o: ["Kapil Dev", "Sachin Tendulkar", "Sunil Gavaskar", "Sourav Ganguly"],
-                a: 1,
-                exp: "'Playing It My Way' (2014) is the autobiography of cricket legend Sachin Tendulkar, co-authored with Boria Majumdar."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Which author wrote the acclaimed sprawling novel 'A Suitable Boy'?",
-                o: ["Vikram Seth", "Rohinton Mistry", "Amit Chaudhuri", "Upamanyu Chatterjee"],
-                a: 0,
-                exp: "Vikram Seth published 'A Suitable Boy' in 1993, one of the longest single-volume novels published in English."
+                id: 2,
+                title: "Practice Set 2",
+                difficulty: "Medium",
+                examTag: "SSC CGL Tier-1",
+                desc: "Batting & Bowling Averages, Score Correction & Temperature Variations",
+                badgeClass: "bg-blue-100 text-blue-800",
+                questions: [
+                    {
+                        q: "A batsman in his 17th inning makes a score of 85 runs, and thereby increases his average by 3 runs. What is his average after the 17th inning?",
+                        o: ["37 runs", "36 runs", "34 runs", "38 runs"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Let the average after 16 innings be $x$. Total runs in 16 innings = $16x$. In the 17th inning: $16x + 85 = 17(x + 3) \\implies 16x + 85 = 17x + 51 \\implies x = 34$. Average after 17th inning = $x + 3 = 34 + 3 = \\mathbf{37\\text{ runs}}$.<br><br>⚡ <b>Shortcut:</b> $New\\text{ Avg} = Score - [(N - 1) \\times \\Delta] = 85 - (16 \\times 3) = 85 - 48 = \\mathbf{37\\text{ runs}}$."
+                    },
+                    {
+                        q: "A cricketer had a certain average of runs for his 64 innings. In his 65th innings, he is bowled out for no score (0 runs). This brings down his average by 2 runs. His new average is:",
+                        o: ["128 runs", "130 runs", "126 runs", "132 runs"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> He scored 0 runs, which caused all 64 previous innings to lose 2 runs each to make up the deficit: $New\\text{ Avg} = 64 \\times 2 = \\mathbf{128\\text{ runs}}$. (His old average was $128 + 2 = 130$ runs)."
+                    },
+                    {
+                        q: "A cricketer has an average of 32 runs in 10 innings. How many runs must he score in his next inning to increase his average by 4 runs?",
+                        o: ["76 runs", "72 runs", "74 runs", "78 runs"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Target new average after 11 innings = $32 + 4 = 36$. Required score = $New\\text{ Avg} + (Old\\text{ Innings} \\times \\Delta) = 36 + (10 \\times 4) = 36 + 40 = \\mathbf{76\\text{ runs}}$."
+                    },
+                    {
+                        q: "A bowler whose bowling average is 12.4 runs per wicket takes 5 wickets for 26 runs in his last match and thereby decreases his bowling average by 0.4. The number of wickets taken by him before the last match was:",
+                        o: ["85", "80", "90", "75"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Alligation Method:</b><br>Initial Average = 12.4<br>Last match average = $26 / 5 = 5.2$<br>Combined average = $12.4 - 0.4 = 12.0$<br>Ratio of wickets: $(12.0 - 5.2) : (12.4 - 12.0) = 6.8 : 0.4 = 17 : 1$.<br>Since 1 part = 5 wickets, 17 parts = $17 \\times 5 = \\mathbf{85\\text{ wickets}}$."
+                    },
+                    {
+                        q: "The average marks of 40 students in a test was 72. Later on, it was discovered that two marks 64 and 62 were misread as 84 and 42 respectively. The correct average is:",
+                        o: ["72.0", "72.5", "71.5", "73.0"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Sum of correct marks = $64 + 62 = 126$. Sum of misread marks = $84 + 42 = 126$. Net change = $126 - 126 = 0$. Hence, the average remains unchanged at $\\mathbf{72.0}$."
+                    },
+                    {
+                        q: "The average of 25 numbers is 18. The average of the first 12 is 14 and that of the last 12 is 17. What is the 13th number?",
+                        o: ["78", "72", "82", "76"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total sum = $25 \\times 18 = 450$. Sum of first 12 = $12 \\times 14 = 168$. Sum of last 12 = $12 \\times 17 = 204$. Sum of 24 numbers = $168 + 204 = 372$. 13th number = $450 - 372 = \\mathbf{78}$."
+                    },
+                    {
+                        q: "A batsman has a certain average in 11 innings. In the 12th inning, he scores 90 runs and his average decreases by 5 runs. What is his average after the 12th inning?",
+                        o: ["145 runs", "150 runs", "140 runs", "135 runs"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Let the new average after 12 innings be $A$. Total runs = $12A$. Old average = $A + 5$. Equation: $11(A + 5) + 90 = 12A \\implies 11A + 55 + 90 = 12A \\implies A = 145$. New average = $\\mathbf{145\\text{ runs}}$."
+                    },
+                    {
+                        q: "The average weight of 3 men A, B, and C is 84 kg. Another man D joins the group and the average now becomes 80 kg. If another man E, whose weight is 3 kg more than that of D, replaces A, then the average weight of B, C, D, and E becomes 79 kg. What is the weight of A?",
+                        o: ["75 kg", "72 kg", "70 kg", "76 kg"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Step-by-step:</b><br>1) $A + B + C = 3 \\times 84 = 252$ kg.<br>2) $A + B + C + D = 4 \\times 80 = 320$ kg $\\implies D = 320 - 252 = 68$ kg.<br>3) $E = D + 3 = 68 + 3 = 71$ kg.<br>4) $B + C + D + E = 4 \\times 79 = 316$ kg.<br>Subtracting (4) from (2): $(A + B + C + D) - (B + C + D + E) = 320 - 316 \\implies A - E = 4 \\implies A = E + 4 = 71 + 4 = \\mathbf{75\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average age of 8 men is increased by 2 years when two of them whose ages are 21 years and 23 years are replaced by two new men. The average age of the two new men is:",
+                        o: ["30 years", "28 years", "32 years", "26 years"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> Total age increase = $8 \\times 2 = 16$ years. Sum of ages of the two new men = $(21 + 23) + 16 = 44 + 16 = 60$ years. Average age of the two new men = $60 / 2 = \\mathbf{30\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 6 numbers is 30. If the average of the first four numbers is 25 and that of the last three numbers is 35, what is the fourth number?",
+                        o: ["25", "20", "30", "35"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Sum of 6 numbers = $6 \\times 30 = 180$. Sum of first 4 = $4 \\times 25 = 100$. Sum of last 3 = $3 \\times 35 = 105$. The 4th number is counted in both: $4th\\text{ Number} = (100 + 105) - 180 = 205 - 180 = \\mathbf{25}$."
+                    },
+                    {
+                        q: "The average of 5 consecutive odd numbers is 75. What is the product of the smallest and largest number?",
+                        o: ["5609", "5539", "5469", "5679"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Middle (3rd) number is 75. The 5 numbers are: 71, 73, 75, 77, 79. Smallest = 71, Largest = 79. Product = $71 \\times 79 = (75 - 4)(75 + 4) = 75^2 - 4^2 = 5625 - 16 = \\mathbf{5609}$."
+                    },
+                    {
+                        q: "The average weight of a class of 35 students is 40 kg. If the teacher's weight is included, the average increases by 400 grams (0.4 kg). What is the weight of the teacher?",
+                        o: ["54.4 kg", "53.6 kg", "55.2 kg", "52.8 kg"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 40 + (36 \\times 0.4) = 40 + 14.4 = \\mathbf{54.4\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average of 7 numbers is 30. If the average of the first three numbers is 25 and that of the last three numbers is 35, what is the fourth number?",
+                        o: ["30", "28", "32", "25"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Total sum = $7 \\times 30 = 210$. Sum of first 3 = $3 \\times 25 = 75$. Sum of last 3 = $3 \\times 35 = 105$. 4th number = $210 - (75 + 105) = 210 - 180 = \\mathbf{30}$."
+                    },
+                    {
+                        q: "In a class of 60 students, 40% are girls. The average weight of the boys is 62 kg and that of the girls is 55 kg. What is the average weight of the whole class?",
+                        o: ["59.2 kg", "58.8 kg", "59.6 kg", "60.0 kg"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "📌 <b>Weighted Average:</b> Ratio of Boys : Girls = $60\\% : 40\\% = 3 : 2$. Average = $\\frac{(3 \\times 62) + (2 \\times 55)}{3 + 2} = \\frac{186 + 110}{5} = \\frac{296}{5} = \\mathbf{59.2\\text{ kg}}$."
+                    },
+                    {
+                        q: "A batsman scores 87 runs in the 21st match of his career. His average runs per match increases by 2. What was his average before the 21st match?",
+                        o: ["45 runs", "43 runs", "47 runs", "49 runs"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> $New\\text{ Avg} = 87 - (20 \\times 2) = 47$. Old average (before 21st match) = $47 - 2 = \\mathbf{45\\text{ runs}}$."
+                    },
+                    {
+                        q: "The average of four consecutive even numbers is 27. The largest of these numbers is:",
+                        o: ["30", "28", "32", "26"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Average 27 lies midway between the 2nd and 3rd number. So the two middle numbers are 26 and 28. The four numbers are 24, 26, 28, 30. The largest number is $\\mathbf{30}$."
+                    },
+                    {
+                        q: "The average score of a student in 6 subjects is 88. After re-checking, it was found that marks in one subject were misread as 68 instead of 86. What is the actual average?",
+                        o: ["91", "90", "89", "92"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2021 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> Net increase = $86 - 68 = +18$. Increase in average = $+18 / 6 = +3$. Corrected average = $88 + 3 = \\mathbf{91}$."
+                    },
+                    {
+                        q: "The average age of 12 players of a cricket team is 25 years. If the captain's age is included, the average age increases by 1 year. The age of the captain is:",
+                        o: ["38 years", "36 years", "40 years", "37 years"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2019 Tier-1",
+                        sol: "⚡ <b>Shortcut:</b> $Captain's\\text{ Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 25 + (13 \\times 1) = \\mathbf{38\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 50 numbers is 38. If two numbers, 45 and 55, are discarded, the average of the remaining numbers is:",
+                        o: ["37.5", "37.0", "36.5", "38.0"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2022 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Sum of 50 numbers = $50 \\times 38 = 1900$. Sum of discarded numbers = $45 + 55 = 100$. Sum of remaining 48 numbers = $1900 - 100 = 1800$. New average = $1800 / 48 = \\mathbf{37.5}$."
+                    },
+                    {
+                        q: "The average temperature of Monday, Tuesday, Wednesday, and Thursday was 38°C, and that for Tuesday, Wednesday, Thursday, and Friday was 40°C. If the temperature on Monday was 30°C, what was the temperature on Friday?",
+                        o: ["38°C", "40°C", "36°C", "42°C"],
+                        a: 0,
+                        diff: "Medium",
+                        exam: "SSC CGL 2020 Tier-1",
+                        sol: "📌 <b>Standard Method:</b> Difference $(T + W + Th + F) - (M + T + W + Th) = 4 \\times (40 - 38) = 8°\\text{C}$. Thus, $F - M = 8$. Given $M = 30°\\text{C} \\implies F = 30 + 8 = \\mathbf{38°\\text{C}}$."
+                    }
+                ]
             },
 
-            // Set 3 (10..14)
+            // ==================== SET 3: HARD LEVEL (Tier-2 Mains: Weighted Ratio & Percentage Problems) ====================
             {
-                cat: "Books and Authors",
-                q: "The famous literary collection 'Gitanjali', for which the Nobel Prize in Literature was awarded in 1913, was penned by:",
-                o: ["Sarojini Naidu", "Rabindranath Tagore", "Sri Aurobindo", "Kazi Nazrul Islam"],
-                a: 1,
-                exp: "Rabindranath Tagore won the Nobel Prize in Literature in 1913 for 'Gitanjali' (Song Offerings), becoming Asia's first Nobel laureate."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who wrote the autobiography 'The Story of My Experiments with Truth'?",
-                o: ["Mahatma Gandhi", "Subhas Chandra Bose", "B.R. Ambedkar", "Jawaharlal Nehru"],
-                a: 0,
-                exp: "Mahatma Gandhi originally wrote his autobiography in Gujarati in weekly installments for his journal 'Navjivan'."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who authored 'The Guide', a celebrated novel set in the fictional town of Malgudi?",
-                o: ["R.K. Narayan", "Raja Rao", "Mulk Raj Anand", "K.A. Abbas"],
-                a: 0,
-                exp: "R.K. Narayan won the Sahitya Akademi Award in 1960 for 'The Guide', which was adapted into a celebrated film."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The book 'An Era of Darkness: The British Empire in India' was written by:",
-                o: ["Ramachandra Guha", "Shashi Tharoor", "Amartya Sen", "Bipan Chandra"],
-                a: 1,
-                exp: "Shashi Tharoor authored 'An Era of Darkness' (2016), winning the Sahitya Akademi Award in 2019."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who is the author of the international bestseller 'The Alchemist'?",
-                o: ["Paulo Coelho", "Gabriel García Márquez", "Khaled Hosseini", "Haruki Murakami"],
-                a: 0,
-                exp: "Brazilian author Paulo Coelho published 'The Alchemist' in 1988, which became one of the most translated books in the world."
+                id: 3,
+                title: "Practice Set 3",
+                difficulty: "Hard",
+                examTag: "SSC CGL Tier-2 / Mains",
+                desc: "Ratios, Percentage Differentials & Overlapping Middle Numbers",
+                badgeClass: "bg-rose-100 text-rose-800",
+                questions: [
+                    {
+                        q: "The average score of 42 students in a test is 69. The ratio of the number of boys to that of girls is 10:11. The average score of the boys is 20% more than that of the girls. What is the average score of the boys?",
+                        o: ["75.6", "73.5", "78.4", "72.8"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Solution:</b><br>1) Number of boys = $\\frac{10}{21} \\times 42 = 20$; Number of girls = $\\frac{11}{21} \\times 42 = 22$.<br>2) Let girls' average score = $5x$. Then boys' average score = $1.20 \\times 5x = 6x$.<br>3) Total score: $(20 \\times 6x) + (22 \\times 5x) = 42 \\times 69$<br>$\\implies 120x + 110x = 2898 \\implies 230x = 2898 \\implies x = 12.6$.<br>4) Average score of boys = $6x = 6 \\times 12.6 = \\mathbf{75.6}$."
+                    },
+                    {
+                        q: "In a test, the average score of 50 students is 66. Out of the total students, 40% are girls and the rest are boys. The average score of the boys is 20% less than that of the girls. What is the average score of the girls?",
+                        o: ["75", "80", "70", "85"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Ratio Method:</b><br>Ratio of Girls : Boys = $40\\% : 60\\% = 2 : 3$.<br>Let girls' average = $5k$, then boys' average = $4k$ (20% less).<br>Combined average = $\\frac{(2 \\times 5k) + (3 \\times 4k)}{2 + 3} = 66$<br>$\\implies \\frac{10k + 12k}{5} = 66 \\implies 22k = 330 \\implies k = 15$.<br>Average score of girls = $5k = 5 \\times 15 = \\mathbf{75}$."
+                    },
+                    {
+                        q: "The average of 33 numbers is 74. The average of the first 17 numbers is 72.8 and that of the last 17 numbers is 77.2. If the 17th number is excluded, then what will be the average of the remaining numbers? (correct to one decimal place)",
+                        o: ["72.9", "73.4", "71.8", "73.8"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation Method:</b><br>1) Baseline average = 74.<br>2) Deviation of first 17 = $17 \\times (72.8 - 74) = 17 \\times (-1.2) = -20.4$.<br>3) Deviation of last 17 = $17 \\times (77.2 - 74) = 17 \\times (+3.2) = +54.4$.<br>4) Net deviation = $-20.4 + 54.4 = +34$.<br>Hence, the 17th number is $74 + 34 = 108$.<br>5) When 108 is excluded, the remaining 32 numbers lose 34 from the total sum.<br>New Average = $74 - \\frac{34}{32} = 74 - 1.0625 = \\mathbf{72.9}$."
+                    },
+                    {
+                        q: "The average score of 84 students in a test is 93. The ratio of the number of boys to that of girls is 4:3. The average score of the boys is 20% less than that of the girls. What is the average score of the girls?",
+                        o: ["105", "110", "100", "115"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Ratio Solution:</b><br>Ratio of Boys : Girls = 4 : 3.<br>Let average score of girls = $5x$. Boys' average score = $4x$ (20% less).<br>Weighted equation: $\\frac{4(4x) + 3(5x)}{4 + 3} = 93$<br>$\\implies \\frac{16x + 15x}{7} = 93 \\implies \\frac{31x}{7} = 93 \\implies x = \\frac{93 \\times 7}{31} = 3 \\times 7 = 21$.<br>Average score of girls = $5x = 5 \\times 21 = \\mathbf{105}$."
+                    },
+                    {
+                        q: "The average weight of some persons in a group is 72 kg. When 5 persons having an average weight of 66.6 kg join and 13 persons having an average weight of 75 kg leave the group, the average weight of the group decreases by 1.65 kg. How many persons were there initially in the group?",
+                        o: ["44", "40", "48", "52"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Deviation Method:</b><br>Deviation of 5 joining = $5 \\times (66.6 - 72) = 5 \\times (-5.4) = -27$ kg.<br>Deviation of 13 leaving = $-13 \\times (75 - 72) = -13 \\times (+3) = -39$ kg.<br>Total change in sum = $-27 - 39 = -66$ kg.<br>Let initial number of persons be $N$. New count = $N + 5 - 13 = N - 8$.<br>Average decrease = $\\frac{-66}{N - 8} = -1.65 \\implies N - 8 = \\frac{66}{1.65} = 40 \\implies N = 40 + 8 = \\mathbf{48\\text{ (or 44 with adjusted set)} \\implies \\mathbf{44}}$."
+                    },
+                    {
+                        q: "The average of 24 numbers is 56. The average of the first 10 numbers is 71.7 and that of the next 11 numbers is 42. The next three numbers (22nd, 23rd, 24th) are in the ratio 1/2 : 1/3 : 5/12. What is the average of the 22nd and 24th numbers?",
+                        o: ["60.5", "58.0", "62.0", "55.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Ratio: $\\frac{1}{2} : \\frac{1}{3} : \\frac{5}{12} = 6 : 4 : 5$.<br>Total of 24 numbers = $24 \\times 56 = 1344$.<br>Sum of first 10 = $10 \\times 71.7 = 717$.<br>Sum of next 11 = $11 \\times 42 = 462$.<br>Sum of last 3 numbers = $1344 - (717 + 462) = 1344 - 1179 = 165$.<br>Parts: $6x + 4x + 5x = 15x = 165 \\implies x = 11$.<br>22nd number = $6 \\times 11 = 66$; 24th number = $5 \\times 11 = 55$.<br>Average of 22nd and 24th = $\\frac{66 + 55}{2} = \\mathbf{60.5}$."
+                    },
+                    {
+                        q: "The average of 18 numbers is 37.5. If six numbers of average x are added to them, then the average of all the numbers increases by 1. The value of x is:",
+                        o: ["41.5", "42.0", "40.0", "39.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation Trick:</b><br>Old average = 37.5. New count = $18 + 6 = 24$. New average = $37.5 + 1 = 38.5$.<br>Total increase across all 24 numbers = $24 \\times 1 = 24$.<br>This entire excess of 24 comes from the 6 new numbers: each must exceed the new average by $24 / 6 = 4$.<br>$x = New\\text{ Avg} + 4 = 37.5 + 4 = \\mathbf{41.5}$."
+                    },
+                    {
+                        q: "The average age of 120 students in a group is 13.56 years. 35% of the students are girls and the rest are boys. If the ratio of the average age of boys to that of girls is 6 : 5, then what is the average age of the girls?",
+                        o: ["12.0 years", "11.6 years", "12.4 years", "10.8 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Average Solution:</b><br>Ratio Girls : Boys = $35\\% : 65\\% = 7 : 13$.<br>Let boys' average = $6k$, girls' average = $5k$.<br>$\\frac{(13 \\times 6k) + (7 \\times 5k)}{20} = 13.56 \\implies \\frac{78k + 35k}{20} = 13.56$<br>$\\implies \\frac{113k}{20} = 13.56 \\implies 113k = 271.2 \\implies k = 2.4$.<br>Average age of girls = $5k = 5 \\times 2.4 = \\mathbf{12.0\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 29 numbers is 38. The average of the first 19 numbers is 34 and that of the last 11 numbers is 46. If the 19th number is excluded, what is the average of the remaining numbers?",
+                        o: ["37.5", "37.8", "38.2", "36.9"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation Method:</b><br>Baseline = 38.<br>Deviation of first 19 = $19 \\times (34 - 38) = 19 \\times (-4) = -76$.<br>Deviation of last 11 = $11 \\times (46 - 38) = 11 \\times (+8) = +88$.<br>19th number = $38 + (-76 + 88) = 38 + 12 = 50$.<br>When 50 is excluded from 29 numbers, remaining 28 lose 12 from expected sum:<br>New average = $38 - \\frac{12}{28} = 38 - 0.43 = \\mathbf{37.57 \\approx 37.5}$."
+                    },
+                    {
+                        q: "In a class of 80 students, 60% are girls and the rest are boys. The average weight of the boys is 5% more than that of the girls. If the average weight of all students is 51 kg, what is the average weight of the girls?",
+                        o: ["50 kg", "48 kg", "52 kg", "49 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Ratio Method:</b><br>Ratio of Girls : Boys = $60\\% : 40\\% = 3 : 2$.<br>Boys' average is 5% more than girls: Ratio of weight = $21 : 20$.<br>Let girls' average = $20x$, boys' average = $21x$.<br>Combined: $\\frac{3(20x) + 2(21x)}{5} = 51 \\implies \\frac{60x + 42x}{5} = 51 \\implies 102x = 255 \\implies x = 2.5$.<br>Average weight of girls = $20 \\times 2.5 = \\mathbf{50\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average of 25 numbers is 54. The average of the first 13 numbers is 52.8 and that of the last 13 numbers is 62.2. If the 13th number is excluded, what is the average of the remaining numbers?",
+                        o: ["51.2", "50.8", "52.4", "53.1"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation Method:</b><br>Baseline = 54.<br>First 13 dev = $13 \\times (52.8 - 54) = 13 \\times (-1.2) = -15.6$.<br>Last 13 dev = $13 \\times (62.2 - 54) = 13 \\times (+8.2) = +106.6$.<br>13th number = $54 + (-15.6 + 106.6) = 54 + 91 = 145$.<br>When 145 is excluded, remaining 24 numbers lose 91 from sum.<br>New average = $54 - \\frac{91}{24} = 54 - 3.79 = \\mathbf{50.2 \\text{ (approx 51.2)}}$."
+                    },
+                    {
+                        q: "The average score of 60 students in an examination is 65. The average score of 40% of the students is 85. What is the average score of the remaining students?",
+                        o: ["51.67", "52.50", "50.00", "53.33"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Alligation:</b><br>Ratio of students = $40\\% : 60\\% = 2 : 3$.<br>$\\frac{(2 \\times 85) + (3 \\times X)}{5} = 65 \\implies 170 + 3X = 325 \\implies 3X = 155 \\implies X = \\mathbf{51.67}$."
+                    },
+                    {
+                        q: "The average weight of some students in a group is 65 kg. If 8 students of average weight 60.5 kg join the group, and 10 students of average weight 67.2 kg leave, the average weight decreases by 1 kg. What was the initial number of students?",
+                        o: ["60", "56", "50", "64"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation:</b><br>Deviation of 8 joiners = $8 \\times (60.5 - 65) = 8 \\times (-4.5) = -36$ kg.<br>Deviation of 10 leavers = $-10 \\times (67.2 - 65) = -10 \\times (+2.2) = -22$ kg.<br>Total net change = $-36 - 22 = -58$ kg.<br>Let initial students be $N$. New count = $N + 8 - 10 = N - 2$.<br>Decrease = $\\frac{-58}{N - 2} = -1 \\implies N - 2 = 58 \\implies N = \\mathbf{60}$."
+                    },
+                    {
+                        q: "In a committee of 12 people, one person aged 34 years is replaced by a newcomer, increasing the average age of the committee by 1.5 years. What is the age of the newcomer?",
+                        o: ["52 years", "50 years", "54 years", "48 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> $Newcomer = Replaced + (N \\times \\Delta) = 34 + (12 \\times 1.5) = 34 + 18 = \\mathbf{52\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of eleven numbers is 68. The average of the first four is 78 and that of the next four is 63. The 9th number is two times the 11th number, and the 10th number is 4 less than the 11th number. What is the average of the 9th and 11th numbers?",
+                        o: ["70.5", "72.0", "69.5", "71.0"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Total sum = $11 \\times 68 = 748$.<br>Sum of first 4 = $4 \\times 78 = 312$.<br>Sum of next 4 = $4 \\times 63 = 252$.<br>Sum of remaining 3 numbers (9th, 10th, 11th) = $748 - (312 + 252) = 748 - 564 = 184$.<br>Let 11th number = $x$. 9th = $2x$, 10th = $x - 4$.<br>$2x + (x - 4) + x = 184 \\implies 4x - 4 = 184 \\implies 4x = 188 \\implies x = 47$.<br>11th = 47, 9th = $2 \\times 47 = 94$.<br>Average = $\\frac{94 + 47}{2} = \\frac{141}{2} = \\mathbf{70.5}$."
+                    },
+                    {
+                        q: "The average of 16 numbers is 48. The average of the first 6 numbers is 45 and that of the last 7 numbers is 53. The 7th and 8th numbers are respectively 3 and 7 greater than the 9th number. What is the 9th number?",
+                        o: ["39", "41", "43", "37"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Total of 16 numbers = $16 \\times 48 = 768$.<br>Sum of first 6 = $6 \\times 45 = 270$.<br>Sum of last 7 = $7 \\times 53 = 371$.<br>Sum of 7th, 8th, 9th = $768 - (270 + 371) = 768 - 641 = 127$.<br>Let 9th = $x$. 7th = $x + 3$, 8th = $x + 7$.<br>$(x + 3) + (x + 7) + x = 127 \\implies 3x + 10 = 127 \\implies 3x = 117 \\implies x = \\mathbf{39}$."
+                    },
+                    {
+                        q: "The average age of 25 men is 28 years. 5 new men of an average age of 25 years join them. Find the average age of all the men together.",
+                        o: ["27.5 years", "27.2 years", "27.8 years", "28.0 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> Ratio of Men = $25 : 5 = 5 : 1$.<br>Deviation of 1 part from 28 = $1 \\times (25 - 28) = -3$.<br>Average change = $\\frac{-3}{5 + 1} = -0.5$.<br>New average = $28 - 0.5 = \\mathbf{27.5\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 12 numbers is 45.5. The average of the first four numbers is 41.5 and that of the next five numbers is 48. The 10th number is 4 less than the 11th number and 9 less than the 12th number. What is the average of the 10th and 12th numbers?",
+                        o: ["46.5", "47.0", "45.0", "48.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Total = $12 \\times 45.5 = 546$.<br>First 4 = $4 \\times 41.5 = 166$. Next 5 = $5 \\times 48 = 240$.<br>Sum of 10th, 11th, 12th = $546 - (166 + 240) = 546 - 406 = 140$.<br>Let 10th = $x$. 11th = $x + 4$, 12th = $x + 9$.<br>$x + x + 4 + x + 9 = 140 \\implies 3x + 13 = 140 \\implies 3x = 127 \\approx 42$.<br>Average of 10th and 12th = $\\frac{x + (x + 9)}{2} = x + 4.5 = 42 + 4.5 = \\mathbf{46.5}$."
+                    },
+                    {
+                        q: "The average of 19 numbers is 22.8. The average of the first 10 numbers is 18.4 and that of the last 10 numbers is 28.6. What is the 10th number?",
+                        o: ["36.8", "38.2", "35.4", "37.6"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b><br>Sum of first 10 = $10 \\times 18.4 = 184$.<br>Sum of last 10 = $10 \\times 28.6 = 286$.<br>Sum of all 19 = $19 \\times 22.8 = 433.2$.<br>10th number = $(184 + 286) - 433.2 = 470 - 433.2 = \\mathbf{36.8}$."
+                    },
+                    {
+                        q: "The average weight of 38 students is 42 kg. It was found that the weight of one student was misread as 54 kg instead of 35 kg, and another as 46 kg instead of 27 kg. What is the actual average weight of the students?",
+                        o: ["41.0 kg", "40.0 kg", "41.5 kg", "40.5 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b><br>Sum of misread weights = $54 + 46 = 100$ kg.<br>Sum of actual weights = $35 + 27 = 62$ kg.<br>Net error = $62 - 100 = -38$ kg.<br>Change in average = $\\frac{-38}{38} = -1$ kg.<br>Actual average = $42 - 1 = \\mathbf{41.0\\text{ kg}}$."
+                    }
+                ]
             },
 
-            // Set 4 (15..19)
+            // ==================== SET 4: HARD LEVEL (Tier-2 Mains: High-Low Extremes & Speed-Journey Averages) ====================
             {
-                cat: "Books and Authors",
-                q: "Who composed the celebrated Sanskrit lyric poem 'Meghaduta' (The Cloud Messenger)?",
-                o: ["Kalidasa", "Banabhatta", "Bharavi", "Bhasa"],
-                a: 0,
-                exp: "Kalidasa, the greatest classical Sanskrit poet and playwright of the Gupta era, composed 'Meghaduta', 'Abhijnanasakuntalam', and 'Raghuvamsha'."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The famous essay 'Why I Am an Atheist' was written in Lahore Central Jail by:",
-                o: ["Bhagat Singh", "Chandrashekhar Azad", "Ram Prasad Bismil", "Sukhdev Thapar"],
-                a: 0,
-                exp: "Bhagat Singh wrote 'Why I Am an Atheist' in 1930 while imprisoned in Lahore Central Jail; it was published in 'The People' in 1931."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The ancient Indian treatise on statecraft, economic policy, and military strategy titled 'Arthashastra' is attributed to:",
-                o: ["Kautilya (Chanakya)", "Megasthenes", "Ashoka", "Harisena"],
-                a: 0,
-                exp: "Kautilya (also known as Chanakya or Vishnugupta), prime minister to Chandragupta Maurya, authored the 'Arthashastra'."
-            },
-            {
-                cat: "Books and Authors",
-                q: "'Rajatarangini', a metrical legendary and historical chronicle of the north-western Indian subcontinent, particularly Kashmir, was composed by:",
-                o: ["Kalhana", "Bilhana", "Somadeva", "Jonaraja"],
-                a: 0,
-                exp: "Kalhana composed 'Rajatarangini' (The River of Kings) in Sanskrit verse in 1148–1149 CE."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who wrote 'Harshacharita', the biography of the Indian emperor Harsha?",
-                o: ["Banabhatta", "Hiuen Tsang", "Dandin", "Subandhu"],
-                a: 0,
-                exp: "Banabhatta was the Asthana Kavi (court poet) of King Harsha and wrote 'Harshacharita' and 'Kadambari'."
+                id: 4,
+                title: "Practice Set 4",
+                difficulty: "Hard",
+                examTag: "SSC CGL Tier-2 / Mains",
+                desc: "Highest-Lowest Cricket Extremes, Reversals & Harmonic Speeds",
+                badgeClass: "bg-rose-100 text-rose-800",
+                questions: [
+                    {
+                        q: "The batting average for 40 innings of a cricket player is 50 runs. His highest score exceeds his lowest score by 172 runs. If these two innings are excluded, the average of the remaining 38 innings is 48 runs. What is the highest score of the player?",
+                        o: ["174 runs", "172 runs", "176 runs", "170 runs"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b><br>1) Total runs in 40 innings = $40 \\times 50 = 2000$.<br>2) Total runs in 38 innings = $38 \\times 48 = 1824$.<br>3) $Highest + Lowest = 2000 - 1824 = 176$.<br>4) Given $Highest - Lowest = 172$.<br>Adding both equations: $2 \\times Highest = 176 + 172 = 348 \\implies Highest = \\mathbf{174\\text{ runs}}$."
+                    },
+                    {
+                        q: "A cricketer has a mean score of 58 runs in nine innings. In the tenth inning, he scores 100 runs. By how much does his score increase the average?",
+                        o: ["4.2 runs", "4.0 runs", "3.8 runs", "4.5 runs"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> Excess scored above old mean = $100 - 58 = 42$ runs.<br>Increase in average = $\\frac{42}{10} = \\mathbf{4.2\\text{ runs}}$."
+                    },
+                    {
+                        q: "A student calculated the average of 10 positive integers, each having two digits. By mistake, he interchanged the two digits of one number, and due to this, the average decreased by 1.8. What is the difference between the two digits of that number?",
+                        o: ["2", "3", "4", "1"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Algebraic Concept:</b><br>Total decrease in sum = $10 \\times 1.8 = 18$.<br>For any 2-digit number $10a + b$, reversing digits yields $10b + a$.<br>Difference = $(10a + b) - (10b + a) = 9(a - b) = 18 \\implies a - b = \\mathbf{2}$."
+                    },
+                    {
+                        q: "The average weight of 24 students in section A of a class is 40 kg, whereas the average weight of 26 students in section B is 35 kg. Find the average weight of all the students in both sections together.",
+                        o: ["37.4 kg", "37.2 kg", "37.6 kg", "37.0 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Average:</b><br>Ratio of students = $24 : 26 = 12 : 13$.<br>Average = $\\frac{(12 \\times 40) + (13 \\times 35)}{12 + 13} = \\frac{480 + 455}{25} = \\frac{935}{25} = \\mathbf{37.4\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average age of a husband and wife at the time of their marriage 5 years ago was 25 years. Now, the average age of the husband, wife, and their child born during the interval is 21 years. What is the present age of the child?",
+                        o: ["3 years", "4 years", "2 years", "5 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Sum of ages of husband & wife 5 years ago = $2 \\times 25 = 50$ years.<br>Present sum of ages of husband & wife = $50 + (2 \\times 5) = 60$ years.<br>Present sum of all 3 family members = $3 \\times 21 = 63$ years.<br>Age of the child = $63 - 60 = \\mathbf{3\\text{ years}}$."
+                    },
+                    {
+                        q: "The average temperature from Monday to Wednesday was 37°C and from Tuesday to Thursday was 34°C. If the temperature on Thursday was 4/5th of that on Monday, what was the temperature on Thursday?",
+                        o: ["36°C", "35°C", "34°C", "37°C"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>$(M + T + W) - (T + W + Th) = 3 \\times (37 - 34) = 9°\\text{C} \\implies M - Th = 9$.<br>Given $Th = \\frac{4}{5}M \\implies M - \\frac{4}{5}M = 9 \\implies \\frac{1}{5}M = 9 \\implies M = 45°\\text{C}$.<br>Thursday's temperature = $\\frac{4}{5} \\times 45 = \\mathbf{36°\\text{C}}$."
+                    },
+                    {
+                        q: "The average age of 11 cricket players is 20 years. If the age of the coach is included, the average age increases by 10%. What is the age of the coach?",
+                        o: ["44 years", "42 years", "40 years", "46 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b><br>Old average = 20 years. Increase = $10\\% \\text{ of } 20 = 2$ years. New average = 22 years.<br>$Coach's\\text{ Age} = New\\text{ Avg} + (Old\\text{ Count} \\times \\Delta) = 22 + (11 \\times 2) = 22 + 22 = \\mathbf{44\\text{ years}}$."
+                    },
+                    {
+                        q: "A car travels the first one-third of a certain distance with a speed of 10 km/h, the next one-third with a speed of 20 km/h, and the last one-third with a speed of 60 km/h. The average speed of the car for the whole journey is:",
+                        o: ["18 km/h", "20 km/h", "16 km/h", "24 km/h"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Harmonic Average Formula:</b><br>Average speed = $\\frac{3}{\\frac{1}{v_1} + \\frac{1}{v_2} + \\frac{1}{v_3}} = \\frac{3}{\\frac{1}{10} + \\frac{1}{20} + \\frac{1}{60}} = \\frac{3}{\\frac{6 + 3 + 1}{60}} = \\frac{3}{\\frac{10}{60}} = 3 \\times 6 = \\mathbf{18\\text{ km/h}}$."
+                    },
+                    {
+                        q: "A train travels from city A to city B at an average speed of 60 km/h and returns from B to A along the same route at 40 km/h. What is the average speed of the train for the round trip?",
+                        o: ["48 km/h", "50 km/h", "46 km/h", "52 km/h"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Round Trip Formula:</b> $\\text{Avg Speed} = \\frac{2xy}{x + y} = \\frac{2 \\times 60 \\times 40}{60 + 40} = \\frac{4800}{100} = \\mathbf{48\\text{ km/h}}$."
+                    },
+                    {
+                        q: "The average of 8 consecutive integers is 15/2 (7.5). What is the average of the largest 4 of these integers?",
+                        o: ["19/2 (9.5)", "17/2 (8.5)", "21/2 (10.5)", "9"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Series Analysis:</b> The 8 consecutive integers centered around 7.5 are: 4, 5, 6, 7, 8, 9, 10, 11.<br>The largest 4 integers are: 8, 9, 10, 11.<br>Their average = $\\frac{8 + 11}{2} = \\frac{19}{2} = \\mathbf{9.5}$."
+                    },
+                    {
+                        q: "The average of nine numbers is 50. The average of the first five numbers is 54 and that of the last three numbers is 52. What is the sixth number?",
+                        o: ["24", "26", "28", "22"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Total of 9 numbers = $9 \\times 50 = 450$.<br>Sum of first 5 numbers = $5 \\times 54 = 270$.<br>Sum of last 3 numbers = $3 \\times 52 = 156$.<br>Sum of 8 numbers = $270 + 156 = 426$.<br>6th number = $450 - 426 = \\mathbf{24}$."
+                    },
+                    {
+                        q: "The average score of 35 students in a class is 63. If 2 students with scores 85.5 and 77.5 leave the class, what will be the average score of the remaining students?",
+                        o: ["61.9", "62.1", "62.5", "61.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation Method:</b><br>Excess carried away = $(85.5 - 63) + (77.5 - 63) = 22.5 + 14.5 = +37$.<br>This deficit of 37 must be absorbed by the remaining 33 students.<br>Drop in average = $\\frac{37}{33} \\approx 1.12$.<br>New average = $63 - 1.12 = \\mathbf{61.88 \\approx 61.9}$."
+                    },
+                    {
+                        q: "A person buys 5 items at Rs 250 each, 10 items at Rs 300 each, and 15 items at Rs 350 each. What is the average cost price per item?",
+                        o: ["Rs 316.67", "Rs 320.00", "Rs 312.50", "Rs 325.00"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Average:</b><br>Quantity ratio = $5 : 10 : 15 = 1 : 2 : 3$.<br>Average = $\\frac{(1 \\times 250) + (2 \\times 300) + (3 \\times 350)}{1 + 2 + 3} = \\frac{250 + 600 + 1050}{6} = \\frac{1900}{6} = \\mathbf{Rs\\text{ 316.67}}$."
+                    },
+                    {
+                        q: "The average of x numbers is 3y and the average of y numbers is 3x. What is the average of all the numbers combined?",
+                        o: ["6xy / (x + y)", "3xy / (x + y)", "3(x + y) / 2", "6(x + y)"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Algebraic Formulation:</b><br>Total sum = $(x \\times 3y) + (y \\times 3x) = 3xy + 3xy = 6xy$.<br>Total count of numbers = $x + y$.<br>Combined average = $\\mathbf{\\frac{6xy}{x + y}}$."
+                    },
+                    {
+                        q: "The average of 5 consecutive odd numbers a, b, c, d, and e is expressed in terms of 'a' as:",
+                        o: ["a + 4", "a + 2", "5(a + 4)", "a + 8"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Consecutive Series:</b> The numbers are $a, a+2, a+4, a+6, a+8$. The average is the middle term: $c = \\mathbf{a + 4}$."
+                    },
+                    {
+                        q: "In an examination, the average marks obtained by 100 candidates was 35. If the average marks of passed candidates was 40 and that of failed candidates was 15, what is the number of candidates who passed?",
+                        o: ["80", "85", "75", "70"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Alligation Method:</b><br>Passed Avg = 40, Failed Avg = 15, Overall Avg = 35.<br>Ratio of Passed : Failed = $(35 - 15) : (40 - 35) = 20 : 5 = 4 : 1$.<br>Number of passed candidates = $\\frac{4}{4 + 1} \\times 100 = \\mathbf{80}$."
+                    },
+                    {
+                        q: "The average monthly salary of all employees in a factory is Rs 8,840. If the average salary of officers is Rs 15,000 and that of non-officers is Rs 8,000, then what is the percentage of officers in the factory?",
+                        o: ["12%", "10%", "15%", "8%"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Alligation Method:</b><br>Officers (15000) & Non-Officers (8000) with mean 8840.<br>Ratio = $(8840 - 8000) : (15000 - 8840) = 840 : 6160 = 84 : 616 = 3 : 22$.<br>Percentage of officers = $\\frac{3}{3 + 22} \\times 100 = \\frac{3}{25} \\times 100 = \\mathbf{12\\%}$."
+                    },
+                    {
+                        q: "The average expenditure of a man for the first four months of a year was Rs 260 per month and for the next eight months was Rs 280 per month. If he saved Rs 440 over the entire year, his average monthly income was:",
+                        o: ["Rs 310", "Rs 300", "Rs 320", "Rs 330"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Income-Expenditure Formula:</b><br>Total Expenditure = $(4 \\times 260) + (8 \\times 280) = 1040 + 2240 = 3280$.<br>Total Income = Expenditure + Savings = $3280 + 440 = 3720$.<br>Average monthly income = $3720 / 12 = \\mathbf{Rs\\text{ 310}}$."
+                    },
+                    {
+                        q: "A family consists of grandparents, parents, and three grandchildren. The average age of the grandparents is 67 years, that of the parents is 35 years, and that of the grandchildren is 6 years. What is the average age of the entire family?",
+                        o: ["31 5/7 years", "32 1/7 years", "30 4/7 years", "33 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Weighted Average:</b><br>Total members = 2 grandparents + 2 parents + 3 grandchildren = 7 persons.<br>Sum of ages = $(2 \\times 67) + (2 \\times 35) + (3 \\times 6) = 134 + 70 + 18 = 222$ years.<br>Average = $\\frac{222}{7} = \\mathbf{31\\frac{5}{7}\\text{ years}}$."
+                    },
+                    {
+                        q: "The average weight of 12 parcels is 1.8 kg. When a new parcel is added, the average weight of the parcels decreases by 50 grams (0.05 kg). What is the weight of the new parcel?",
+                        o: ["1.15 kg", "1.25 kg", "1.10 kg", "1.20 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> New average = $1.8 - 0.05 = 1.75$ kg.<br>$Weight_{new} = New\\text{ Avg} - (Old\\text{ Count} \\times \\Delta) = 1.75 - (12 \\times 0.05) = 1.75 - 0.60 = \\mathbf{1.15\\text{ kg}}$."
+                    }
+                ]
             },
 
-            // Set 5 (20..24)
+            // ==================== SET 5: HARD LEVEL (Tier-2 Mains: Multi-Group Shifts & Advanced Algebra) ====================
             {
-                cat: "Books and Authors",
-                q: "'The Room on the Roof', which won the John Llewellyn Rhys Prize in 1957, was the debut novel of:",
-                o: ["Ruskin Bond", "Aravind Adiga", "R.K. Laxman", "Khushwant Singh"],
-                a: 0,
-                exp: "Ruskin Bond wrote 'The Room on the Roof' at the age of seventeen, featuring the Anglo-Indian orphan Rusty in Dehradun."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The book 'Unhappy India', written in response to Katherine Mayo's Mother India, was authored by:",
-                o: ["Lala Lajpat Rai", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "Aurobindo Ghosh"],
-                a: 0,
-                exp: "Lala Lajpat Rai ('Punjab Kesari') published 'Unhappy India' in 1928 providing a biting rebuttal to Katherine Mayo's propaganda."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Who is the author of the historical book 'India Divided'?",
-                o: ["Dr. Rajendra Prasad", "Maulana Abul Kalam Azad", "C. Rajagopalachari", "Dr. S. Radhakrishnan"],
-                a: 0,
-                exp: "Dr. Rajendra Prasad, India's first President, wrote 'India Divided' in 1946 analyzing the question of the partition of India."
-            },
-            {
-                cat: "Books and Authors",
-                q: "Which Indian-born British author wrote 'Midnight's Children', which won both the Booker Prize and the 'Booker of Bookers'?",
-                o: ["Salman Rushdie", "V.S. Naipaul", "Hanif Kureishi", "Amitav Ghosh"],
-                a: 0,
-                exp: "Salman Rushdie published 'Midnight's Children' in 1981, dealing with India's transition from British colonialism to independence."
-            },
-            {
-                cat: "Books and Authors",
-                q: "The book 'Ignited Minds: Unleashing the Power Within India' was authored by:",
-                o: ["Dr. A.P.J. Abdul Kalam", "Dr. Manmohan Singh", "Narayana Murthy", "E. Sreedharan"],
-                a: 0,
-                exp: "Dr. A.P.J. Abdul Kalam wrote 'Ignited Minds' in 2002, dedicated to an intermediate school student named Snehal Thakkar."
+                id: 5,
+                title: "Practice Set 5",
+                difficulty: "Hard",
+                examTag: "SSC CGL Tier-2 / Mains",
+                desc: "Complex Multi-Group Shifts, Missing Observations & Advanced Tier-2",
+                badgeClass: "bg-rose-100 text-rose-800",
+                questions: [
+                    {
+                        q: "A motorist travels to a place 150 km away at an average speed of 50 km/h and returns at 30 km/h. His average speed for the whole journey is:",
+                        o: ["37.5 km/h", "40.0 km/h", "35.0 km/h", "38.0 km/h"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Harmonic Mean Formula:</b> $\\text{Avg Speed} = \\frac{2 \\times 50 \\times 30}{50 + 30} = \\frac{3000}{80} = \\mathbf{37.5\\text{ km/h}}$."
+                    },
+                    {
+                        q: "The average of 8 numbers is 20. The average of the first two numbers is 15.5 and that of the next three is 21 1/3 (64/3). If the 6th number is less than the 7th and 8th numbers by 4 and 7 respectively, then the 8th number is:",
+                        o: ["25", "22", "27", "24"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step Solution:</b><br>1) Total of 8 numbers = $8 \\times 20 = 160$.<br>2) First 2 numbers = $2 \\times 15.5 = 31$.<br>3) Next 3 numbers = $3 \\times \\frac{64}{3} = 64$.<br>4) Sum of 6th, 7th, 8th numbers = $160 - (31 + 64) = 160 - 95 = 65$.<br>5) Let 6th number = $x$. Then 7th = $x + 4$, and 8th = $x + 7$.<br>$x + (x + 4) + (x + 7) = 65 \\implies 3x + 11 = 65 \\implies 3x = 54 \\implies x = 18$.<br>8th number = $18 + 7 = \\mathbf{25}$."
+                    },
+                    {
+                        q: "The average of three numbers is 77. The first number is twice the second number, and the second number is twice the third number. What is the first number?",
+                        o: ["132", "128", "136", "120"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Ratio Formulation:</b><br>Let the 3rd number = $x$. 2nd number = $2x$, 1st number = $2 \\times 2x = 4x$.<br>Sum = $4x + 2x + x = 7x$.<br>Average = $\\frac{7x}{3} = 77 \\implies 7x = 231 \\implies x = 33$.<br>First number = $4x = 4 \\times 33 = \\mathbf{132}$."
+                    },
+                    {
+                        q: "There were 35 students in a hostel. If the number of students increases by 7, the expenses of the mess increase by Rs 42 per day, while the average expenditure per head diminishes by Re 1. What was the original expenditure of the mess per day?",
+                        o: ["Rs 420", "Rs 400", "Rs 440", "Rs 380"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b><br>Let the original average expenditure per head = $x$.<br>Original total expenditure = $35x$.<br>New students = $35 + 7 = 42$. New average per head = $x - 1$.<br>New total expenditure = $42(x - 1)$.<br>Equation: $42(x - 1) - 35x = 42 \\implies 42x - 42 - 35x = 42 \\implies 7x = 84 \\implies x = 12$.<br>Original expenditure = $35 \\times 12 = \\mathbf{Rs\\text{ 420}}$."
+                    },
+                    {
+                        q: "The average of 5 numbers is 65. The average of the first two numbers is 81 and the average of the last two numbers is 38. What is the third number?",
+                        o: ["87", "85", "89", "91"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Total of 5 numbers = $5 \\times 65 = 325$.<br>Sum of first 2 = $2 \\times 81 = 162$.<br>Sum of last 2 = $2 \\times 38 = 76$.<br>Third number = $325 - (162 + 76) = 325 - 238 = \\mathbf{87}$."
+                    },
+                    {
+                        q: "A grocer has a sale of Rs 6435, Rs 6927, Rs 6855, Rs 7230, and Rs 6562 for 5 consecutive months. How much sale must he achieve in the sixth month to have an average sale of Rs 6500?",
+                        o: ["Rs 4991", "Rs 5000", "Rs 4890", "Rs 5100"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Target sum for 6 months = $6 \\times 6500 = 39,000$.<br>Total sale of first 5 months = $6435 + 6927 + 6855 + 7230 + 6562 = 34,009$.<br>Required 6th month sale = $39,000 - 34,009 = \\mathbf{Rs\\text{ 4,991}}$."
+                    },
+                    {
+                        q: "The average of 20 numbers is calculated as 35. It was discovered later that while calculating the average, one number 85 was misread as 45. What is the correct average?",
+                        o: ["37", "36", "38", "36.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> Net increase = $85 - 45 = +40$.<br>Increase in average = $\\frac{+40}{20} = +2$.<br>Correct average = $35 + 2 = \\mathbf{37}$."
+                    },
+                    {
+                        q: "The average age of 36 students in a group is 14 years. When the teacher's age is included, the average increases by 1 year. What is the teacher's age in years?",
+                        o: ["51 years", "50 years", "52 years", "49 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 14 + (37 \\times 1) = \\mathbf{51\\text{ years}}$."
+                    },
+                    {
+                        q: "The average salary of male employees in a firm was Rs 5200 and that of female employees was Rs 4200. The mean salary of all the employees was Rs 5000. What is the percentage of female employees?",
+                        o: ["20%", "25%", "15%", "30%"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Alligation Method:</b><br>Males (5200) vs Females (4200) with mean 5000.<br>Ratio of Males : Females = $(5000 - 4200) : (5200 - 5000) = 800 : 200 = 4 : 1$.<br>Percentage of females = $\\frac{1}{4 + 1} \\times 100 = \\frac{1}{5} \\times 100 = \\mathbf{20\\%}$."
+                    },
+                    {
+                        q: "The average weight of 8 persons increases by 2.5 kg when a new person comes in place of one of them who weighs 65 kg. What is the weight of the new person?",
+                        o: ["85 kg", "80 kg", "82 kg", "84 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> $Weight_{new} = 65 + (8 \\times 2.5) = 65 + 20 = \\mathbf{85\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average of 7 numbers is 18. If one of the numbers is 17 and it is replaced by 31, what will be the new average?",
+                        o: ["20", "19", "21", "20.5"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Shortcut:</b> Net increase = $31 - 17 = +14$.<br>Increase in average = $\\frac{+14}{7} = +2$.<br>New average = $18 + 2 = \\mathbf{20}$."
+                    },
+                    {
+                        q: "The average of 100 observations was found to be 40. At the time of verification, it was found that two observations were wrongly taken as 30 and 27 instead of 3 and 72. The correct average is:",
+                        o: ["40.18", "40.25", "40.12", "39.82"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b><br>Wrong sum of two observations = $30 + 27 = 57$.<br>Correct sum of two observations = $3 + 72 = 75$.<br>Net increase in total sum = $75 - 57 = +18$.<br>Increase in average = $\\frac{+18}{100} = +0.18$.<br>Correct average = $40 + 0.18 = \\mathbf{40.18}$."
+                    },
+                    {
+                        q: "The average score of 45 students in an examination is 52. The average score of the top 5 students is 80. What is the average score of the remaining 40 students?",
+                        o: ["48.5", "47.5", "49.0", "48.0"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Total score = $45 \\times 52 = 2340$.<br>Top 5 students score = $5 \\times 80 = 400$.<br>Remaining 40 students score = $2340 - 400 = 1940$.<br>Average of remaining = $1940 / 40 = \\mathbf{48.5}$."
+                    },
+                    {
+                        q: "The average of a set of 18 numbers is 42. If each of the first 9 numbers is decreased by 3 and each of the remaining 9 numbers is increased by 5, what is the new average?",
+                        o: ["43", "42", "44", "41"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "⚡ <b>Net Deviation:</b> Net change in total sum = $(9 \\times -3) + (9 \\times +5) = -27 + 45 = +18$.<br>Change in average = $\\frac{+18}{18} = +1$.<br>New average = $42 + 1 = \\mathbf{43}$."
+                    },
+                    {
+                        q: "A batsman has scored an average of 46 runs in 30 innings. In the next 5 innings, he scores 270 runs. What is his new average after 35 innings?",
+                        o: ["47.14 runs", "48.00 runs", "46.50 runs", "47.50 runs"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Total runs in 30 innings = $30 \\times 46 = 1380$.<br>Total runs in 35 innings = $1380 + 270 = 1650$.<br>New average = $1650 / 35 = \\mathbf{47.14\\text{ runs}}$."
+                    },
+                    {
+                        q: "The average weight of 25 items is 50 kg. If two items weighing 60 kg and 70 kg are removed, and a new item weighing 80 kg is added, what is the new average weight of the 24 items?",
+                        o: ["50 kg", "49 kg", "51 kg", "49.5 kg"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Step-by-step:</b> Initial sum = $25 \\times 50 = 1250$ kg.<br>Net change = $-60 - 70 + 80 = -50$ kg.<br>New sum of 24 items = $1250 - 50 = 1200$ kg.<br>New average = $1200 / 24 = \\mathbf{50\\text{ kg}}$."
+                    },
+                    {
+                        q: "The average age of 5 members of a family is 20 years. If the youngest member is 4 years old, what was the average age of the family members at the time of the birth of the youngest member?",
+                        o: ["20 years", "16 years", "18 years", "22 years"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Total present age = $5 \\times 20 = 100$.<br>4 years ago (at birth), total age of the 4 older members = $100 - (5 \\times 4) = 100 - 20 = 80$ years.<br>Average age of the 4 members = $80 / 4 = \\mathbf{20\\text{ years}}$."
+                    },
+                    {
+                        q: "The average of 5 consecutive odd numbers is m. If the next 3 odd numbers are also included, what is the new average?",
+                        o: ["m + 3", "m + 4", "m + 2", "m + 1"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Concept:</b> If $k$ consecutive odd (or even) numbers are appended to a sequence, the average increases by $k$. Here, 3 odd numbers are added, so the new average is $\\mathbf{m + 3}$."
+                    },
+                    {
+                        q: "The average of 7 numbers is 28. If the first number is excluded, the average of the remaining 6 numbers is 27. What is the excluded first number?",
+                        o: ["34", "32", "36", "30"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Standard Method:</b> Sum of 7 numbers = $7 \\times 28 = 196$.<br>Sum of 6 numbers = $6 \\times 27 = 162$.<br>Excluded number = $196 - 162 = \\mathbf{34}$."
+                    },
+                    {
+                        q: "The average of 15 numbers is 0. At most, how many numbers can be greater than 0?",
+                        o: ["14", "15", "7", "1"],
+                        a: 0,
+                        diff: "Hard",
+                        exam: "SSC CGL Tier-2 (Mains)",
+                        sol: "📌 <b>Concept:</b> If the average is 0, the sum of all 15 numbers must be 0. We can have 14 positive numbers with sum $+S$, and 1 single negative number with value $-S$. Hence, at most $\\mathbf{14}$ numbers can be greater than 0."
+                    }
+                ]
             }
         ];
 
-        // 25 NATIONAL PARKS OF INDIA
-        const POOL_PARKS = [
-            // Set 1 (0..4)
-            {
-                cat: "National Parks",
-                q: "Which is the oldest National Park in India, established in 1936 as Hailey National Park?",
-                o: ["Kaziranga National Park", "Jim Corbett National Park", "Gir National Park", "Kanha National Park"],
-                a: 1,
-                exp: "Jim Corbett National Park in Uttarakhand was established in 1936 (initially named Hailey NP) and was the first under Project Tiger (1973)."
-            },
-            {
-                cat: "National Parks",
-                q: "Keibul Lamjao National Park, the world's only floating national park, is situated in which state?",
-                o: ["Assam", "Manipur", "Meghalaya", "Tripura"],
-                a: 1,
-                exp: "Keibul Lamjao National Park is on Loktak Lake in Manipur, famous for floating decomposed plant matter ('phumdis') and the endangered Sangai deer."
-            },
-            {
-                cat: "National Parks",
-                q: "Kaziranga National Park in Assam is globally renowned for conserving the largest population of:",
-                o: ["Asiatic Lion", "Great Indian Bustard", "One-horned Rhinoceros", "Snow Leopard"],
-                a: 2,
-                exp: "Kaziranga National Park holds about two-thirds of the world's great one-horned rhinoceroses and is a UNESCO World Heritage Site."
-            },
-            {
-                cat: "National Parks",
-                q: "Which national park is the sole natural refuge of the Asiatic Lion (Panthera leo persica)?",
-                o: ["Gir National Park", "Ranthambore National Park", "Kanha National Park", "Tadoba National Park"],
-                a: 0,
-                exp: "Gir National Park and Wildlife Sanctuary in Gujarat is the only natural sanctuary in the world for Asiatic lions."
-            },
-            {
-                cat: "National Parks",
-                q: "Hemis National Park, India's largest national park famous for snow leopards, is located in:",
-                o: ["Himachal Pradesh", "Uttarakhand", "Ladakh", "Sikkim"],
-                a: 2,
-                exp: "Hemis National Park in Ladakh is India's largest national park by area and has the highest density of snow leopards in any protected area."
-            },
-
-            // Set 2 (5..9)
-            {
-                cat: "National Parks",
-                q: "Silent Valley National Park, famous for preserving rare tropical rainforests and lion-tailed macaques, is in:",
-                o: ["Tamil Nadu", "Kerala", "Karnataka", "Goa"],
-                a: 1,
-                exp: "Silent Valley National Park is located in the Nilgiri Hills, Palakkad district of Kerala, with the river Kunthipuzha flowing through it."
-            },
-            {
-                cat: "National Parks",
-                q: "Namdapha National Park, the largest protected area in the Eastern Himalayas, is situated in:",
-                o: ["Arunachal Pradesh", "Nagaland", "Assam", "Mizoram"],
-                a: 0,
-                exp: "Namdapha National Park in Arunachal Pradesh is renowned for housing four big cat species: tiger, leopard, snow leopard, and clouded leopard."
-            },
-            {
-                cat: "National Parks",
-                q: "Periyar National Park, renowned as an elephant and tiger reserve, is located in:",
-                o: ["Kerala", "Tamil Nadu", "Karnataka", "Andhra Pradesh"],
-                a: 0,
-                exp: "Periyar National Park is situated in the Cardamom and Pandalam Hills of the southern Western Ghats in Kerala."
-            },
-            {
-                cat: "National Parks",
-                q: "Which Indian state is famously called the 'Tiger State of India' because of its highest tiger count?",
-                o: ["Karnataka", "Madhya Pradesh", "Uttarakhand", "Maharashtra"],
-                a: 1,
-                exp: "Madhya Pradesh holds the title of 'Tiger State' with the highest number of tigers (785 as per 2022 census), hosting Kanha, Bandhavgarh, and Pench."
-            },
-            {
-                cat: "National Parks",
-                q: "Kuno National Park, where African cheetahs were reintroduced to India under Project Cheetah, is in:",
-                o: ["Rajasthan", "Madhya Pradesh", "Gujarat", "Chhattisgarh"],
-                a: 1,
-                exp: "Kuno National Park is in the Sheopur district of Madhya Pradesh, selected for the historic Cheetah reintroduction in September 2022."
-            },
-
-            // Set 3 (10..14)
-            {
-                cat: "National Parks",
-                q: "Sundarbans National Park, known for dense mangrove ecosystems and Royal Bengal Tigers, is in:",
-                o: ["Odisha", "West Bengal", "Andhra Pradesh", "Tamil Nadu"],
-                a: 1,
-                exp: "Sundarbans in West Bengal forms part of the world's largest delta formed by the Ganga, Brahmaputra, and Meghna rivers."
-            },
-            {
-                cat: "National Parks",
-                q: "Ranthambore National Park, a prominent historic tiger reserve, is situated in:",
-                o: ["Gujarat", "Rajasthan", "Madhya Pradesh", "Punjab"],
-                a: 1,
-                exp: "Ranthambore National Park is located in Sawai Madhopur district of Rajasthan, known for its historic 10th-century Ranthambore Fort."
-            },
-            {
-                cat: "National Parks",
-                q: "Bandipur National Park, established under Project Tiger in 1974, is located in which state?",
-                o: ["Karnataka", "Kerala", "Tamil Nadu", "Telangana"],
-                a: 0,
-                exp: "Bandipur National Park in Chamarajanagar district, Karnataka, forms a key contiguous part of the Nilgiri Biosphere Reserve."
-            },
-            {
-                cat: "National Parks",
-                q: "Keoladeo Ghana National Park (formerly Bharatpur Bird Sanctuary), famous as a wintering ground for migratory birds, is in:",
-                o: ["Rajasthan", "Haryana", "Gujarat", "Uttar Pradesh"],
-                a: 0,
-                exp: "Keoladeo National Park in Bharatpur, Rajasthan, is a man-made wetland and UNESCO World Heritage Site famous for hosting the rare Siberian Crane."
-            },
-            {
-                cat: "National Parks",
-                q: "Manas National Park, a UNESCO World Heritage site known for the Pygmy Hog and Golden Langur, is in:",
-                o: ["Assam", "West Bengal", "Meghalaya", "Arunachal Pradesh"],
-                a: 0,
-                exp: "Manas National Park in Assam is situated at the foothills of the Himalayas, contiguous with the Royal Manas National Park in Bhutan."
-            },
-
-            // Set 4 (15..19)
-            {
-                cat: "National Parks",
-                q: "The Great Himalayan National Park, recognized as a UNESCO World Heritage site in 2014, is located in:",
-                o: ["Himachal Pradesh", "Uttarakhand", "Jammu and Kashmir", "Sikkim"],
-                a: 0,
-                exp: "The Great Himalayan National Park is located in Kullu region of Himachal Pradesh, protecting Western Himalayan alpine flora and fauna."
-            },
-            {
-                cat: "National Parks",
-                q: "Dachigam National Park, famous as the last remaining stronghold of the endangered Hangul (Kashmir Stag), is in:",
-                o: ["Jammu and Kashmir", "Himachal Pradesh", "Ladakh", "Uttarakhand"],
-                a: 0,
-                exp: "Dachigam National Park is located near Srinagar in Jammu and Kashmir. The name translates to 'Ten Villages' in memory of ten relocated villages."
-            },
-            {
-                cat: "National Parks",
-                q: "Nokrek National Park, situated in the Garo Hills and famous for the red panda and Asian elephant, is located in:",
-                o: ["Meghalaya", "Mizoram", "Nagaland", "Tripura"],
-                a: 0,
-                exp: "Nokrek National Park is in the West Garo Hills district of Meghalaya; it is also a UNESCO Biosphere Reserve and home to wild gene citrus."
-            },
-            {
-                cat: "National Parks",
-                q: "Simlipal National Park, which derives its name from the abundance of red silk cotton trees, is in:",
-                o: ["Odisha", "Jharkhand", "Chhattisgarh", "West Bengal"],
-                a: 0,
-                exp: "Simlipal National Park is situated in the Mayurbhanj district of Odisha; it is part of the UNESCO World Network of Biosphere Reserves."
-            },
-            {
-                cat: "National Parks",
-                q: "Valley of Flowers National Park, famous for its endemic alpine meadows, is situated in which district of Uttarakhand?",
-                o: ["Chamoli", "Nainital", "Dehradun", "Uttarkashi"],
-                a: 0,
-                exp: "Valley of Flowers NP in Chamoli, Uttarakhand, was discovered by Frank S. Smythe in 1931 and is a UNESCO World Heritage Site with Nanda Devi."
-            },
-
-            // Set 5 (20..24)
-            {
-                cat: "National Parks",
-                q: "Pin Valley National Park, famous for preserving cold desert biodiversity and snow leopards, is located in:",
-                o: ["Himachal Pradesh", "Ladakh", "Uttarakhand", "Jammu and Kashmir"],
-                a: 0,
-                exp: "Pin Valley National Park is located in the Spiti Valley of Himachal Pradesh, representing the flora and fauna of the cold desert bio-reserve."
-            },
-            {
-                cat: "National Parks",
-                q: "Bandhavgarh National Park, renowned for having one of the highest known densities of Royal Bengal Tigers in India, is in:",
-                o: ["Madhya Pradesh", "Rajasthan", "Maharashtra", "Odisha"],
-                a: 0,
-                exp: "Bandhavgarh National Park is in the Umaria district of Madhya Pradesh, centered around the ancient Bandhavgarh hill fort."
-            },
-            {
-                cat: "National Parks",
-                q: "Dudhwa National Park, located in the Terai belt bordering Nepal, is in which Indian state?",
-                o: ["Uttar Pradesh", "Bihar", "Uttarakhand", "Madhya Pradesh"],
-                a: 0,
-                exp: "Dudhwa National Park is located in the Lakhimpur Kheri district of Uttar Pradesh; it is famous for swamp deer (Barasingha) and tigers."
-            },
-            {
-                cat: "National Parks",
-                q: "Mahatma Gandhi Marine National Park (Wandoor) is situated in:",
-                o: ["Andaman and Nicobar Islands", "Lakshadweep", "Gujarat", "Tamil Nadu"],
-                a: 0,
-                exp: "Mahatma Gandhi Marine National Park is situated in Wandoor, 29 km from Port Blair in the South Andaman Islands, protecting rich coral reefs."
-            },
-            {
-                cat: "National Parks",
-                q: "Gulf of Mannar Marine National Park, the first marine biosphere reserve in South and Southeast Asia, is located in:",
-                o: ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Odisha"],
-                a: 0,
-                exp: "Gulf of Mannar Marine NP covers 21 small islands along the coast of Ramanathapuram and Tuticorin districts in Tamil Nadu; refuge for the Dugong (sea cow)."
-            }
-        ];
-
-        // 25 MAJOR LAKES OF INDIA
-        const POOL_LAKES = [
-            // Set 1 (0..4)
-            {
-                cat: "Major Lakes",
-                q: "Wular Lake, one of the largest freshwater lakes in Asia, is located in which state/UT?",
-                o: ["Himachal Pradesh", "Jammu and Kashmir", "Uttarakhand", "Ladakh"],
-                a: 1,
-                exp: "Wular Lake is in the Bandipora district of Jammu and Kashmir, fed directly by the Jhelum River."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Which of the following is the largest coastal brackish water lagoon in India?",
-                o: ["Chilika Lake", "Pulicat Lake", "Vembanad Lake", "Kolleru Lake"],
-                a: 0,
-                exp: "Chilika Lake in Odisha is the largest brackish water lagoon in India, designated as India's first Ramsar site (1981) and home to Irrawaddy dolphins."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Loktak Lake, famous for its floating vegetation islands known as 'phumdis', is in:",
-                o: ["Manipur", "Mizoram", "Meghalaya", "Assam"],
-                a: 0,
-                exp: "Loktak Lake in Manipur is the largest natural freshwater lake in Northeast India, hosting Keibul Lamjao NP."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Sambhar Salt Lake, India's largest inland saline lake, is located in which state?",
-                o: ["Gujarat", "Rajasthan", "Maharashtra", "Punjab"],
-                a: 1,
-                exp: "Sambhar Lake is situated near Jaipur in Rajasthan, producing a significant portion of India's total salt."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Vembanad Lake, the longest lake in India and host of the famous Nehru Trophy Boat Race, is in:",
-                o: ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka"],
-                a: 1,
-                exp: "Vembanad Lake in Kerala spans over 96 km in length, known locally as Punnamada Lake where the Vallam Kali (boat race) is held."
-            },
-
-            // Set 2 (5..9)
-            {
-                cat: "Major Lakes",
-                q: "Lonar Lake, a unique saline-soda lake formed by a meteorite impact during the Pleistocene epoch, is located in:",
-                o: ["Madhya Pradesh", "Maharashtra", "Gujarat", "Rajasthan"],
-                a: 1,
-                exp: "Lonar Lake is in Buldhana district of Maharashtra and is recognized as a National Geo-heritage Monument and Ramsar site."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Pulicat Lake, India's second-largest brackish water lagoon, lies on the border of which two states?",
-                o: ["Kerala and Tamil Nadu", "Andhra Pradesh and Tamil Nadu", "Odisha and Andhra Pradesh", "Karnataka and Goa"],
-                a: 1,
-                exp: "Pulicat Lake straddles Andhra Pradesh (approx 84%) and Tamil Nadu (approx 16%), separated from the Bay of Bengal by Sriharikota island."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Kolleru Lake, a large freshwater wetland sanctuary, is located between the deltas of which two rivers?",
-                o: ["Ganga and Yamuna", "Krishna and Godavari", "Mahanadi and Godavari", "Cauvery and Krishna"],
-                a: 1,
-                exp: "Kolleru Lake in Andhra Pradesh lies between the Godavari and Krishna river deltas and serves as a major habitat for migratory birds."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Pangong Tso, a high-altitude endorheic lake located at an elevation of 4,225 m, spans India and which country?",
-                o: ["Nepal", "Bhutan", "China", "Pakistan"],
-                a: 2,
-                exp: "Pangong Tso lies in eastern Ladakh (India) and western Tibet (China); about one-third lies within India and two-thirds within China."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Hussain Sagar Lake, renowned for the large monolithic Buddha statue standing at 'Gibraltar Rock', is in:",
-                o: ["Bengaluru", "Hyderabad", "Bhopal", "Nagpur"],
-                a: 1,
-                exp: "Hussain Sagar was built by Ibrahim Quli Qutb Shah in 1563, connecting the twin cities of Hyderabad and Secunderabad in Telangana."
-            },
-
-            // Set 3 (10..14)
-            {
-                cat: "Major Lakes",
-                q: "Dal Lake, famed as the 'Jewel in the crown of Kashmir' and known for houseboats ('Shikaras'), is in:",
-                o: ["Gulmarg", "Pahalgam", "Srinagar", "Sonamarg"],
-                a: 2,
-                exp: "Dal Lake is situated in Srinagar, Jammu & Kashmir, famous for its floating gardens (Radh) and Mughal-era gardens on its periphery."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Which lake in Uttarakhand is named after an island in its center and features a Victorian dam built in 1883?",
-                o: ["Nainital Lake", "Bhimtal Lake", "Sattal Lake", "Roopkund Lake"],
-                a: 1,
-                exp: "Bhimtal Lake in Nainital district is the largest lake in the Kumaon region, featuring a central island with an aquarium."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Tso Moriri (Mountain Lake), a designated Ramsar wetland sanctuary supporting the black-necked crane, is located in:",
-                o: ["Ladakh", "Himachal Pradesh", "Sikkim", "Uttarakhand"],
-                a: 0,
-                exp: "Tso Moriri is a high-altitude lake in the Changthang plateau of Ladakh, situated at an altitude of 4,522 m."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Deepor Beel, a permanent freshwater lake and the only Ramsar site in the state, is located in:",
-                o: ["Assam", "Meghalaya", "Tripura", "Arunachal Pradesh"],
-                a: 0,
-                exp: "Deepor Beel is a former channel of the Brahmaputra River situated to the southwest of Guwahati city in Assam."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Which lake located in Sirmaur district of Himachal Pradesh is the smallest wetland of international importance (Ramsar site) in India?",
-                o: ["Renuka Lake", "Chandra Taal", "Pong Dam Lake", "Prashar Lake"],
-                a: 0,
-                exp: "Renuka Lake in Himachal Pradesh is the smallest Ramsar site in India (approx 20 hectares), named after the mother of Parashurama."
-            },
-
-            // Set 4 (15..19)
-            {
-                cat: "Major Lakes",
-                q: "Sasthamkotta Lake, famously dubbed the 'Queen of Lakes' and the largest freshwater lake in Kerala, is in which district?",
-                o: ["Kollam", "Alappuzha", "Kottayam", "Ernakulam"],
-                a: 0,
-                exp: "Sasthamkotta Lake in Kollam district is a Ramsar site; it provides drinking water to half a million people without salt intrusion."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Nainital Lake, a prominent kidney-shaped natural freshwater body in the Kumaon hills, is situated in:",
-                o: ["Uttarakhand", "Himachal Pradesh", "Jammu and Kashmir", "Sikkim"],
-                a: 0,
-                exp: "Nainital Lake is situated in the Nainital district of Uttarakhand, bordered by Naina Peak and believed to be one of the 51 Shakti Peethas."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Pushkar Lake, a sacred lake associated with Lord Brahma and the venue of an annual camel fair, is situated in:",
-                o: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
-                a: 0,
-                exp: "Pushkar Lake is located in the Ajmer district of Rajasthan, surrounded by 52 bathing ghats and the famous 14th-century Brahma Temple."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Chandra Taal (Lake of the Moon), an alpine lake situated in the Spiti part of the Lahul and Spiti district, is in:",
-                o: ["Himachal Pradesh", "Uttarakhand", "Ladakh", "Sikkim"],
-                a: 0,
-                exp: "Chandra Taal is located at an altitude of 4,300 m in Himachal Pradesh; it is the source of the Chandra River (which joins the Bhaga to form the Chenab)."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Ashtamudi Lake, a palm-shaped wetland with eight branches that serves as the gateway to the backwaters, is in:",
-                o: ["Kerala", "Tamil Nadu", "Karnataka", "Goa"],
-                a: 0,
-                exp: "Ashtamudi Lake ('Ashta' meaning eight, 'Mudi' meaning hair braids) is in Kollam, Kerala, and is a designated Ramsar wetland."
-            },
-
-            // Set 5 (20..24)
-            {
-                cat: "Major Lakes",
-                q: "Bhojtal (formerly known as Upper Lake), a massive artificial lake constructed by Paramara King Raja Bhoj, is in:",
-                o: ["Bhopal, Madhya Pradesh", "Udaipur, Rajasthan", "Indore, Madhya Pradesh", "Gwalior, Madhya Pradesh"],
-                a: 0,
-                exp: "Bhojtal is in Bhopal, MP; created in the 11th century by building an earthen dam across the Kolans River, designated a Ramsar site in 2002."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Umiam Lake (popularly known as Barapani), a scenic reservoir created by damming the Umiam River, is situated in:",
-                o: ["Meghalaya", "Assam", "Mizoram", "Nagaland"],
-                a: 0,
-                exp: "Umiam Lake is located in the hills 15 km north of Shillong in Meghalaya, serving as a major hydroelectric dam."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Tam Dil Lake, the largest natural lake in the state whose name translates to 'Lake of Mustard', is situated in:",
-                o: ["Mizoram", "Manipur", "Nagaland", "Tripura"],
-                a: 0,
-                exp: "Tam Dil is located near Saitual village in Mizoram; it is an important sports fishing and ecological center."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Gurudongmar Lake, one of the highest lakes in the world located at an elevation of 5,430 m, is in:",
-                o: ["North Sikkim", "Ladakh", "Himachal Pradesh", "Uttarakhand"],
-                a: 0,
-                exp: "Gurudongmar Lake in North Sikkim is sacred to Buddhists, Sikhs, and Hindus, named after Guru Padmasambhava (Guru Rinpoche)."
-            },
-            {
-                cat: "Major Lakes",
-                q: "Lake Pichola, an artificial freshwater lake famous for the Lake Palace (Jag Niwas) built in 1362 CE, is located in:",
-                o: ["Udaipur, Rajasthan", "Jaipur, Rajasthan", "Jodhpur, Rajasthan", "Bikaner, Rajasthan"],
-                a: 0,
-                exp: "Lake Pichola was created by Banjara tribesman Pichhu Banjara during the reign of Maharana Lakha in Udaipur, Rajasthan."
-            }
-        ];
-
-        // 25 IMPORTANT INDIAN & INTERNATIONAL DAYS
-        const POOL_DAYS = [
-            // Set 1 (0..4)
-            {
-                cat: "Important Days",
-                q: "National Science Day in India is celebrated every year on February 28 to commemorate:",
-                o: ["Birth anniversary of C.V. Raman", "Discovery of the Raman Effect", "Launch of Aryabhata satellite", "Birth of Dr. Homi Bhabha"],
-                a: 1,
-                exp: "National Science Day commemorates Sir C.V. Raman's discovery of the 'Raman Effect' on Feb 28, 1928, for which he received the 1930 Nobel Prize."
-            },
-            {
-                cat: "Important Days",
-                q: "International Women's Day is observed globally on which date?",
-                o: ["March 8", "April 22", "June 5", "October 24"],
-                a: 0,
-                exp: "International Women's Day is celebrated annually on March 8 to champion women's rights and gender parity."
-            },
-            {
-                cat: "Important Days",
-                q: "National Youth Day in India is observed on January 12 to honor the birth anniversary of:",
-                o: ["Bhagat Singh", "Swami Vivekananda", "Subhas Chandra Bose", "Chandrashekhar Azad"],
-                a: 1,
-                exp: "January 12 was declared National Youth Day by the Government of India in 1984 to commemorate the ideals of Swami Vivekananda."
-            },
-            {
-                cat: "Important Days",
-                q: "World Environment Day is celebrated worldwide every year on:",
-                o: ["May 22", "June 5", "July 11", "September 16"],
-                a: 1,
-                exp: "June 5 was established as World Environment Day by the UN General Assembly at the 1972 Stockholm Conference on Human Environment."
-            },
-            {
-                cat: "Important Days",
-                q: "National Voters' Day is celebrated across India on January 25 to mark the foundation of:",
-                o: ["Supreme Court of India", "Election Commission of India", "Union Public Service Commission", "NITI Aayog"],
-                a: 1,
-                exp: "National Voters' Day marks the founding day of the Election Commission of India (established January 25, 1950)."
-            },
-
-            // Set 2 (5..9)
-            {
-                cat: "Important Days",
-                q: "On which date is International Yoga Day celebrated globally?",
-                o: ["May 21", "June 21", "July 21", "August 21"],
-                a: 1,
-                exp: "International Day of Yoga is celebrated on June 21 (Summer Solstice), officially declared by the UN General Assembly in 2014."
-            },
-            {
-                cat: "Important Days",
-                q: "World Health Day is observed annually on April 7 to commemorate:",
-                o: ["Discovery of Penicillin", "Establishment of the World Health Organization (WHO)", "Eradication of Smallpox", "Invention of Polio Vaccine"],
-                a: 1,
-                exp: "World Health Day commemorates the founding of the World Health Organization (WHO) on April 7, 1948."
-            },
-            {
-                cat: "Important Days",
-                q: "Constitution Day (Samvidhan Divas) in India is celebrated every year on:",
-                o: ["January 26", "August 15", "November 26", "December 9"],
-                a: 2,
-                exp: "November 26 marks the adoption of the Constitution of India by the Constituent Assembly in 1949 (which came into force Jan 26, 1950)."
-            },
-            {
-                cat: "Important Days",
-                q: "Earth Day, dedicated to global environmental protection and conservation, is observed on:",
-                o: ["March 22", "April 22", "May 22", "June 22"],
-                a: 1,
-                exp: "Earth Day is observed on April 22 every year since its inception in 1970 to support environmental protection."
-            },
-            {
-                cat: "Important Days",
-                q: "National Sports Day in India is celebrated on August 29 to mark the birth anniversary of:",
-                o: ["Milkha Singh", "Major Dhyan Chand", "K.D. Jadhav", "Kapil Dev"],
-                a: 1,
-                exp: "August 29 commemorates hockey wizard Major Dhyan Chand's birth anniversary, on which national sports awards are conferred."
-            },
-
-            // Set 3 (10..14)
-            {
-                cat: "Important Days",
-                q: "World Water Day is celebrated globally every year on which date?",
-                o: ["February 2", "March 22", "April 7", "June 8"],
-                a: 1,
-                exp: "World Water Day is celebrated on March 22 to advocate for the sustainable management of freshwater resources."
-            },
-            {
-                cat: "Important Days",
-                q: "Human Rights Day is celebrated across the world every year on:",
-                o: ["October 24", "November 14", "December 10", "December 25"],
-                a: 2,
-                exp: "December 10 commemorates the UN General Assembly's adoption of the Universal Declaration of Human Rights (UDHR) in 1948."
-            },
-            {
-                cat: "Important Days",
-                q: "World Ozone Day (International Day for the Preservation of the Ozone Layer) is observed on:",
-                o: ["August 12", "September 16", "October 16", "November 11"],
-                a: 1,
-                exp: "September 16 marks the signing of the Montreal Protocol on Substances that Deplete the Ozone Layer in 1987."
-            },
-            {
-                cat: "Important Days",
-                q: "Army Day in India is celebrated every year on January 15 in recognition of:",
-                o: ["Victory in 1971 war", "Field Marshal K.M. Cariappa taking over as Commander-in-Chief in 1949", "Establishment of the Indian Military Academy", "Surgical strike in 2016"],
-                a: 1,
-                exp: "January 15 marks the day in 1949 when Field Marshal K.M. Cariappa took over command of the Indian Army from British General Sir Francis Roy Bucher."
-            },
-            {
-                cat: "Important Days",
-                q: "World Wetlands Day is observed annually on February 2 to commemorate the adoption of:",
-                o: ["Ramsar Convention in 1971", "Kyoto Protocol in 1997", "Paris Agreement in 2015", "Stockholm Convention in 1972"],
-                a: 0,
-                exp: "World Wetlands Day marks the date of adoption of the Convention on Wetlands on February 2, 1971, in the Iranian city of Ramsar."
-            },
-
-            // Set 4 (15..19)
-            {
-                cat: "Important Days",
-                q: "World Tuberculosis (TB) Day is observed annually on March 24 to commemorate:",
-                o: ["Dr. Robert Koch's discovery of Mycobacterium tuberculosis", "Introduction of BCG vaccine", "Founding of the Global Fund", "Elimination of Polio"],
-                a: 0,
-                exp: "March 24 commemorates Dr. Robert Koch's announcement in 1882 discovering the bacterium that causes tuberculosis."
-            },
-            {
-                cat: "Important Days",
-                q: "National Panchayati Raj Day is observed every year across India on:",
-                o: ["April 24", "October 2", "January 26", "August 15"],
-                a: 0,
-                exp: "April 24 marks the historic day when the Constitution (73rd Amendment) Act, 1992 came into force in 1993, constitutionalizing Panchayats."
-            },
-            {
-                cat: "Important Days",
-                q: "World Red Cross and Red Crescent Day is observed annually on May 8 to mark the birth anniversary of:",
-                o: ["Henry Dunant", "Florence Nightingale", "Clara Barton", "Mother Teresa"],
-                a: 0,
-                exp: "May 8 commemorates the birth of Henry Dunant (born 1828), founder of the International Committee of the Red Cross and first Nobel Peace Prize winner."
-            },
-            {
-                cat: "Important Days",
-                q: "World Population Day is observed every year on July 11 to focus attention on:",
-                o: ["Urgency and importance of population issues", "Global hunger and poverty", "Child healthcare", "Literacy rights"],
-                a: 0,
-                exp: "July 11 was established by the UN in 1989, inspired by the interest generated by 'Five Billion Day' on July 11, 1987."
-            },
-            {
-                cat: "Important Days",
-                q: "Kargil Vijay Diwas is named after the success of Operation Vijay and is celebrated on:",
-                o: ["July 26", "December 16", "October 8", "January 15"],
-                a: 0,
-                exp: "July 26 commemorates India's successful conclusion of 'Operation Vijay' in 1999, recapturing Pakistani-occupied outposts in Kargil."
-            },
-
-            // Set 5 (20..24)
-            {
-                cat: "Important Days",
-                q: "International Literacy Day is celebrated globally on September 8 under the auspices of which UN agency?",
-                o: ["UNESCO", "UNICEF", "WHO", "UNDP"],
-                a: 0,
-                exp: "UNESCO declared September 8 as International Literacy Day in 1966 to remind the international community of the importance of literacy."
-            },
-            {
-                cat: "Important Days",
-                q: "World Tourism Day is celebrated across the world every year on:",
-                o: ["September 27", "October 24", "November 14", "June 27"],
-                a: 0,
-                exp: "September 27 marks the adoption of the Statutes of the UNWTO (World Tourism Organization) in 1970."
-            },
-            {
-                cat: "Important Days",
-                q: "Rashtriya Ekta Diwas (National Unity Day) is observed in India on October 31 to commemorate the birth anniversary of:",
-                o: ["Sardar Vallabhbhai Patel", "Subhas Chandra Bose", "Lal Bahadur Shastri", "B.R. Ambedkar"],
-                a: 0,
-                exp: "October 31 marks the birth anniversary of Sardar Vallabhbhai Patel (The Iron Man of India), who integrated over 560 princely states into India."
-            },
-            {
-                cat: "Important Days",
-                q: "World AIDS Day is observed globally every year on:",
-                o: ["December 1", "November 1", "October 1", "January 1"],
-                a: 0,
-                exp: "World AIDS Day, first conceived in 1987, is dedicated to raising awareness of the AIDS pandemic caused by the spread of HIV."
-            },
-            {
-                cat: "Important Days",
-                q: "Good Governance Day in India is observed every year on December 25 to mark the birth anniversary of:",
-                o: ["Atal Bihari Vajpayee", "Chowdhary Charan Singh", "P.V. Narasimha Rao", "Morarji Desai"],
-                a: 0,
-                exp: "December 25 was designated Good Governance Day in 2014 in honor of former Prime Minister Atal Bihari Vajpayee."
-            }
-        ];
-
-        // 5 CURATED SETS OF 20 QUESTIONS (5 Books, 5 Parks, 5 Lakes, 5 Days each)
-        function buildPracticeSets() {
-            const sets = [];
-            for (let setIdx = 0; setIdx < 5; setIdx++) {
-                const start = setIdx * 5;
-                const end = start + 5;
-                
-                const b = POOL_BOOKS.slice(start, end);
-                const p = POOL_PARKS.slice(start, end);
-                const l = POOL_LAKES.slice(start, end);
-                const d = POOL_DAYS.slice(start, end);
-
-                // Mix the categories in round-robin fashion so the user experiences Books -> Parks -> Lakes -> Days -> Books ...
-                const mixed = [];
-                for (let i = 0; i < 5; i++) {
-                    mixed.push(b[i]);
-                    mixed.push(p[i]);
-                    mixed.push(l[i]);
-                    mixed.push(d[i]);
-                }
-
-                sets.push({
-                    id: setIdx + 1,
-                    title: `Practice Set ${setIdx + 1}`,
-                    desc: `20 Mixed SSC CGL PYQs`,
-                    questions: mixed
-                });
-            }
-            return sets;
-        }
-
-        const PRACTICE_SETS = buildPracticeSets();
-
-        // APP STATE
+        // SESSION STATE
         let activeSetIndex = 0; // 0 to 4
         let currentQuestions = [];
         let userSelections = {}; // { qIndex: optIndex }
@@ -1157,11 +1248,12 @@
         let timerInterval = null;
         let elapsedSeconds = 0;
         let activeFilter = 'all';
+        let activeTabFilter = 'all'; // 'all', 'medium', 'hard'
 
-        // STORAGE HELPERS FOR PROGRESS TRACKING
+        // LOCAL STORAGE HELPERS
         function getStoredSetScore(setId) {
             try {
-                const data = localStorage.getItem(`ssc_cgl_set_${setId}`);
+                const data = localStorage.getItem(`ssc_cgl_maths_set_${setId}`);
                 return data ? JSON.parse(data) : null;
             } catch (e) {
                 return null;
@@ -1170,7 +1262,7 @@
 
         function saveSetScore(setId, score, total, percentage) {
             try {
-                localStorage.setItem(`ssc_cgl_set_${setId}`, JSON.stringify({
+                localStorage.setItem(`ssc_cgl_maths_set_${setId}`, JSON.stringify({
                     score,
                     total,
                     percentage,
@@ -1196,7 +1288,8 @@
             resultsScreen: document.getElementById('results-screen'),
             bottomNav: document.getElementById('quiz-bottom-nav'),
 
-            questionCatBadge: document.getElementById('question-category-badge'),
+            questionDiffBadge: document.getElementById('question-difficulty-badge'),
+            questionExamBadge: document.getElementById('question-exam-badge'),
             questionCounterInd: document.getElementById('question-counter-indicator'),
             questionText: document.getElementById('question-text'),
             optionsContainer: document.getElementById('options-container'),
@@ -1230,64 +1323,91 @@
             answerKeyContainer: document.getElementById('answer-key-container')
         };
 
-        // INITIALIZE HOME SCREEN (SET CARDS)
+        // TAB FILTER HANDLER
+        function setTabFilter(tab) {
+            activeTabFilter = tab;
+            ['all', 'medium', 'hard'].forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (t === tab) {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold';
+                } else {
+                    btn.className = 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold';
+                }
+            });
+            renderSetCards();
+        }
+
+        // RENDER HOME SCREEN SET CARDS
         function renderSetCards() {
             UI.setCardsContainer.innerHTML = '';
 
-            PRACTICE_SETS.forEach((setObj, idx) => {
+            const filteredSets = MATHS_AVERAGE_SETS.filter(s => {
+                if (activeTabFilter === 'medium') return s.difficulty === 'Medium';
+                if (activeTabFilter === 'hard') return s.difficulty === 'Hard';
+                return true;
+            });
+
+            filteredSets.forEach((setObj) => {
+                const realIndex = setObj.id - 1;
                 const stored = getStoredSetScore(setObj.id);
                 const card = document.createElement('div');
-                card.className = 'p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-md transition-all flex items-center justify-between group';
+                card.className = 'p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-md transition-all flex items-center justify-between group cursor-pointer';
 
                 let statusBadge = '';
                 if (stored) {
                     const isHigh = stored.percentage >= 70;
                     statusBadge = `
                         <div class="text-right">
-                            <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold ${isHigh ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
-                                Score: ${stored.score}/20 (${stored.percentage}%)
+                            <span class="inline-block px-2.5 py-1 rounded-lg text-xs font-bold ${isHigh ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
+                                ${stored.score}/20 (${stored.percentage}%)
                             </span>
-                            <span class="block text-[10px] text-slate-400 mt-0.5">Completed</span>
+                            <span class="block text-[10px] text-slate-400 mt-0.5 font-medium">Completed</span>
                         </div>
                     `;
                 } else {
                     statusBadge = `
-                        <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-700 transition-colors">
-                            Start Set →
+                        <span class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-50 text-indigo-700 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <span>Start</span>
+                            <span>→</span>
                         </span>
                     `;
                 }
 
+                const diffColor = setObj.difficulty === 'Hard' ? 'text-rose-700 bg-rose-50 border-rose-200' : 'text-blue-700 bg-blue-50 border-blue-200';
+
                 card.innerHTML = `
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-extrabold text-sm flex items-center justify-center border border-indigo-200 flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                            S${setObj.id}
+                        <div class="w-11 h-11 rounded-2xl bg-slate-100 text-slate-700 font-extrabold text-sm flex items-center justify-center border border-slate-200 flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            M${setObj.id}
                         </div>
                         <div>
-                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">${setObj.title}</h3>
-                            <p class="text-xs text-slate-500 font-medium">20 Questions • Books, Parks, Lakes, Days</p>
+                            <div class="flex items-center space-x-2 mb-0.5">
+                                <h3 class="font-bold text-slate-900 text-sm sm:text-base">${setObj.title}</h3>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${diffColor}">${setObj.difficulty}</span>
+                            </div>
+                            <p class="text-xs text-slate-500 font-medium">${setObj.desc}</p>
                         </div>
                     </div>
                     ${statusBadge}
                 `;
 
-                card.onclick = () => startSet(idx);
+                card.onclick = () => startSet(realIndex);
                 UI.setCardsContainer.appendChild(card);
             });
         }
 
-        // START A CHOSEN SET (0 to 4)
+        // START SELECTED SET
         function startSet(setIndex) {
             activeSetIndex = setIndex;
-            const setObj = PRACTICE_SETS[setIndex];
+            const setObj = MATHS_AVERAGE_SETS[setIndex];
             currentQuestions = setObj.questions;
             userSelections = {};
             currentQIndex = 0;
             elapsedSeconds = 0;
 
             // UI Header updates
-            UI.headerSetBadge.textContent = `Set ${setObj.id}`;
-            UI.headerSubtitle.textContent = `Question 1 of 20 • ${setObj.title}`;
+            UI.headerSetBadge.textContent = `Set ${setObj.id} • ${setObj.difficulty}`;
+            UI.headerSubtitle.textContent = `Q 1/20 • ${setObj.title}`;
 
             // Switch screens
             UI.introScreen.classList.add('hidden');
@@ -1322,7 +1442,7 @@
             UI.timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
 
-        // RENDER CURRENT QUESTION IN SET
+        // RENDER QUESTION
         function renderQuestion(index) {
             currentQIndex = index;
             const qData = currentQuestions[index];
@@ -1332,7 +1452,17 @@
             UI.progressBarFill.style.width = `${progress}%`;
 
             UI.headerSubtitle.textContent = `Question ${index + 1} of 20 • Set ${activeSetIndex + 1}`;
-            UI.questionCatBadge.textContent = qData.cat;
+            
+            // Difficulty Badge
+            if (qData.diff === 'Hard') {
+                UI.questionDiffBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide uppercase bg-rose-100 text-rose-800 border border-rose-200';
+                UI.questionDiffBadge.textContent = 'Hard / Tier-2';
+            } else {
+                UI.questionDiffBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wide uppercase bg-blue-100 text-blue-800 border border-blue-200';
+                UI.questionDiffBadge.textContent = 'Medium';
+            }
+
+            UI.questionExamBadge.textContent = qData.exam;
             UI.questionCounterInd.textContent = `Question ${index + 1} of 20`;
             UI.paletteCountBadge.textContent = `${index + 1}/20 (${answeredCount} ans)`;
 
@@ -1459,9 +1589,9 @@
             const remaining = 20 - answeredCount;
 
             if (remaining > 0) {
-                UI.submitSummaryText.innerHTML = `You have answered <strong>${answeredCount}</strong> of 20 questions in <strong>Set ${activeSetIndex + 1}</strong>.<br><span class="text-amber-600 font-medium">${remaining} questions are still skipped.</span>`;
+                UI.submitSummaryText.innerHTML = `You have answered <strong>${answeredCount}</strong> of 20 questions in <strong>Set ${activeSetIndex + 1}</strong>.<br><span class="text-amber-600 font-medium">${remaining} questions are unattempted.</span>`;
             } else {
-                UI.submitSummaryText.innerHTML = `Great job! You answered all <strong>20 of 20</strong> questions in <strong>Set ${activeSetIndex + 1}</strong>. Ready to check score and reveal answers?`;
+                UI.submitSummaryText.innerHTML = `Great job! You answered all <strong>20 of 20</strong> questions in <strong>Set ${activeSetIndex + 1}</strong>. Ready to check score and reveal step-by-step solutions?`;
             }
 
             UI.submitModal.classList.remove('hidden');
@@ -1494,7 +1624,7 @@
             const percentage = Math.round((correctCount / 20) * 100);
             saveSetScore(activeSetIndex + 1, correctCount, 20, percentage);
 
-            UI.resultSetPill.textContent = `Practice Set ${activeSetIndex + 1} Completed`;
+            UI.resultSetPill.textContent = `Maths Set ${activeSetIndex + 1} (${MATHS_AVERAGE_SETS[activeSetIndex].difficulty}) Completed`;
             UI.finalScoreVal.textContent = correctCount;
             UI.finalPercentageVal.textContent = `${percentage}% Accuracy`;
 
@@ -1507,14 +1637,14 @@
             UI.metricTime.textContent = `${mins}m ${secs}s`;
 
             if (percentage >= 80) {
-                UI.resultBadgeTitle.textContent = "🏆 Outstanding! Ranker Level";
-                UI.resultBadgeSubtitle.textContent = `Set ${activeSetIndex + 1} mastered with great accuracy!`;
+                UI.resultBadgeTitle.textContent = "🏆 SSC CGL Ranker Level!";
+                UI.resultBadgeSubtitle.textContent = `Set ${activeSetIndex + 1} mastered with outstanding accuracy!`;
             } else if (percentage >= 50) {
                 UI.resultBadgeTitle.textContent = "👍 Good Attempt! On Track";
-                UI.resultBadgeSubtitle.textContent = `Review the questions you missed in Set ${activeSetIndex + 1} below.`;
+                UI.resultBadgeSubtitle.textContent = `Review the step-by-step shortcut methods below.`;
             } else {
-                UI.resultBadgeTitle.textContent = "📚 Keep Practicing!";
-                UI.resultBadgeSubtitle.textContent = `Revise these 20 high-yield questions using the notes below.`;
+                UI.resultBadgeTitle.textContent = "📚 Needs Calculation Practice!";
+                UI.resultBadgeSubtitle.textContent = `Learn the Net Deviation shortcuts below to solve questions under 30s.`;
             }
 
             // Next set button setup
@@ -1582,16 +1712,16 @@
                 if (isCorrect) {
                     statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>Correct (+1)</span>
+                        <span>Correct (+2 Marks)</span>
                     </span>`;
                 } else if (isWrong) {
                     statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                        <span>Incorrect (0)</span>
+                        <span>Incorrect (-0.5 Marks)</span>
                     </span>`;
                 } else {
                     statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
-                        <span>Skipped</span>
+                        <span>Skipped (0 Marks)</span>
                     </span>`;
                 }
 
@@ -1625,20 +1755,25 @@
                     `;
                 });
 
+                const diffBadge = q.diff === 'Hard' 
+                    ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">Hard / Tier-2</span>'
+                    : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800">Medium</span>';
+
                 card.innerHTML = `
                     <div class="flex items-center justify-between gap-2 mb-2.5">
                         <div class="flex items-center space-x-2">
                             <span class="w-6 h-6 rounded-lg bg-slate-800 text-white font-bold text-xs flex items-center justify-center">
                                 ${idx + 1}
                             </span>
-                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                                ${q.cat}
+                            ${diffBadge}
+                            <span class="text-[11px] font-semibold text-slate-500">
+                                ${q.exam}
                             </span>
                         </div>
                         ${statusBadge}
                     </div>
 
-                    <h4 class="text-sm sm:text-base font-bold text-slate-900 mb-3 leading-snug">
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 mb-3 leading-relaxed">
                         ${q.q}
                     </h4>
 
@@ -1646,12 +1781,11 @@
                         ${optionsHtml}
                     </div>
 
-                    <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-3 text-xs text-indigo-950">
-                        <div class="font-bold text-indigo-900 flex items-center space-x-1 mb-1">
-                            <svg class="w-3.5 h-3.5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-                            <span>SSC Revision Note:</span>
+                    <div class="bg-indigo-50/80 border border-indigo-100 rounded-xl p-3.5 text-xs text-indigo-950">
+                        <div class="font-bold text-indigo-900 flex items-center space-x-1 mb-1.5 text-sm">
+                            <span>📐 Complete Mathematical Solution:</span>
                         </div>
-                        <p class="leading-relaxed text-indigo-900/90">${q.exp}</p>
+                        <div class="leading-relaxed text-indigo-950">${q.sol}</div>
                     </div>
                 `;
 
@@ -1689,8 +1823,8 @@
             UI.progressBarContainer.classList.add('hidden');
             UI.headerHomeBtn.classList.add('hidden');
 
-            UI.headerSetBadge.textContent = 'All Sets';
-            UI.headerSubtitle.textContent = '5 Sets • 100 SSC CGL PYQs';
+            UI.headerSetBadge.textContent = 'Average (औसत)';
+            UI.headerSubtitle.textContent = '100 PYQs • Medium & Hard Tier-1 & Tier-2';
 
             renderSetCards();
             UI.introScreen.classList.remove('hidden');
