@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SSC CGL GK Practice - 5 Sets of 20 PYQs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .safe-bottom {
+            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5.5rem);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col items-center justify-start antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Container wrapper: max width on desktop, edge-to-edge on mobile -->
+    <div id="app" class="w-full max-w-xl md:max-w-2xl lg:max-w-3xl min-h-screen bg-white shadow-xl flex flex-col relative">
+
+        <!-- STICKY TOP HEADER -->
+        <header id="quiz-header" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 sm:px-6 transition-all">
+            <div class="flex items-center justify-between">
+                <!-- Left: Title & Set selector -->
+                <div class="flex items-center space-x-2.5">
+                    <button onclick="goToHome()" class="w-8 h-8 rounded-lg bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm shadow-indigo-300 transition-colors">
+                        GK
+                    </button>
+                    <div>
+                        <div class="flex items-center space-x-1.5">
+                            <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">SSC CGL Practice</h1>
+                            <span id="header-set-badge" class="px-2 py-0.5 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-[11px] font-bold">Set 1</span>
+                        </div>
+                        <p id="header-subtitle" class="text-xs font-medium text-slate-500">20 Mixed PYQs (5 Books, 5 Parks, 5 Lakes, 5 Days)</p>
+                    </div>
+                </div>
+
+                <!-- Right: Timer & Palette Toggle (Visible during test) -->
+                <div id="header-test-controls" class="hidden flex items-center space-x-2">
+                    <div class="flex items-center space-x-1 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full text-xs font-semibold border border-slate-200">
+                        <svg class="w-3.5 h-3.5 text-indigo-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span id="timer-display">00:00</span>
+                    </div>
+
+                    <button onclick="togglePaletteModal()" class="flex items-center space-x-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1 rounded-full text-xs font-bold transition-colors">
+                        <span id="palette-count-badge">1/20</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Home button when on results screen -->
+                <button id="header-home-btn" onclick="goToHome()" class="hidden px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors">
+                    All Sets
+                </button>
+            </div>
+
+            <!-- Progress bar -->
+            <div id="progress-bar-container" class="hidden absolute bottom-0 left-0 w-full h-1 bg-slate-100">
+                <div id="progress-bar-fill" class="h-1 bg-indigo-600 transition-all duration-300 ease-out" style="width: 5%"></div>
+            </div>
+        </header>
+
+        <!-- MAIN VIEWPORT -->
+        <main class="flex-1 flex flex-col p-4 sm:p-6 w-full">
+
+            <!-- 1. SET SELECTION / INTRO SCREEN -->
+            <div id="intro-screen" class="flex-1 flex flex-col py-2 fade-in max-w-xl mx-auto w-full">
+                
+                <div class="text-center mb-6">
+                    <div class="inline-flex items-center space-x-1 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                        <span>⚡ 100 SSC CGL Previous Year Questions</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Choose Practice Set</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                        5 distinct sets of 20 questions each. Exactly 5 Books & Authors, 5 National Parks, 5 Major Lakes, and 5 Important Days per set.
+                    </p>
+                </div>
+
+                <!-- 5 Practice Set Cards -->
+                <div class="space-y-3 mb-6" id="set-cards-container">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Topic Distribution Info Card -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs text-slate-600 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm flex items-center space-x-1.5">
+                        <span>📋 Standard SSC CGL 20-Question Mix</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 pt-1 text-slate-700">
+                        <div class="flex items-center space-x-1.5">
+                            <span>📚</span> <span>5 Books & Authors</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span>🌲</span> <span>5 National Parks</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span>🌊</span> <span>5 Major Lakes of India</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span>📅</span> <span>5 Imp. Indian & Int. Days</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-slate-200/80 text-[11px] text-slate-500">
+                        💡 Complete all 20 questions, submit to calculate your score, and review detailed answer keys with revision notes.
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- 2. QUIZ QUESTION SCREEN -->
+            <div id="quiz-screen" class="hidden flex-1 flex flex-col justify-between fade-in safe-bottom">
+                <div>
+                    <!-- Category badge & mobile indicator -->
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <span id="question-category-badge" class="px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-bold tracking-wide uppercase">
+                                Category
+                            </span>
+                            <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-[11px] font-semibold">
+                                SSC CGL PYQ
+                            </span>
+                        </div>
+                        <span id="question-counter-indicator" class="text-xs font-bold text-slate-500">
+                            Question 1 of 20
+                        </span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="mb-5">
+                        <h2 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                            Question loading...
+                        </h2>
+                    </div>
+
+                    <!-- Options Container -->
+                    <div id="options-container" class="space-y-3">
+                        <!-- Rendered by JS -->
+                    </div>
+
+                    <!-- Clear selection button if answered -->
+                    <div class="mt-3 flex items-center justify-between">
+                        <button onclick="goToHomeConfirm()" class="text-xs text-slate-400 hover:text-slate-600 font-medium py-1 px-2 rounded transition-colors">
+                            ← Exit to Sets Menu
+                        </button>
+                        <button id="clear-selection-btn" onclick="clearCurrentSelection()" class="hidden text-xs text-slate-400 hover:text-rose-500 font-medium py-1 px-2 rounded transition-colors">
+                            Clear answer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 3. RESULTS & ANSWER REVEALING SCREEN -->
+            <div id="results-screen" class="hidden flex-1 flex flex-col py-2 fade-in">
+                
+                <!-- Score Summary Card -->
+                <div class="bg-gradient-to-br from-indigo-900 via-indigo-800 to-slate-900 text-white rounded-3xl p-5 sm:p-7 shadow-xl mb-5 relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-center sm:text-left">
+                            <span id="result-set-pill" class="inline-block px-3 py-1 bg-indigo-500/30 border border-indigo-400/30 rounded-full text-xs font-semibold text-indigo-200 mb-2">
+                                Practice Set 1 Completed
+                            </span>
+                            <h2 id="result-badge-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Great Performance!</h2>
+                            <p id="result-badge-subtitle" class="text-xs sm:text-sm text-indigo-200 mt-1">Here is your SSC CGL score breakdown</p>
+                        </div>
+
+                        <!-- Big Circular Score Display -->
+                        <div class="flex items-center justify-center">
+                            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center p-2 shadow-inner">
+                                <span class="text-xs text-indigo-200 font-semibold uppercase">Score</span>
+                                <div class="text-2xl sm:text-3xl font-extrabold text-white">
+                                    <span id="final-score-val">0</span><span class="text-sm font-normal text-indigo-300">/20</span>
+                                </div>
+                                <span id="final-percentage-val" class="text-xs font-bold text-emerald-400 mt-0.5">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics 4-grid -->
+                    <div class="grid grid-cols-4 gap-2 mt-5 pt-4 border-t border-white/10 text-center text-xs">
+                        <div class="bg-white/5 rounded-xl p-2">
+                            <div class="text-emerald-400 font-bold text-base sm:text-lg" id="metric-correct">0</div>
+                            <div class="text-slate-300 text-[11px]">Correct</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-2">
+                            <div class="text-rose-400 font-bold text-base sm:text-lg" id="metric-wrong">0</div>
+                            <div class="text-slate-300 text-[11px]">Wrong</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-2">
+                            <div class="text-amber-300 font-bold text-base sm:text-lg" id="metric-skipped">0</div>
+                            <div class="text-slate-300 text-[11px]">Skipped</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-2">
+                            <div class="text-indigo-200 font-bold text-base sm:text-lg" id="metric-time">00:00</div>
+                            <div class="text-slate-300 text-[11px]">Time</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Navigation Row -->
+                <div class="grid grid-cols-3 gap-2 mb-6">
+                    <button onclick="goToHome()" class="py-2.5 px-3 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-semibold rounded-xl text-xs flex items-center justify-center space-x-1 transition-all">
+                        <span>All Sets</span>
+                    </button>
+                    <button onclick="retakeCurrentSet()" class="py-2.5 px-3 bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 font-semibold rounded-xl text-xs flex items-center justify-center space-x-1 transition-all">
+                        <span>Retry Set</span>
+                    </button>
+                    <button id="next-set-action-btn" onclick="startNextSet()" class="py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs flex items-center justify-center space-x-1 transition-all shadow-sm">
+                        <span>Next Set →</span>
+                    </button>
+                </div>
+
+                <!-- ANSWER REVEAL & EXPLANATION SECTION -->
+                <div class="border-t border-slate-200 pt-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-1.5">
+                            <span>Detailed Answer Key & Notes</span>
+                        </h3>
+                        <span class="text-xs text-slate-500 font-medium">All 20 Questions</span>
+                    </div>
+
+                    <!-- Filter chips -->
+                    <div class="flex items-center space-x-1.5 overflow-x-auto pb-2 mb-4">
+                        <button onclick="filterAnswers('all')" id="filter-all" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white transition-all shadow-sm">
+                            All (20)
+                        </button>
+                        <button onclick="filterAnswers('wrong')" id="filter-wrong" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-700 transition-all">
+                            Incorrect (<span id="count-wrong-tab">0</span>)
+                        </button>
+                        <button onclick="filterAnswers('correct')" id="filter-correct" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-all">
+                            Correct (<span id="count-correct-tab">0</span>)
+                        </button>
+                        <button onclick="filterAnswers('skipped')" id="filter-skipped" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition-all">
+                            Skipped (<span id="count-skipped-tab">0</span>)
+                        </button>
+                    </div>
+
+                    <!-- Answer List Container -->
+                    <div id="answer-key-container" class="space-y-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- STICKY BOTTOM ACTION BAR (DURING QUIZ) -->
+        <footer id="quiz-bottom-nav" class="hidden fixed bottom-0 left-0 right-0 z-20 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2.5 px-4 shadow-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl sm:mx-auto">
+            <div class="flex items-center justify-between gap-2">
+                <!-- Previous Button -->
+                <button id="nav-prev-btn" onclick="goToPrevQuestion()" class="flex-1 py-2.5 px-3 bg-slate-100 hover:bg-slate-200 active:scale-[0.98] text-slate-700 font-semibold rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1 transition-all disabled:opacity-30 disabled:pointer-events-none">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    <span>Previous</span>
+                </button>
+
+                <!-- Next Button -->
+                <button id="nav-next-btn" onclick="goToNextQuestion()" class="flex-1 py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-semibold rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1 shadow-sm transition-all">
+                    <span>Next</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <!-- Submit Button -->
+                <button id="nav-submit-btn" onclick="confirmSubmitTest()" class="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold rounded-xl text-xs sm:text-sm flex items-center justify-center space-x-1 shadow-md shadow-emerald-100 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Submit</span>
+                </button>
+            </div>
+        </footer>
+
+        <!-- QUESTION PALETTE / OVERVIEW MODAL -->
+        <div id="palette-modal" class="hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 shadow-2xl max-h-[85vh] overflow-y-auto fade-in">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base">Question Palette</h3>
+                        <p class="text-xs text-slate-500">Tap any question to jump directly</p>
+                    </div>
+                    <button onclick="togglePaletteModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Legend -->
+                <div class="flex items-center justify-around py-3 text-xs border-b border-slate-100 text-slate-600">
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded bg-indigo-600"></span>
+                        <span>Answered</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded bg-slate-200"></span>
+                        <span>Unanswered</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded border-2 border-indigo-600 bg-white"></span>
+                        <span>Current</span>
+                    </div>
+                </div>
+
+                <!-- 20 Question Grid -->
+                <div id="palette-grid" class="grid grid-cols-5 gap-2.5 py-4">
+                    <!-- Injected by JS -->
+                </div>
+
+                <!-- Submit Shortcut in modal -->
+                <div class="pt-2">
+                    <button onclick="togglePaletteModal(); confirmSubmitTest();" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition-all flex items-center justify-center space-x-2">
+                        <span>Finish & Check Score</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMIT CONFIRMATION MODAL -->
+        <div id="submit-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl text-center fade-in">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-1">Submit Test?</h3>
+                <p id="submit-summary-text" class="text-sm text-slate-600 mb-6">
+                    You have answered 18 of 20 questions.
+                </p>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="closeSubmitModal()" class="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-sm transition-all">
+                        Keep Answering
+                    </button>
+                    <button onclick="finalizeAndCheckScore()" class="py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition-all shadow-md shadow-emerald-100">
+                        Yes, Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MASTER 100 AUTHENTIC SSC CGL PYQ DATA (5 SETS x 20 QUESTIONS) -->
+    <script>
+        // 25 BOOKS & AUTHORS
+        const POOL_BOOKS = [
+            // Set 1 (0..4)
+            {
+                cat: "Books and Authors",
+                q: "Who is the author of the famous book 'The Discovery of India'?",
+                o: ["Mahatma Gandhi", "Jawaharlal Nehru", "Rabindranath Tagore", "Sardar Vallabhbhai Patel"],
+                a: 1,
+                exp: "Jawaharlal Nehru wrote 'The Discovery of India' during his imprisonment at Ahmednagar Fort (1942–1946) under British rule."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The classic book 'Poverty and Un-British Rule in India', which propounded the 'Drain of Wealth' theory, was authored by:",
+                o: ["Gopal Krishna Gokhale", "Dadabhai Naoroji", "Bal Gangadhar Tilak", "M.G. Ranade"],
+                a: 1,
+                exp: "Dadabhai Naoroji ('The Grand Old Man of India') authored this seminal work exposing British economic exploitation of India."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The patriotic novel 'Anandamath', which features India's national song 'Vande Mataram', was written by:",
+                o: ["Bankim Chandra Chattopadhyay", "Rabindranath Tagore", "Sarat Chandra Chattopadhyay", "Michael Madhusudan Dutt"],
+                a: 0,
+                exp: "Bankim Chandra Chattopadhyay wrote 'Anandamath' in 1882, set against the backdrop of the Sannyasi Rebellion in Bengal."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who authored the famous autobiography 'Wings of Fire'?",
+                o: ["Atal Bihari Vajpayee", "Dr. A.P.J. Abdul Kalam", "Dr. Homi Bhabha", "Vikram Sarabhai"],
+                a: 1,
+                exp: "'Wings of Fire' (1999) is the inspiring autobiography of Dr. A.P.J. Abdul Kalam, co-written with Arun Tiwari."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Which Indian author won the Man Booker Prize for the novel 'The God of Small Things'?",
+                o: ["Jhumpa Lahiri", "Arundhati Roy", "Kiran Desai", "Anita Desai"],
+                a: 1,
+                exp: "Arundhati Roy became the first Indian citizen to win the Booker Prize in 1997 for 'The God of Small Things'."
+            },
+
+            // Set 2 (5..9)
+            {
+                cat: "Books and Authors",
+                q: "The renowned Hindi novel 'Godan' was written by which prolific Indian author?",
+                o: ["Munshi Premchand", "Ramdhari Singh Dinkar", "Harivansh Rai Bachchan", "Jaishankar Prasad"],
+                a: 0,
+                exp: "Munshi Premchand published 'Godan' in 1936; it highlights the socio-economic deprivation and exploitation of Indian peasantry."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who wrote the Booker Prize-winning novel 'The White Tiger'?",
+                o: ["Aravind Adiga", "Amitav Ghosh", "Salman Rushdie", "Chetan Bhagat"],
+                a: 0,
+                exp: "Aravind Adiga won the 40th Man Booker Prize in 2008 for his debut novel 'The White Tiger'."
+            },
+            {
+                cat: "Books and Authors",
+                q: "'Train to Pakistan', a historical novel recounting the tragic partition of India, was written by:",
+                o: ["Khushwant Singh", "Mulk Raj Anand", "R.K. Narayan", "Kuldip Nayar"],
+                a: 0,
+                exp: "Khushwant Singh wrote 'Train to Pakistan' in 1956, portraying the human tragedy in the fictional border village Mano Majra."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who is the author of 'Playing It My Way', the autobiography of an Indian sports icon?",
+                o: ["Kapil Dev", "Sachin Tendulkar", "Sunil Gavaskar", "Sourav Ganguly"],
+                a: 1,
+                exp: "'Playing It My Way' (2014) is the autobiography of cricket legend Sachin Tendulkar, co-authored with Boria Majumdar."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Which author wrote the acclaimed sprawling novel 'A Suitable Boy'?",
+                o: ["Vikram Seth", "Rohinton Mistry", "Amit Chaudhuri", "Upamanyu Chatterjee"],
+                a: 0,
+                exp: "Vikram Seth published 'A Suitable Boy' in 1993, one of the longest single-volume novels published in English."
+            },
+
+            // Set 3 (10..14)
+            {
+                cat: "Books and Authors",
+                q: "The famous literary collection 'Gitanjali', for which the Nobel Prize in Literature was awarded in 1913, was penned by:",
+                o: ["Sarojini Naidu", "Rabindranath Tagore", "Sri Aurobindo", "Kazi Nazrul Islam"],
+                a: 1,
+                exp: "Rabindranath Tagore won the Nobel Prize in Literature in 1913 for 'Gitanjali' (Song Offerings), becoming Asia's first Nobel laureate."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who wrote the autobiography 'The Story of My Experiments with Truth'?",
+                o: ["Mahatma Gandhi", "Subhas Chandra Bose", "B.R. Ambedkar", "Jawaharlal Nehru"],
+                a: 0,
+                exp: "Mahatma Gandhi originally wrote his autobiography in Gujarati in weekly installments for his journal 'Navjivan'."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who authored 'The Guide', a celebrated novel set in the fictional town of Malgudi?",
+                o: ["R.K. Narayan", "Raja Rao", "Mulk Raj Anand", "K.A. Abbas"],
+                a: 0,
+                exp: "R.K. Narayan won the Sahitya Akademi Award in 1960 for 'The Guide', which was adapted into a celebrated film."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The book 'An Era of Darkness: The British Empire in India' was written by:",
+                o: ["Ramachandra Guha", "Shashi Tharoor", "Amartya Sen", "Bipan Chandra"],
+                a: 1,
+                exp: "Shashi Tharoor authored 'An Era of Darkness' (2016), winning the Sahitya Akademi Award in 2019."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who is the author of the international bestseller 'The Alchemist'?",
+                o: ["Paulo Coelho", "Gabriel García Márquez", "Khaled Hosseini", "Haruki Murakami"],
+                a: 0,
+                exp: "Brazilian author Paulo Coelho published 'The Alchemist' in 1988, which became one of the most translated books in the world."
+            },
+
+            // Set 4 (15..19)
+            {
+                cat: "Books and Authors",
+                q: "Who composed the celebrated Sanskrit lyric poem 'Meghaduta' (The Cloud Messenger)?",
+                o: ["Kalidasa", "Banabhatta", "Bharavi", "Bhasa"],
+                a: 0,
+                exp: "Kalidasa, the greatest classical Sanskrit poet and playwright of the Gupta era, composed 'Meghaduta', 'Abhijnanasakuntalam', and 'Raghuvamsha'."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The famous essay 'Why I Am an Atheist' was written in Lahore Central Jail by:",
+                o: ["Bhagat Singh", "Chandrashekhar Azad", "Ram Prasad Bismil", "Sukhdev Thapar"],
+                a: 0,
+                exp: "Bhagat Singh wrote 'Why I Am an Atheist' in 1930 while imprisoned in Lahore Central Jail; it was published in 'The People' in 1931."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The ancient Indian treatise on statecraft, economic policy, and military strategy titled 'Arthashastra' is attributed to:",
+                o: ["Kautilya (Chanakya)", "Megasthenes", "Ashoka", "Harisena"],
+                a: 0,
+                exp: "Kautilya (also known as Chanakya or Vishnugupta), prime minister to Chandragupta Maurya, authored the 'Arthashastra'."
+            },
+            {
+                cat: "Books and Authors",
+                q: "'Rajatarangini', a metrical legendary and historical chronicle of the north-western Indian subcontinent, particularly Kashmir, was composed by:",
+                o: ["Kalhana", "Bilhana", "Somadeva", "Jonaraja"],
+                a: 0,
+                exp: "Kalhana composed 'Rajatarangini' (The River of Kings) in Sanskrit verse in 1148–1149 CE."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who wrote 'Harshacharita', the biography of the Indian emperor Harsha?",
+                o: ["Banabhatta", "Hiuen Tsang", "Dandin", "Subandhu"],
+                a: 0,
+                exp: "Banabhatta was the Asthana Kavi (court poet) of King Harsha and wrote 'Harshacharita' and 'Kadambari'."
+            },
+
+            // Set 5 (20..24)
+            {
+                cat: "Books and Authors",
+                q: "'The Room on the Roof', which won the John Llewellyn Rhys Prize in 1957, was the debut novel of:",
+                o: ["Ruskin Bond", "Aravind Adiga", "R.K. Laxman", "Khushwant Singh"],
+                a: 0,
+                exp: "Ruskin Bond wrote 'The Room on the Roof' at the age of seventeen, featuring the Anglo-Indian orphan Rusty in Dehradun."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The book 'Unhappy India', written in response to Katherine Mayo's Mother India, was authored by:",
+                o: ["Lala Lajpat Rai", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "Aurobindo Ghosh"],
+                a: 0,
+                exp: "Lala Lajpat Rai ('Punjab Kesari') published 'Unhappy India' in 1928 providing a biting rebuttal to Katherine Mayo's propaganda."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Who is the author of the historical book 'India Divided'?",
+                o: ["Dr. Rajendra Prasad", "Maulana Abul Kalam Azad", "C. Rajagopalachari", "Dr. S. Radhakrishnan"],
+                a: 0,
+                exp: "Dr. Rajendra Prasad, India's first President, wrote 'India Divided' in 1946 analyzing the question of the partition of India."
+            },
+            {
+                cat: "Books and Authors",
+                q: "Which Indian-born British author wrote 'Midnight's Children', which won both the Booker Prize and the 'Booker of Bookers'?",
+                o: ["Salman Rushdie", "V.S. Naipaul", "Hanif Kureishi", "Amitav Ghosh"],
+                a: 0,
+                exp: "Salman Rushdie published 'Midnight's Children' in 1981, dealing with India's transition from British colonialism to independence."
+            },
+            {
+                cat: "Books and Authors",
+                q: "The book 'Ignited Minds: Unleashing the Power Within India' was authored by:",
+                o: ["Dr. A.P.J. Abdul Kalam", "Dr. Manmohan Singh", "Narayana Murthy", "E. Sreedharan"],
+                a: 0,
+                exp: "Dr. A.P.J. Abdul Kalam wrote 'Ignited Minds' in 2002, dedicated to an intermediate school student named Snehal Thakkar."
+            }
+        ];
+
+        // 25 NATIONAL PARKS OF INDIA
+        const POOL_PARKS = [
+            // Set 1 (0..4)
+            {
+                cat: "National Parks",
+                q: "Which is the oldest National Park in India, established in 1936 as Hailey National Park?",
+                o: ["Kaziranga National Park", "Jim Corbett National Park", "Gir National Park", "Kanha National Park"],
+                a: 1,
+                exp: "Jim Corbett National Park in Uttarakhand was established in 1936 (initially named Hailey NP) and was the first under Project Tiger (1973)."
+            },
+            {
+                cat: "National Parks",
+                q: "Keibul Lamjao National Park, the world's only floating national park, is situated in which state?",
+                o: ["Assam", "Manipur", "Meghalaya", "Tripura"],
+                a: 1,
+                exp: "Keibul Lamjao National Park is on Loktak Lake in Manipur, famous for floating decomposed plant matter ('phumdis') and the endangered Sangai deer."
+            },
+            {
+                cat: "National Parks",
+                q: "Kaziranga National Park in Assam is globally renowned for conserving the largest population of:",
+                o: ["Asiatic Lion", "Great Indian Bustard", "One-horned Rhinoceros", "Snow Leopard"],
+                a: 2,
+                exp: "Kaziranga National Park holds about two-thirds of the world's great one-horned rhinoceroses and is a UNESCO World Heritage Site."
+            },
+            {
+                cat: "National Parks",
+                q: "Which national park is the sole natural refuge of the Asiatic Lion (Panthera leo persica)?",
+                o: ["Gir National Park", "Ranthambore National Park", "Kanha National Park", "Tadoba National Park"],
+                a: 0,
+                exp: "Gir National Park and Wildlife Sanctuary in Gujarat is the only natural sanctuary in the world for Asiatic lions."
+            },
+            {
+                cat: "National Parks",
+                q: "Hemis National Park, India's largest national park famous for snow leopards, is located in:",
+                o: ["Himachal Pradesh", "Uttarakhand", "Ladakh", "Sikkim"],
+                a: 2,
+                exp: "Hemis National Park in Ladakh is India's largest national park by area and has the highest density of snow leopards in any protected area."
+            },
+
+            // Set 2 (5..9)
+            {
+                cat: "National Parks",
+                q: "Silent Valley National Park, famous for preserving rare tropical rainforests and lion-tailed macaques, is in:",
+                o: ["Tamil Nadu", "Kerala", "Karnataka", "Goa"],
+                a: 1,
+                exp: "Silent Valley National Park is located in the Nilgiri Hills, Palakkad district of Kerala, with the river Kunthipuzha flowing through it."
+            },
+            {
+                cat: "National Parks",
+                q: "Namdapha National Park, the largest protected area in the Eastern Himalayas, is situated in:",
+                o: ["Arunachal Pradesh", "Nagaland", "Assam", "Mizoram"],
+                a: 0,
+                exp: "Namdapha National Park in Arunachal Pradesh is renowned for housing four big cat species: tiger, leopard, snow leopard, and clouded leopard."
+            },
+            {
+                cat: "National Parks",
+                q: "Periyar National Park, renowned as an elephant and tiger reserve, is located in:",
+                o: ["Kerala", "Tamil Nadu", "Karnataka", "Andhra Pradesh"],
+                a: 0,
+                exp: "Periyar National Park is situated in the Cardamom and Pandalam Hills of the southern Western Ghats in Kerala."
+            },
+            {
+                cat: "National Parks",
+                q: "Which Indian state is famously called the 'Tiger State of India' because of its highest tiger count?",
+                o: ["Karnataka", "Madhya Pradesh", "Uttarakhand", "Maharashtra"],
+                a: 1,
+                exp: "Madhya Pradesh holds the title of 'Tiger State' with the highest number of tigers (785 as per 2022 census), hosting Kanha, Bandhavgarh, and Pench."
+            },
+            {
+                cat: "National Parks",
+                q: "Kuno National Park, where African cheetahs were reintroduced to India under Project Cheetah, is in:",
+                o: ["Rajasthan", "Madhya Pradesh", "Gujarat", "Chhattisgarh"],
+                a: 1,
+                exp: "Kuno National Park is in the Sheopur district of Madhya Pradesh, selected for the historic Cheetah reintroduction in September 2022."
+            },
+
+            // Set 3 (10..14)
+            {
+                cat: "National Parks",
+                q: "Sundarbans National Park, known for dense mangrove ecosystems and Royal Bengal Tigers, is in:",
+                o: ["Odisha", "West Bengal", "Andhra Pradesh", "Tamil Nadu"],
+                a: 1,
+                exp: "Sundarbans in West Bengal forms part of the world's largest delta formed by the Ganga, Brahmaputra, and Meghna rivers."
+            },
+            {
+                cat: "National Parks",
+                q: "Ranthambore National Park, a prominent historic tiger reserve, is situated in:",
+                o: ["Gujarat", "Rajasthan", "Madhya Pradesh", "Punjab"],
+                a: 1,
+                exp: "Ranthambore National Park is located in Sawai Madhopur district of Rajasthan, known for its historic 10th-century Ranthambore Fort."
+            },
+            {
+                cat: "National Parks",
+                q: "Bandipur National Park, established under Project Tiger in 1974, is located in which state?",
+                o: ["Karnataka", "Kerala", "Tamil Nadu", "Telangana"],
+                a: 0,
+                exp: "Bandipur National Park in Chamarajanagar district, Karnataka, forms a key contiguous part of the Nilgiri Biosphere Reserve."
+            },
+            {
+                cat: "National Parks",
+                q: "Keoladeo Ghana National Park (formerly Bharatpur Bird Sanctuary), famous as a wintering ground for migratory birds, is in:",
+                o: ["Rajasthan", "Haryana", "Gujarat", "Uttar Pradesh"],
+                a: 0,
+                exp: "Keoladeo National Park in Bharatpur, Rajasthan, is a man-made wetland and UNESCO World Heritage Site famous for hosting the rare Siberian Crane."
+            },
+            {
+                cat: "National Parks",
+                q: "Manas National Park, a UNESCO World Heritage site known for the Pygmy Hog and Golden Langur, is in:",
+                o: ["Assam", "West Bengal", "Meghalaya", "Arunachal Pradesh"],
+                a: 0,
+                exp: "Manas National Park in Assam is situated at the foothills of the Himalayas, contiguous with the Royal Manas National Park in Bhutan."
+            },
+
+            // Set 4 (15..19)
+            {
+                cat: "National Parks",
+                q: "The Great Himalayan National Park, recognized as a UNESCO World Heritage site in 2014, is located in:",
+                o: ["Himachal Pradesh", "Uttarakhand", "Jammu and Kashmir", "Sikkim"],
+                a: 0,
+                exp: "The Great Himalayan National Park is located in Kullu region of Himachal Pradesh, protecting Western Himalayan alpine flora and fauna."
+            },
+            {
+                cat: "National Parks",
+                q: "Dachigam National Park, famous as the last remaining stronghold of the endangered Hangul (Kashmir Stag), is in:",
+                o: ["Jammu and Kashmir", "Himachal Pradesh", "Ladakh", "Uttarakhand"],
+                a: 0,
+                exp: "Dachigam National Park is located near Srinagar in Jammu and Kashmir. The name translates to 'Ten Villages' in memory of ten relocated villages."
+            },
+            {
+                cat: "National Parks",
+                q: "Nokrek National Park, situated in the Garo Hills and famous for the red panda and Asian elephant, is located in:",
+                o: ["Meghalaya", "Mizoram", "Nagaland", "Tripura"],
+                a: 0,
+                exp: "Nokrek National Park is in the West Garo Hills district of Meghalaya; it is also a UNESCO Biosphere Reserve and home to wild gene citrus."
+            },
+            {
+                cat: "National Parks",
+                q: "Simlipal National Park, which derives its name from the abundance of red silk cotton trees, is in:",
+                o: ["Odisha", "Jharkhand", "Chhattisgarh", "West Bengal"],
+                a: 0,
+                exp: "Simlipal National Park is situated in the Mayurbhanj district of Odisha; it is part of the UNESCO World Network of Biosphere Reserves."
+            },
+            {
+                cat: "National Parks",
+                q: "Valley of Flowers National Park, famous for its endemic alpine meadows, is situated in which district of Uttarakhand?",
+                o: ["Chamoli", "Nainital", "Dehradun", "Uttarkashi"],
+                a: 0,
+                exp: "Valley of Flowers NP in Chamoli, Uttarakhand, was discovered by Frank S. Smythe in 1931 and is a UNESCO World Heritage Site with Nanda Devi."
+            },
+
+            // Set 5 (20..24)
+            {
+                cat: "National Parks",
+                q: "Pin Valley National Park, famous for preserving cold desert biodiversity and snow leopards, is located in:",
+                o: ["Himachal Pradesh", "Ladakh", "Uttarakhand", "Jammu and Kashmir"],
+                a: 0,
+                exp: "Pin Valley National Park is located in the Spiti Valley of Himachal Pradesh, representing the flora and fauna of the cold desert bio-reserve."
+            },
+            {
+                cat: "National Parks",
+                q: "Bandhavgarh National Park, renowned for having one of the highest known densities of Royal Bengal Tigers in India, is in:",
+                o: ["Madhya Pradesh", "Rajasthan", "Maharashtra", "Odisha"],
+                a: 0,
+                exp: "Bandhavgarh National Park is in the Umaria district of Madhya Pradesh, centered around the ancient Bandhavgarh hill fort."
+            },
+            {
+                cat: "National Parks",
+                q: "Dudhwa National Park, located in the Terai belt bordering Nepal, is in which Indian state?",
+                o: ["Uttar Pradesh", "Bihar", "Uttarakhand", "Madhya Pradesh"],
+                a: 0,
+                exp: "Dudhwa National Park is located in the Lakhimpur Kheri district of Uttar Pradesh; it is famous for swamp deer (Barasingha) and tigers."
+            },
+            {
+                cat: "National Parks",
+                q: "Mahatma Gandhi Marine National Park (Wandoor) is situated in:",
+                o: ["Andaman and Nicobar Islands", "Lakshadweep", "Gujarat", "Tamil Nadu"],
+                a: 0,
+                exp: "Mahatma Gandhi Marine National Park is situated in Wandoor, 29 km from Port Blair in the South Andaman Islands, protecting rich coral reefs."
+            },
+            {
+                cat: "National Parks",
+                q: "Gulf of Mannar Marine National Park, the first marine biosphere reserve in South and Southeast Asia, is located in:",
+                o: ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Odisha"],
+                a: 0,
+                exp: "Gulf of Mannar Marine NP covers 21 small islands along the coast of Ramanathapuram and Tuticorin districts in Tamil Nadu; refuge for the Dugong (sea cow)."
+            }
+        ];
+
+        // 25 MAJOR LAKES OF INDIA
+        const POOL_LAKES = [
+            // Set 1 (0..4)
+            {
+                cat: "Major Lakes",
+                q: "Wular Lake, one of the largest freshwater lakes in Asia, is located in which state/UT?",
+                o: ["Himachal Pradesh", "Jammu and Kashmir", "Uttarakhand", "Ladakh"],
+                a: 1,
+                exp: "Wular Lake is in the Bandipora district of Jammu and Kashmir, fed directly by the Jhelum River."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Which of the following is the largest coastal brackish water lagoon in India?",
+                o: ["Chilika Lake", "Pulicat Lake", "Vembanad Lake", "Kolleru Lake"],
+                a: 0,
+                exp: "Chilika Lake in Odisha is the largest brackish water lagoon in India, designated as India's first Ramsar site (1981) and home to Irrawaddy dolphins."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Loktak Lake, famous for its floating vegetation islands known as 'phumdis', is in:",
+                o: ["Manipur", "Mizoram", "Meghalaya", "Assam"],
+                a: 0,
+                exp: "Loktak Lake in Manipur is the largest natural freshwater lake in Northeast India, hosting Keibul Lamjao NP."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Sambhar Salt Lake, India's largest inland saline lake, is located in which state?",
+                o: ["Gujarat", "Rajasthan", "Maharashtra", "Punjab"],
+                a: 1,
+                exp: "Sambhar Lake is situated near Jaipur in Rajasthan, producing a significant portion of India's total salt."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Vembanad Lake, the longest lake in India and host of the famous Nehru Trophy Boat Race, is in:",
+                o: ["Tamil Nadu", "Kerala", "Andhra Pradesh", "Karnataka"],
+                a: 1,
+                exp: "Vembanad Lake in Kerala spans over 96 km in length, known locally as Punnamada Lake where the Vallam Kali (boat race) is held."
+            },
+
+            // Set 2 (5..9)
+            {
+                cat: "Major Lakes",
+                q: "Lonar Lake, a unique saline-soda lake formed by a meteorite impact during the Pleistocene epoch, is located in:",
+                o: ["Madhya Pradesh", "Maharashtra", "Gujarat", "Rajasthan"],
+                a: 1,
+                exp: "Lonar Lake is in Buldhana district of Maharashtra and is recognized as a National Geo-heritage Monument and Ramsar site."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Pulicat Lake, India's second-largest brackish water lagoon, lies on the border of which two states?",
+                o: ["Kerala and Tamil Nadu", "Andhra Pradesh and Tamil Nadu", "Odisha and Andhra Pradesh", "Karnataka and Goa"],
+                a: 1,
+                exp: "Pulicat Lake straddles Andhra Pradesh (approx 84%) and Tamil Nadu (approx 16%), separated from the Bay of Bengal by Sriharikota island."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Kolleru Lake, a large freshwater wetland sanctuary, is located between the deltas of which two rivers?",
+                o: ["Ganga and Yamuna", "Krishna and Godavari", "Mahanadi and Godavari", "Cauvery and Krishna"],
+                a: 1,
+                exp: "Kolleru Lake in Andhra Pradesh lies between the Godavari and Krishna river deltas and serves as a major habitat for migratory birds."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Pangong Tso, a high-altitude endorheic lake located at an elevation of 4,225 m, spans India and which country?",
+                o: ["Nepal", "Bhutan", "China", "Pakistan"],
+                a: 2,
+                exp: "Pangong Tso lies in eastern Ladakh (India) and western Tibet (China); about one-third lies within India and two-thirds within China."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Hussain Sagar Lake, renowned for the large monolithic Buddha statue standing at 'Gibraltar Rock', is in:",
+                o: ["Bengaluru", "Hyderabad", "Bhopal", "Nagpur"],
+                a: 1,
+                exp: "Hussain Sagar was built by Ibrahim Quli Qutb Shah in 1563, connecting the twin cities of Hyderabad and Secunderabad in Telangana."
+            },
+
+            // Set 3 (10..14)
+            {
+                cat: "Major Lakes",
+                q: "Dal Lake, famed as the 'Jewel in the crown of Kashmir' and known for houseboats ('Shikaras'), is in:",
+                o: ["Gulmarg", "Pahalgam", "Srinagar", "Sonamarg"],
+                a: 2,
+                exp: "Dal Lake is situated in Srinagar, Jammu & Kashmir, famous for its floating gardens (Radh) and Mughal-era gardens on its periphery."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Which lake in Uttarakhand is named after an island in its center and features a Victorian dam built in 1883?",
+                o: ["Nainital Lake", "Bhimtal Lake", "Sattal Lake", "Roopkund Lake"],
+                a: 1,
+                exp: "Bhimtal Lake in Nainital district is the largest lake in the Kumaon region, featuring a central island with an aquarium."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Tso Moriri (Mountain Lake), a designated Ramsar wetland sanctuary supporting the black-necked crane, is located in:",
+                o: ["Ladakh", "Himachal Pradesh", "Sikkim", "Uttarakhand"],
+                a: 0,
+                exp: "Tso Moriri is a high-altitude lake in the Changthang plateau of Ladakh, situated at an altitude of 4,522 m."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Deepor Beel, a permanent freshwater lake and the only Ramsar site in the state, is located in:",
+                o: ["Assam", "Meghalaya", "Tripura", "Arunachal Pradesh"],
+                a: 0,
+                exp: "Deepor Beel is a former channel of the Brahmaputra River situated to the southwest of Guwahati city in Assam."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Which lake located in Sirmaur district of Himachal Pradesh is the smallest wetland of international importance (Ramsar site) in India?",
+                o: ["Renuka Lake", "Chandra Taal", "Pong Dam Lake", "Prashar Lake"],
+                a: 0,
+                exp: "Renuka Lake in Himachal Pradesh is the smallest Ramsar site in India (approx 20 hectares), named after the mother of Parashurama."
+            },
+
+            // Set 4 (15..19)
+            {
+                cat: "Major Lakes",
+                q: "Sasthamkotta Lake, famously dubbed the 'Queen of Lakes' and the largest freshwater lake in Kerala, is in which district?",
+                o: ["Kollam", "Alappuzha", "Kottayam", "Ernakulam"],
+                a: 0,
+                exp: "Sasthamkotta Lake in Kollam district is a Ramsar site; it provides drinking water to half a million people without salt intrusion."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Nainital Lake, a prominent kidney-shaped natural freshwater body in the Kumaon hills, is situated in:",
+                o: ["Uttarakhand", "Himachal Pradesh", "Jammu and Kashmir", "Sikkim"],
+                a: 0,
+                exp: "Nainital Lake is situated in the Nainital district of Uttarakhand, bordered by Naina Peak and believed to be one of the 51 Shakti Peethas."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Pushkar Lake, a sacred lake associated with Lord Brahma and the venue of an annual camel fair, is situated in:",
+                o: ["Rajasthan", "Gujarat", "Madhya Pradesh", "Punjab"],
+                a: 0,
+                exp: "Pushkar Lake is located in the Ajmer district of Rajasthan, surrounded by 52 bathing ghats and the famous 14th-century Brahma Temple."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Chandra Taal (Lake of the Moon), an alpine lake situated in the Spiti part of the Lahul and Spiti district, is in:",
+                o: ["Himachal Pradesh", "Uttarakhand", "Ladakh", "Sikkim"],
+                a: 0,
+                exp: "Chandra Taal is located at an altitude of 4,300 m in Himachal Pradesh; it is the source of the Chandra River (which joins the Bhaga to form the Chenab)."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Ashtamudi Lake, a palm-shaped wetland with eight branches that serves as the gateway to the backwaters, is in:",
+                o: ["Kerala", "Tamil Nadu", "Karnataka", "Goa"],
+                a: 0,
+                exp: "Ashtamudi Lake ('Ashta' meaning eight, 'Mudi' meaning hair braids) is in Kollam, Kerala, and is a designated Ramsar wetland."
+            },
+
+            // Set 5 (20..24)
+            {
+                cat: "Major Lakes",
+                q: "Bhojtal (formerly known as Upper Lake), a massive artificial lake constructed by Paramara King Raja Bhoj, is in:",
+                o: ["Bhopal, Madhya Pradesh", "Udaipur, Rajasthan", "Indore, Madhya Pradesh", "Gwalior, Madhya Pradesh"],
+                a: 0,
+                exp: "Bhojtal is in Bhopal, MP; created in the 11th century by building an earthen dam across the Kolans River, designated a Ramsar site in 2002."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Umiam Lake (popularly known as Barapani), a scenic reservoir created by damming the Umiam River, is situated in:",
+                o: ["Meghalaya", "Assam", "Mizoram", "Nagaland"],
+                a: 0,
+                exp: "Umiam Lake is located in the hills 15 km north of Shillong in Meghalaya, serving as a major hydroelectric dam."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Tam Dil Lake, the largest natural lake in the state whose name translates to 'Lake of Mustard', is situated in:",
+                o: ["Mizoram", "Manipur", "Nagaland", "Tripura"],
+                a: 0,
+                exp: "Tam Dil is located near Saitual village in Mizoram; it is an important sports fishing and ecological center."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Gurudongmar Lake, one of the highest lakes in the world located at an elevation of 5,430 m, is in:",
+                o: ["North Sikkim", "Ladakh", "Himachal Pradesh", "Uttarakhand"],
+                a: 0,
+                exp: "Gurudongmar Lake in North Sikkim is sacred to Buddhists, Sikhs, and Hindus, named after Guru Padmasambhava (Guru Rinpoche)."
+            },
+            {
+                cat: "Major Lakes",
+                q: "Lake Pichola, an artificial freshwater lake famous for the Lake Palace (Jag Niwas) built in 1362 CE, is located in:",
+                o: ["Udaipur, Rajasthan", "Jaipur, Rajasthan", "Jodhpur, Rajasthan", "Bikaner, Rajasthan"],
+                a: 0,
+                exp: "Lake Pichola was created by Banjara tribesman Pichhu Banjara during the reign of Maharana Lakha in Udaipur, Rajasthan."
+            }
+        ];
+
+        // 25 IMPORTANT INDIAN & INTERNATIONAL DAYS
+        const POOL_DAYS = [
+            // Set 1 (0..4)
+            {
+                cat: "Important Days",
+                q: "National Science Day in India is celebrated every year on February 28 to commemorate:",
+                o: ["Birth anniversary of C.V. Raman", "Discovery of the Raman Effect", "Launch of Aryabhata satellite", "Birth of Dr. Homi Bhabha"],
+                a: 1,
+                exp: "National Science Day commemorates Sir C.V. Raman's discovery of the 'Raman Effect' on Feb 28, 1928, for which he received the 1930 Nobel Prize."
+            },
+            {
+                cat: "Important Days",
+                q: "International Women's Day is observed globally on which date?",
+                o: ["March 8", "April 22", "June 5", "October 24"],
+                a: 0,
+                exp: "International Women's Day is celebrated annually on March 8 to champion women's rights and gender parity."
+            },
+            {
+                cat: "Important Days",
+                q: "National Youth Day in India is observed on January 12 to honor the birth anniversary of:",
+                o: ["Bhagat Singh", "Swami Vivekananda", "Subhas Chandra Bose", "Chandrashekhar Azad"],
+                a: 1,
+                exp: "January 12 was declared National Youth Day by the Government of India in 1984 to commemorate the ideals of Swami Vivekananda."
+            },
+            {
+                cat: "Important Days",
+                q: "World Environment Day is celebrated worldwide every year on:",
+                o: ["May 22", "June 5", "July 11", "September 16"],
+                a: 1,
+                exp: "June 5 was established as World Environment Day by the UN General Assembly at the 1972 Stockholm Conference on Human Environment."
+            },
+            {
+                cat: "Important Days",
+                q: "National Voters' Day is celebrated across India on January 25 to mark the foundation of:",
+                o: ["Supreme Court of India", "Election Commission of India", "Union Public Service Commission", "NITI Aayog"],
+                a: 1,
+                exp: "National Voters' Day marks the founding day of the Election Commission of India (established January 25, 1950)."
+            },
+
+            // Set 2 (5..9)
+            {
+                cat: "Important Days",
+                q: "On which date is International Yoga Day celebrated globally?",
+                o: ["May 21", "June 21", "July 21", "August 21"],
+                a: 1,
+                exp: "International Day of Yoga is celebrated on June 21 (Summer Solstice), officially declared by the UN General Assembly in 2014."
+            },
+            {
+                cat: "Important Days",
+                q: "World Health Day is observed annually on April 7 to commemorate:",
+                o: ["Discovery of Penicillin", "Establishment of the World Health Organization (WHO)", "Eradication of Smallpox", "Invention of Polio Vaccine"],
+                a: 1,
+                exp: "World Health Day commemorates the founding of the World Health Organization (WHO) on April 7, 1948."
+            },
+            {
+                cat: "Important Days",
+                q: "Constitution Day (Samvidhan Divas) in India is celebrated every year on:",
+                o: ["January 26", "August 15", "November 26", "December 9"],
+                a: 2,
+                exp: "November 26 marks the adoption of the Constitution of India by the Constituent Assembly in 1949 (which came into force Jan 26, 1950)."
+            },
+            {
+                cat: "Important Days",
+                q: "Earth Day, dedicated to global environmental protection and conservation, is observed on:",
+                o: ["March 22", "April 22", "May 22", "June 22"],
+                a: 1,
+                exp: "Earth Day is observed on April 22 every year since its inception in 1970 to support environmental protection."
+            },
+            {
+                cat: "Important Days",
+                q: "National Sports Day in India is celebrated on August 29 to mark the birth anniversary of:",
+                o: ["Milkha Singh", "Major Dhyan Chand", "K.D. Jadhav", "Kapil Dev"],
+                a: 1,
+                exp: "August 29 commemorates hockey wizard Major Dhyan Chand's birth anniversary, on which national sports awards are conferred."
+            },
+
+            // Set 3 (10..14)
+            {
+                cat: "Important Days",
+                q: "World Water Day is celebrated globally every year on which date?",
+                o: ["February 2", "March 22", "April 7", "June 8"],
+                a: 1,
+                exp: "World Water Day is celebrated on March 22 to advocate for the sustainable management of freshwater resources."
+            },
+            {
+                cat: "Important Days",
+                q: "Human Rights Day is celebrated across the world every year on:",
+                o: ["October 24", "November 14", "December 10", "December 25"],
+                a: 2,
+                exp: "December 10 commemorates the UN General Assembly's adoption of the Universal Declaration of Human Rights (UDHR) in 1948."
+            },
+            {
+                cat: "Important Days",
+                q: "World Ozone Day (International Day for the Preservation of the Ozone Layer) is observed on:",
+                o: ["August 12", "September 16", "October 16", "November 11"],
+                a: 1,
+                exp: "September 16 marks the signing of the Montreal Protocol on Substances that Deplete the Ozone Layer in 1987."
+            },
+            {
+                cat: "Important Days",
+                q: "Army Day in India is celebrated every year on January 15 in recognition of:",
+                o: ["Victory in 1971 war", "Field Marshal K.M. Cariappa taking over as Commander-in-Chief in 1949", "Establishment of the Indian Military Academy", "Surgical strike in 2016"],
+                a: 1,
+                exp: "January 15 marks the day in 1949 when Field Marshal K.M. Cariappa took over command of the Indian Army from British General Sir Francis Roy Bucher."
+            },
+            {
+                cat: "Important Days",
+                q: "World Wetlands Day is observed annually on February 2 to commemorate the adoption of:",
+                o: ["Ramsar Convention in 1971", "Kyoto Protocol in 1997", "Paris Agreement in 2015", "Stockholm Convention in 1972"],
+                a: 0,
+                exp: "World Wetlands Day marks the date of adoption of the Convention on Wetlands on February 2, 1971, in the Iranian city of Ramsar."
+            },
+
+            // Set 4 (15..19)
+            {
+                cat: "Important Days",
+                q: "World Tuberculosis (TB) Day is observed annually on March 24 to commemorate:",
+                o: ["Dr. Robert Koch's discovery of Mycobacterium tuberculosis", "Introduction of BCG vaccine", "Founding of the Global Fund", "Elimination of Polio"],
+                a: 0,
+                exp: "March 24 commemorates Dr. Robert Koch's announcement in 1882 discovering the bacterium that causes tuberculosis."
+            },
+            {
+                cat: "Important Days",
+                q: "National Panchayati Raj Day is observed every year across India on:",
+                o: ["April 24", "October 2", "January 26", "August 15"],
+                a: 0,
+                exp: "April 24 marks the historic day when the Constitution (73rd Amendment) Act, 1992 came into force in 1993, constitutionalizing Panchayats."
+            },
+            {
+                cat: "Important Days",
+                q: "World Red Cross and Red Crescent Day is observed annually on May 8 to mark the birth anniversary of:",
+                o: ["Henry Dunant", "Florence Nightingale", "Clara Barton", "Mother Teresa"],
+                a: 0,
+                exp: "May 8 commemorates the birth of Henry Dunant (born 1828), founder of the International Committee of the Red Cross and first Nobel Peace Prize winner."
+            },
+            {
+                cat: "Important Days",
+                q: "World Population Day is observed every year on July 11 to focus attention on:",
+                o: ["Urgency and importance of population issues", "Global hunger and poverty", "Child healthcare", "Literacy rights"],
+                a: 0,
+                exp: "July 11 was established by the UN in 1989, inspired by the interest generated by 'Five Billion Day' on July 11, 1987."
+            },
+            {
+                cat: "Important Days",
+                q: "Kargil Vijay Diwas is named after the success of Operation Vijay and is celebrated on:",
+                o: ["July 26", "December 16", "October 8", "January 15"],
+                a: 0,
+                exp: "July 26 commemorates India's successful conclusion of 'Operation Vijay' in 1999, recapturing Pakistani-occupied outposts in Kargil."
+            },
+
+            // Set 5 (20..24)
+            {
+                cat: "Important Days",
+                q: "International Literacy Day is celebrated globally on September 8 under the auspices of which UN agency?",
+                o: ["UNESCO", "UNICEF", "WHO", "UNDP"],
+                a: 0,
+                exp: "UNESCO declared September 8 as International Literacy Day in 1966 to remind the international community of the importance of literacy."
+            },
+            {
+                cat: "Important Days",
+                q: "World Tourism Day is celebrated across the world every year on:",
+                o: ["September 27", "October 24", "November 14", "June 27"],
+                a: 0,
+                exp: "September 27 marks the adoption of the Statutes of the UNWTO (World Tourism Organization) in 1970."
+            },
+            {
+                cat: "Important Days",
+                q: "Rashtriya Ekta Diwas (National Unity Day) is observed in India on October 31 to commemorate the birth anniversary of:",
+                o: ["Sardar Vallabhbhai Patel", "Subhas Chandra Bose", "Lal Bahadur Shastri", "B.R. Ambedkar"],
+                a: 0,
+                exp: "October 31 marks the birth anniversary of Sardar Vallabhbhai Patel (The Iron Man of India), who integrated over 560 princely states into India."
+            },
+            {
+                cat: "Important Days",
+                q: "World AIDS Day is observed globally every year on:",
+                o: ["December 1", "November 1", "October 1", "January 1"],
+                a: 0,
+                exp: "World AIDS Day, first conceived in 1987, is dedicated to raising awareness of the AIDS pandemic caused by the spread of HIV."
+            },
+            {
+                cat: "Important Days",
+                q: "Good Governance Day in India is observed every year on December 25 to mark the birth anniversary of:",
+                o: ["Atal Bihari Vajpayee", "Chowdhary Charan Singh", "P.V. Narasimha Rao", "Morarji Desai"],
+                a: 0,
+                exp: "December 25 was designated Good Governance Day in 2014 in honor of former Prime Minister Atal Bihari Vajpayee."
+            }
+        ];
+
+        // 5 CURATED SETS OF 20 QUESTIONS (5 Books, 5 Parks, 5 Lakes, 5 Days each)
+        function buildPracticeSets() {
+            const sets = [];
+            for (let setIdx = 0; setIdx < 5; setIdx++) {
+                const start = setIdx * 5;
+                const end = start + 5;
+                
+                const b = POOL_BOOKS.slice(start, end);
+                const p = POOL_PARKS.slice(start, end);
+                const l = POOL_LAKES.slice(start, end);
+                const d = POOL_DAYS.slice(start, end);
+
+                // Mix the categories in round-robin fashion so the user experiences Books -> Parks -> Lakes -> Days -> Books ...
+                const mixed = [];
+                for (let i = 0; i < 5; i++) {
+                    mixed.push(b[i]);
+                    mixed.push(p[i]);
+                    mixed.push(l[i]);
+                    mixed.push(d[i]);
+                }
+
+                sets.push({
+                    id: setIdx + 1,
+                    title: `Practice Set ${setIdx + 1}`,
+                    desc: `20 Mixed SSC CGL PYQs`,
+                    questions: mixed
+                });
+            }
+            return sets;
+        }
+
+        const PRACTICE_SETS = buildPracticeSets();
+
+        // APP STATE
+        let activeSetIndex = 0; // 0 to 4
+        let currentQuestions = [];
+        let userSelections = {}; // { qIndex: optIndex }
+        let currentQIndex = 0;
+        let testStartTime = null;
+        let timerInterval = null;
+        let elapsedSeconds = 0;
+        let activeFilter = 'all';
+
+        // STORAGE HELPERS FOR PROGRESS TRACKING
+        function getStoredSetScore(setId) {
+            try {
+                const data = localStorage.getItem(`ssc_cgl_set_${setId}`);
+                return data ? JSON.parse(data) : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function saveSetScore(setId, score, total, percentage) {
+            try {
+                localStorage.setItem(`ssc_cgl_set_${setId}`, JSON.stringify({
+                    score,
+                    total,
+                    percentage,
+                    timestamp: Date.now()
+                }));
+            } catch (e) {}
+        }
+
+        // DOM REFERENCES
+        const UI = {
+            headerSetBadge: document.getElementById('header-set-badge'),
+            headerSubtitle: document.getElementById('header-subtitle'),
+            headerTestControls: document.getElementById('header-test-controls'),
+            headerHomeBtn: document.getElementById('header-home-btn'),
+            timerDisplay: document.getElementById('timer-display'),
+            paletteCountBadge: document.getElementById('palette-count-badge'),
+            progressBarContainer: document.getElementById('progress-bar-container'),
+            progressBarFill: document.getElementById('progress-bar-fill'),
+
+            introScreen: document.getElementById('intro-screen'),
+            setCardsContainer: document.getElementById('set-cards-container'),
+            quizScreen: document.getElementById('quiz-screen'),
+            resultsScreen: document.getElementById('results-screen'),
+            bottomNav: document.getElementById('quiz-bottom-nav'),
+
+            questionCatBadge: document.getElementById('question-category-badge'),
+            questionCounterInd: document.getElementById('question-counter-indicator'),
+            questionText: document.getElementById('question-text'),
+            optionsContainer: document.getElementById('options-container'),
+            clearSelectionBtn: document.getElementById('clear-selection-btn'),
+
+            navPrevBtn: document.getElementById('nav-prev-btn'),
+            navNextBtn: document.getElementById('nav-next-btn'),
+            navSubmitBtn: document.getElementById('nav-submit-btn'),
+
+            paletteModal: document.getElementById('palette-modal'),
+            paletteGrid: document.getElementById('palette-grid'),
+
+            submitModal: document.getElementById('submit-modal'),
+            submitSummaryText: document.getElementById('submit-summary-text'),
+
+            resultSetPill: document.getElementById('result-set-pill'),
+            finalScoreVal: document.getElementById('final-score-val'),
+            finalPercentageVal: document.getElementById('final-percentage-val'),
+            resultBadgeTitle: document.getElementById('result-badge-title'),
+            resultBadgeSubtitle: document.getElementById('result-badge-subtitle'),
+            metricCorrect: document.getElementById('metric-correct'),
+            metricWrong: document.getElementById('metric-wrong'),
+            metricSkipped: document.getElementById('metric-skipped'),
+            metricTime: document.getElementById('metric-time'),
+
+            nextSetActionBtn: document.getElementById('next-set-action-btn'),
+
+            countWrongTab: document.getElementById('count-wrong-tab'),
+            countCorrectTab: document.getElementById('count-correct-tab'),
+            countSkippedTab: document.getElementById('count-skipped-tab'),
+            answerKeyContainer: document.getElementById('answer-key-container')
+        };
+
+        // INITIALIZE HOME SCREEN (SET CARDS)
+        function renderSetCards() {
+            UI.setCardsContainer.innerHTML = '';
+
+            PRACTICE_SETS.forEach((setObj, idx) => {
+                const stored = getStoredSetScore(setObj.id);
+                const card = document.createElement('div');
+                card.className = 'p-4 rounded-2xl border-2 border-slate-200 bg-white hover:border-indigo-400 hover:shadow-md transition-all flex items-center justify-between group';
+
+                let statusBadge = '';
+                if (stored) {
+                    const isHigh = stored.percentage >= 70;
+                    statusBadge = `
+                        <div class="text-right">
+                            <span class="inline-block px-2 py-0.5 rounded text-[11px] font-bold ${isHigh ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
+                                Score: ${stored.score}/20 (${stored.percentage}%)
+                            </span>
+                            <span class="block text-[10px] text-slate-400 mt-0.5">Completed</span>
+                        </div>
+                    `;
+                } else {
+                    statusBadge = `
+                        <span class="inline-block px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-700 transition-colors">
+                            Start Set →
+                        </span>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-extrabold text-sm flex items-center justify-center border border-indigo-200 flex-shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            S${setObj.id}
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm sm:text-base">${setObj.title}</h3>
+                            <p class="text-xs text-slate-500 font-medium">20 Questions • Books, Parks, Lakes, Days</p>
+                        </div>
+                    </div>
+                    ${statusBadge}
+                `;
+
+                card.onclick = () => startSet(idx);
+                UI.setCardsContainer.appendChild(card);
+            });
+        }
+
+        // START A CHOSEN SET (0 to 4)
+        function startSet(setIndex) {
+            activeSetIndex = setIndex;
+            const setObj = PRACTICE_SETS[setIndex];
+            currentQuestions = setObj.questions;
+            userSelections = {};
+            currentQIndex = 0;
+            elapsedSeconds = 0;
+
+            // UI Header updates
+            UI.headerSetBadge.textContent = `Set ${setObj.id}`;
+            UI.headerSubtitle.textContent = `Question 1 of 20 • ${setObj.title}`;
+
+            // Switch screens
+            UI.introScreen.classList.add('hidden');
+            UI.resultsScreen.classList.add('hidden');
+            UI.headerHomeBtn.classList.add('hidden');
+            UI.quizScreen.classList.remove('hidden');
+            UI.bottomNav.classList.remove('hidden');
+            UI.headerTestControls.classList.remove('hidden');
+            UI.progressBarContainer.classList.remove('hidden');
+
+            startTimer();
+            renderQuestion(0);
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            testStartTime = Date.now();
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                elapsedSeconds++;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(elapsedSeconds / 60);
+            const secs = elapsedSeconds % 60;
+            UI.timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // RENDER CURRENT QUESTION IN SET
+        function renderQuestion(index) {
+            currentQIndex = index;
+            const qData = currentQuestions[index];
+
+            const answeredCount = Object.keys(userSelections).length;
+            const progress = ((index + 1) / 20) * 100;
+            UI.progressBarFill.style.width = `${progress}%`;
+
+            UI.headerSubtitle.textContent = `Question ${index + 1} of 20 • Set ${activeSetIndex + 1}`;
+            UI.questionCatBadge.textContent = qData.cat;
+            UI.questionCounterInd.textContent = `Question ${index + 1} of 20`;
+            UI.paletteCountBadge.textContent = `${index + 1}/20 (${answeredCount} ans)`;
+
+            UI.questionText.textContent = qData.q;
+
+            UI.optionsContainer.innerHTML = '';
+            const selectedOpt = userSelections[index];
+
+            qData.o.forEach((optText, optIdx) => {
+                const isSelected = selectedOpt === optIdx;
+                const letter = String.fromCharCode(65 + optIdx);
+
+                const optBtn = document.createElement('button');
+                optBtn.type = 'button';
+                optBtn.className = `w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 transition-all duration-150 flex items-center justify-between group active:scale-[0.99] ${
+                    isSelected 
+                        ? 'border-indigo-600 bg-indigo-50/90 text-indigo-950 font-semibold shadow-sm ring-2 ring-indigo-200' 
+                        : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/80 text-slate-800 font-medium'
+                }`;
+
+                optBtn.innerHTML = `
+                    <div class="flex items-center space-x-3.5">
+                        <span class="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-sm transition-colors flex-shrink-0 ${
+                            isSelected 
+                                ? 'bg-indigo-600 text-white shadow-sm' 
+                                : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
+                        }">
+                            ${letter}
+                        </span>
+                        <span class="text-sm sm:text-base leading-snug">${optText}</span>
+                    </div>
+                    <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 ml-2 ${
+                        isSelected 
+                            ? 'border-indigo-600 bg-indigo-600 text-white' 
+                            : 'border-slate-300 group-hover:border-slate-400'
+                    }">
+                        ${isSelected ? '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>' : ''}
+                    </div>
+                `;
+
+                optBtn.onclick = () => selectOption(optIdx);
+                UI.optionsContainer.appendChild(optBtn);
+            });
+
+            if (selectedOpt !== undefined) {
+                UI.clearSelectionBtn.classList.remove('hidden');
+            } else {
+                UI.clearSelectionBtn.classList.add('hidden');
+            }
+
+            UI.navPrevBtn.disabled = index === 0;
+            if (index === 19) {
+                UI.navNextBtn.classList.add('hidden');
+            } else {
+                UI.navNextBtn.classList.remove('hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectOption(optIdx) {
+            userSelections[currentQIndex] = optIdx;
+            renderQuestion(currentQIndex);
+        }
+
+        function clearCurrentSelection() {
+            delete userSelections[currentQIndex];
+            renderQuestion(currentQIndex);
+        }
+
+        function goToPrevQuestion() {
+            if (currentQIndex > 0) renderQuestion(currentQIndex - 1);
+        }
+
+        function goToNextQuestion() {
+            if (currentQIndex < 19) renderQuestion(currentQIndex + 1);
+        }
+
+        // PALETTE MODAL
+        function togglePaletteModal() {
+            const isHidden = UI.paletteModal.classList.contains('hidden');
+            if (isHidden) {
+                renderPaletteGrid();
+                UI.paletteModal.classList.remove('hidden');
+            } else {
+                UI.paletteModal.classList.add('hidden');
+            }
+        }
+
+        function renderPaletteGrid() {
+            UI.paletteGrid.innerHTML = '';
+            for (let i = 0; i < 20; i++) {
+                const btn = document.createElement('button');
+                const isAnswered = userSelections[i] !== undefined;
+                const isCurrent = currentQIndex === i;
+
+                btn.type = 'button';
+                let styleClass = 'w-full aspect-square rounded-xl text-sm font-bold flex items-center justify-center transition-all ';
+                
+                if (isCurrent) {
+                    styleClass += isAnswered 
+                        ? 'bg-indigo-600 text-white ring-4 ring-indigo-200' 
+                        : 'bg-white text-indigo-700 border-2 border-indigo-600 ring-4 ring-indigo-100';
+                } else if (isAnswered) {
+                    styleClass += 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm';
+                } else {
+                    styleClass += 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200';
+                }
+
+                btn.className = styleClass;
+                btn.textContent = i + 1;
+                btn.onclick = () => {
+                    togglePaletteModal();
+                    renderQuestion(i);
+                };
+
+                UI.paletteGrid.appendChild(btn);
+            }
+        }
+
+        // CONFIRM SUBMIT
+        function confirmSubmitTest() {
+            const answeredCount = Object.keys(userSelections).length;
+            const remaining = 20 - answeredCount;
+
+            if (remaining > 0) {
+                UI.submitSummaryText.innerHTML = `You have answered <strong>${answeredCount}</strong> of 20 questions in <strong>Set ${activeSetIndex + 1}</strong>.<br><span class="text-amber-600 font-medium">${remaining} questions are still skipped.</span>`;
+            } else {
+                UI.submitSummaryText.innerHTML = `Great job! You answered all <strong>20 of 20</strong> questions in <strong>Set ${activeSetIndex + 1}</strong>. Ready to check score and reveal answers?`;
+            }
+
+            UI.submitModal.classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            UI.submitModal.classList.add('hidden');
+        }
+
+        // FINALIZE AND REVEAL
+        function finalizeAndCheckScore() {
+            closeSubmitModal();
+            stopTimer();
+
+            let correctCount = 0;
+            let wrongCount = 0;
+            let skippedCount = 0;
+
+            currentQuestions.forEach((q, idx) => {
+                const userChoice = userSelections[idx];
+                if (userChoice === undefined) {
+                    skippedCount++;
+                } else if (userChoice === q.a) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            });
+
+            const percentage = Math.round((correctCount / 20) * 100);
+            saveSetScore(activeSetIndex + 1, correctCount, 20, percentage);
+
+            UI.resultSetPill.textContent = `Practice Set ${activeSetIndex + 1} Completed`;
+            UI.finalScoreVal.textContent = correctCount;
+            UI.finalPercentageVal.textContent = `${percentage}% Accuracy`;
+
+            UI.metricCorrect.textContent = correctCount;
+            UI.metricWrong.textContent = wrongCount;
+            UI.metricSkipped.textContent = skippedCount;
+
+            const mins = Math.floor(elapsedSeconds / 60);
+            const secs = elapsedSeconds % 60;
+            UI.metricTime.textContent = `${mins}m ${secs}s`;
+
+            if (percentage >= 80) {
+                UI.resultBadgeTitle.textContent = "🏆 Outstanding! Ranker Level";
+                UI.resultBadgeSubtitle.textContent = `Set ${activeSetIndex + 1} mastered with great accuracy!`;
+            } else if (percentage >= 50) {
+                UI.resultBadgeTitle.textContent = "👍 Good Attempt! On Track";
+                UI.resultBadgeSubtitle.textContent = `Review the questions you missed in Set ${activeSetIndex + 1} below.`;
+            } else {
+                UI.resultBadgeTitle.textContent = "📚 Keep Practicing!";
+                UI.resultBadgeSubtitle.textContent = `Revise these 20 high-yield questions using the notes below.`;
+            }
+
+            // Next set button setup
+            if (activeSetIndex < 4) {
+                UI.nextSetActionBtn.textContent = `Start Set ${activeSetIndex + 2} →`;
+                UI.nextSetActionBtn.classList.remove('hidden');
+            } else {
+                UI.nextSetActionBtn.textContent = `All Sets Done 🎉`;
+                UI.nextSetActionBtn.classList.remove('hidden');
+            }
+
+            UI.countWrongTab.textContent = wrongCount;
+            UI.countCorrectTab.textContent = correctCount;
+            UI.countSkippedTab.textContent = skippedCount;
+
+            renderAnswerKey('all');
+
+            // Switch screen
+            UI.quizScreen.classList.add('hidden');
+            UI.bottomNav.classList.add('hidden');
+            UI.headerTestControls.classList.add('hidden');
+            UI.progressBarContainer.classList.add('hidden');
+            UI.headerHomeBtn.classList.remove('hidden');
+            UI.resultsScreen.classList.remove('hidden');
+
+            UI.headerSubtitle.textContent = `Set ${activeSetIndex + 1} Score: ${correctCount}/20 (${percentage}%)`;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ANSWER KEY RENDERING
+        function filterAnswers(type) {
+            activeFilter = type;
+            const tabs = ['all', 'wrong', 'correct', 'skipped'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`filter-${t}`);
+                if (t === type) {
+                    el.className = 'px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white shadow-sm transition-all';
+                } else {
+                    el.className = 'px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all';
+                }
+            });
+            renderAnswerKey(type);
+        }
+
+        function renderAnswerKey(filterType) {
+            UI.answerKeyContainer.innerHTML = '';
+            let renderedCount = 0;
+
+            currentQuestions.forEach((q, idx) => {
+                const userChoice = userSelections[idx];
+                const isSkipped = userChoice === undefined;
+                const isCorrect = userChoice === q.a;
+                const isWrong = !isSkipped && !isCorrect;
+
+                if (filterType === 'wrong' && !isWrong) return;
+                if (filterType === 'correct' && !isCorrect) return;
+                if (filterType === 'skipped' && !isSkipped) return;
+
+                renderedCount++;
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm transition-all';
+
+                let statusBadge = '';
+                if (isCorrect) {
+                    statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        <span>Correct (+1)</span>
+                    </span>`;
+                } else if (isWrong) {
+                    statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <span>Incorrect (0)</span>
+                    </span>`;
+                } else {
+                    statusBadge = `<span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                        <span>Skipped</span>
+                    </span>`;
+                }
+
+                let optionsHtml = '';
+                q.o.forEach((opt, optIdx) => {
+                    const isActualAnswer = optIdx === q.a;
+                    const isUserChoice = optIdx === userChoice;
+                    const letter = String.fromCharCode(65 + optIdx);
+
+                    let optClass = 'p-3 rounded-xl border text-xs sm:text-sm flex items-start justify-between ';
+                    let label = '';
+
+                    if (isActualAnswer) {
+                        optClass += 'border-emerald-500 bg-emerald-50 text-emerald-950 font-semibold';
+                        label = `<span class="ml-2 inline-flex items-center text-[11px] font-bold text-emerald-700 bg-emerald-200/70 px-2 py-0.5 rounded-full">✓ Correct Answer</span>`;
+                    } else if (isUserChoice && !isCorrect) {
+                        optClass += 'border-rose-400 bg-rose-50 text-rose-950 font-medium';
+                        label = `<span class="ml-2 inline-flex items-center text-[11px] font-bold text-rose-700 bg-rose-200/70 px-2 py-0.5 rounded-full">✗ Your Answer</span>`;
+                    } else {
+                        optClass += 'border-slate-100 bg-slate-50/60 text-slate-600';
+                    }
+
+                    optionsHtml += `
+                        <div class="${optClass}">
+                            <div class="flex items-start space-x-2.5">
+                                <span class="font-bold flex-shrink-0 text-slate-400">${letter}.</span>
+                                <span>${opt}</span>
+                            </div>
+                            ${label}
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 mb-2.5">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-6 h-6 rounded-lg bg-slate-800 text-white font-bold text-xs flex items-center justify-center">
+                                ${idx + 1}
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                                ${q.cat}
+                            </span>
+                        </div>
+                        ${statusBadge}
+                    </div>
+
+                    <h4 class="text-sm sm:text-base font-bold text-slate-900 mb-3 leading-snug">
+                        ${q.q}
+                    </h4>
+
+                    <div class="space-y-2 mb-3.5">
+                        ${optionsHtml}
+                    </div>
+
+                    <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-3 text-xs text-indigo-950">
+                        <div class="font-bold text-indigo-900 flex items-center space-x-1 mb-1">
+                            <svg class="w-3.5 h-3.5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                            <span>SSC Revision Note:</span>
+                        </div>
+                        <p class="leading-relaxed text-indigo-900/90">${q.exp}</p>
+                    </div>
+                `;
+
+                UI.answerKeyContainer.appendChild(card);
+            });
+
+            if (renderedCount === 0) {
+                UI.answerKeyContainer.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 text-sm">
+                        No questions in this filter tab.
+                    </div>
+                `;
+            }
+        }
+
+        // NAVIGATION HANDLERS
+        function retakeCurrentSet() {
+            startSet(activeSetIndex);
+        }
+
+        function startNextSet() {
+            if (activeSetIndex < 4) {
+                startSet(activeSetIndex + 1);
+            } else {
+                goToHome();
+            }
+        }
+
+        function goToHome() {
+            stopTimer();
+            UI.quizScreen.classList.add('hidden');
+            UI.resultsScreen.classList.add('hidden');
+            UI.bottomNav.classList.add('hidden');
+            UI.headerTestControls.classList.add('hidden');
+            UI.progressBarContainer.classList.add('hidden');
+            UI.headerHomeBtn.classList.add('hidden');
+
+            UI.headerSetBadge.textContent = 'All Sets';
+            UI.headerSubtitle.textContent = '5 Sets • 100 SSC CGL PYQs';
+
+            renderSetCards();
+            UI.introScreen.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToHomeConfirm() {
+            if (confirm("Are you sure you want to exit to the Sets Menu? Your progress in this set will be lost.")) {
+                goToHome();
+            }
+        }
+
+        // Initial render
+        renderSetCards();
+    </script>
+</body>
+</html>
