@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SSC CGL Maths Practice - Average (100 PYQs: Medium & Hard)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+        <!-- KaTeX for Beautiful Mathematical Formula Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="ensureKaTeXLoaded()"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -31,6 +35,24 @@
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 9999px;
+        }
+                /* KaTeX formula rendering & readable solution layout */
+        .katex {
+            font-size: 1.05em !important;
+            text-rendering: auto;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0.35rem 0 !important;
+            margin: 0.5rem 0 !important;
+        }
+        .math-content {
+            word-break: break-word;
+            line-height: 1.75;
+        }
+        .math-content b, .math-content strong {
+            color: #0f172a;
         }
         .safe-bottom {
             padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5.5rem);
@@ -185,9 +207,19 @@
                             Clear answer
                         </button>
                     </div>
+
+                    <!-- Instant Practice Mode: Step-by-Step Solution & Shortcut Toggle -->
+                    <div class="mt-5 pt-3 border-t border-slate-100">
+                        <button id="toggle-solution-btn" onclick="toggleCurrentSolution()" class="w-full py-2.5 px-4 bg-indigo-50/90 hover:bg-indigo-100 text-indigo-700 font-semibold rounded-2xl text-xs sm:text-sm border border-indigo-200 transition-all flex items-center justify-center space-x-2 shadow-xs active:scale-[0.99]">
+                            <span id="toggle-solution-icon">💡</span>
+                            <span id="toggle-solution-text">Show Step-by-Step Explanation & Shortcut</span>
+                        </button>
+                        <div id="live-solution-card" class="hidden mt-3 fade-in">
+                            <div id="live-solution-content"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
 
             <!-- 3. RESULTS & ANSWER REVEALING SCREEN -->
             <div id="results-screen" class="hidden flex-1 flex flex-col py-2 fade-in">
@@ -401,7 +433,7 @@
                         a: 1,
                         diff: "Medium",
                         exam: "SSC CGL 2020 Tier-1",
-                        sol: "📌 <b>Standard Method:</b> Total members = 25. Total sum of ages = $25 \\times 16 = 400$ years. When the teacher leaves, remaining 24 students have average $16 - 1 = 15$ years. Sum of 24 students = $24 \\times 15 = 360$ years. Teacher's age = $400 - 360 = \\mathbf{40\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = Old\\text{ Avg} + [Remaining \\times \\Delta Avg] = 16 + (24 \\times 1) = \\mathbf{40\\text{ years}}$."
+                        sol: "📌 <b>Standard Method:</b> Total members = 25. Total sum of ages = $25 \\times 16 = 400$ years. When the teacher leaves, remaining 24 students have average $16 - 1 = 15$ years. Sum of 24 students = $24 \\times 15 = 360$ years. Teacher's age = $400 - 360 = \\mathbf{40\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $\text{Teacher's Age} = Old\\text{ Avg} + [Remaining \\times \\Delta Avg] = 16 + (24 \\times 1) = \\mathbf{40\\text{ years}}$."
                     },
                     {
                         q: "The average of 5 consecutive odd numbers is 63. What is the difference between the highest and lowest of these numbers?",
@@ -441,7 +473,7 @@
                         a: 2,
                         diff: "Medium",
                         exam: "SSC CGL 2020 Tier-1",
-                        sol: "📌 <b>Standard Method:</b> Total age of 30 boys = $30 \\times 15 = 450$. Total age of 31 people = $31 \\times 16 = 496$. Teacher's age = $496 - 450 = \\mathbf{46\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = New\\text{ Avg} + [Old\\text{ Count} \\times \\Delta Avg] = 16 + (30 \\times 1) = \\mathbf{46\\text{ years}}$."
+                        sol: "📌 <b>Standard Method:</b> Total age of 30 boys = $30 \\times 15 = 450$. Total age of 31 people = $31 \\times 16 = 496$. Teacher's age = $496 - 450 = \\mathbf{46\\text{ years}}$.<br><br>⚡ <b>Shortcut:</b> $\text{Teacher's Age} = New\\text{ Avg} + [Old\\text{ Count} \\times \\Delta Avg] = 16 + (30 \\times 1) = \\mathbf{46\\text{ years}}$."
                     },
                     {
                         q: "The average of 7 consecutive even numbers is 36. What is the product of the first and the last number?",
@@ -489,7 +521,7 @@
                         a: 0,
                         diff: "Medium",
                         exam: "SSC CGL 2022 Tier-1",
-                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta Avg) = 45 + (21 \\times 0.5) = 45 + 10.5 = \\mathbf{55.5\\text{ kg}}$."
+                        sol: "⚡ <b>Shortcut:</b> $\text{Teacher's Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta Avg) = 45 + (21 \\times 0.5) = 45 + 10.5 = \\mathbf{55.5\\text{ kg}}$."
                     },
                     {
                         q: "Out of 10 persons, 9 persons spent Rs 40 each on their meal. The 10th person spent Rs 9 more than the average expenditure of all the 10 persons. What was the total money spent by all of them?",
@@ -653,7 +685,7 @@
                         a: 0,
                         diff: "Medium",
                         exam: "SSC CGL 2022 Tier-1",
-                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 40 + (36 \\times 0.4) = 40 + 14.4 = \\mathbf{54.4\\text{ kg}}$."
+                        sol: "⚡ <b>Shortcut:</b> $\text{Teacher's Weight} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 40 + (36 \\times 0.4) = 40 + 14.4 = \\mathbf{54.4\\text{ kg}}$."
                     },
                     {
                         q: "The average of 7 numbers is 30. If the average of the first three numbers is 25 and that of the last three numbers is 35, what is the fourth number?",
@@ -701,7 +733,7 @@
                         a: 0,
                         diff: "Medium",
                         exam: "SSC CGL 2019 Tier-1",
-                        sol: "⚡ <b>Shortcut:</b> $Captain's\\text{ Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 25 + (13 \\times 1) = \\mathbf{38\\text{ years}}$."
+                        sol: "⚡ <b>Shortcut:</b> $\text{Captain's Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 25 + (13 \\times 1) = \\mathbf{38\\text{ years}}$."
                     },
                     {
                         q: "The average of 50 numbers is 38. If two numbers, 45 and 55, are discarded, the average of the remaining numbers is:",
@@ -957,7 +989,7 @@
                         a: 0,
                         diff: "Hard",
                         exam: "SSC CGL Tier-2 (Mains)",
-                        sol: "⚡ <b>Shortcut:</b><br>Old average = 20 years. Increase = $10\\% \\text{ of } 20 = 2$ years. New average = 22 years.<br>$Coach's\\text{ Age} = New\\text{ Avg} + (Old\\text{ Count} \\times \\Delta) = 22 + (11 \\times 2) = 22 + 22 = \\mathbf{44\\text{ years}}$."
+                        sol: "⚡ <b>Shortcut:</b><br>Old average = 20 years. Increase = $10\\% \\text{ of } 20 = 2$ years. New average = 22 years.<br>$\text{Coach's Age} = New\\text{ Avg} + (Old\\text{ Count} \\times \\Delta) = 22 + (11 \\times 2) = 22 + 22 = \\mathbf{44\\text{ years}}$."
                     },
                     {
                         q: "A car travels the first one-third of a certain distance with a speed of 10 km/h, the next one-third with a speed of 20 km/h, and the last one-third with a speed of 60 km/h. The average speed of the car for the whole journey is:",
@@ -1137,7 +1169,7 @@
                         a: 0,
                         diff: "Hard",
                         exam: "SSC CGL Tier-2 (Mains)",
-                        sol: "⚡ <b>Shortcut:</b> $Teacher's\\text{ Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 14 + (37 \\times 1) = \\mathbf{51\\text{ years}}$."
+                        sol: "⚡ <b>Shortcut:</b> $\text{Teacher's Age} = Old\\text{ Avg} + (New\\text{ Count} \\times \\Delta) = 14 + (37 \\times 1) = \\mathbf{51\\text{ years}}$."
                     },
                     {
                         q: "The average salary of male employees in a firm was Rs 5200 and that of female employees was Rs 4200. The mean salary of all the employees was Rs 5000. What is the percentage of female employees?",
@@ -1466,7 +1498,8 @@
             UI.questionCounterInd.textContent = `Question ${index + 1} of 20`;
             UI.paletteCountBadge.textContent = `${index + 1}/20 (${answeredCount} ans)`;
 
-            UI.questionText.textContent = qData.q;
+            UI.questionText.innerHTML = qData.q;
+            hideCurrentSolution();
 
             UI.optionsContainer.innerHTML = '';
             const selectedOpt = userSelections[index];
@@ -1781,16 +1814,16 @@
                         ${optionsHtml}
                     </div>
 
-                    <div class="bg-indigo-50/80 border border-indigo-100 rounded-xl p-3.5 text-xs text-indigo-950">
-                        <div class="font-bold text-indigo-900 flex items-center space-x-1 mb-1.5 text-sm">
-                            <span>📐 Complete Mathematical Solution:</span>
-                        </div>
-                        <div class="leading-relaxed text-indigo-950">${q.sol}</div>
+                    <div class="mt-3">
+                        ${formatSolutionHtml(q.sol)}
+                    </div>
                     </div>
                 `;
 
                 UI.answerKeyContainer.appendChild(card);
             });
+
+            renderAllMath(UI.answerKeyContainer);
 
             if (renderedCount === 0) {
                 UI.answerKeyContainer.innerHTML = `
@@ -1798,6 +1831,133 @@
                         No questions in this filter tab.
                     </div>
                 `;
+            }
+        }
+
+
+        // ==================== KATEX & MATHEMATICAL FORMATTING HELPERS ====================
+        function renderAllMath(target) {
+            if (!target) target = document.body;
+            if (window.renderMathInElement) {
+                try {
+                    window.renderMathInElement(target, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false },
+                            { left: '\\[', right: '\\]', display: true }
+                        ],
+                        throwOnError: false,
+                        output: 'html'
+                    });
+                } catch (e) {
+                    console.warn("KaTeX render notice:", e);
+                }
+            }
+        }
+
+        function ensureKaTeXLoaded() {
+            if (window.renderMathInElement) {
+                renderAllMath(document.body);
+            } else {
+                let attempts = 0;
+                const timer = setInterval(() => {
+                    attempts++;
+                    if (window.renderMathInElement) {
+                        clearInterval(timer);
+                        renderAllMath(document.body);
+                    }
+                    if (attempts > 20) clearInterval(timer);
+                }, 100);
+            }
+        }
+
+        function formatSolutionHtml(rawSol) {
+            if (!rawSol) return '';
+
+            // Clean up any stray apostrophes or formatting issues
+            let clean = rawSol
+                .replace(/\$Teacher's\\text\{ Age\}/g, "$\\text{Teacher's Age}")
+                .replace(/\$Teacher's\\text\{ Weight\}/g, "$\\text{Teacher's Weight}")
+                .replace(/\$Captain's\\text\{ Age\}/g, "$\\text{Captain's Age}")
+                .replace(/\$Coach's\\text\{ Age\}/g, "$\\text{Coach's Age}");
+
+            // Split into Standard Method and Shortcut Trick if present
+            let parts = clean.split(/(?:<br\s*\/?>\s*)+⚡\s*/i);
+            let isPureShortcut = false;
+            if (parts.length === 1 && clean.trim().startsWith('⚡')) {
+                parts = ['', clean.trim().replace(/^⚡\s*/, '')];
+                isPureShortcut = true;
+            }
+
+            let standardHtml = '';
+            let shortcutHtml = '';
+
+            if (parts.length > 1) {
+                standardHtml = parts[0].trim();
+                shortcutHtml = parts[1].trim();
+            } else {
+                standardHtml = clean.trim();
+            }
+
+            let html = '';
+
+            if (standardHtml) {
+                html += `
+                    <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm text-slate-800 text-sm leading-relaxed mb-3">
+                        <div class="font-bold text-indigo-700 flex items-center space-x-2 mb-2.5 pb-2 border-b border-slate-100 text-xs uppercase tracking-wider">
+                            <span class="w-5 h-5 rounded-md bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-black">📐</span>
+                            <span>Step-by-Step Concept Method</span>
+                        </div>
+                        <div class="math-content leading-relaxed text-slate-800 space-y-1">${standardHtml}</div>
+                    </div>
+                `;
+            }
+
+            if (shortcutHtml) {
+                html += `
+                    <div class="bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-amber-50/70 border border-amber-200 rounded-2xl p-4 shadow-sm text-amber-950 text-sm leading-relaxed">
+                        <div class="font-bold text-amber-900 flex items-center space-x-2 mb-2.5 pb-2 border-b border-amber-200/60 text-xs uppercase tracking-wider">
+                            <span class="w-5 h-5 rounded-md bg-amber-200 text-amber-900 flex items-center justify-center text-xs font-black">⚡</span>
+                            <span>Exam Shortcut / 20-Second Trick (\\(\\Sigma\\Delta\\))</span>
+                        </div>
+                        <div class="math-content font-medium text-amber-950 leading-relaxed space-y-1">${shortcutHtml}</div>
+                    </div>
+                `;
+            }
+
+            return html;
+        }
+
+        function toggleCurrentSolution() {
+            const card = document.getElementById('live-solution-card');
+            const btnText = document.getElementById('toggle-solution-text');
+            const btnIcon = document.getElementById('toggle-solution-icon');
+            const content = document.getElementById('live-solution-content');
+            if (!card || !content) return;
+
+            if (card.classList.contains('hidden')) {
+                const qData = currentQuestions[currentQIndex];
+                content.innerHTML = formatSolutionHtml(qData.sol);
+                card.classList.remove('hidden');
+                btnText.textContent = 'Hide Step-by-Step Explanation';
+                btnIcon.textContent = '▲';
+                renderAllMath(card);
+            } else {
+                card.classList.add('hidden');
+                btnText.textContent = 'Show Step-by-Step Explanation & Shortcut';
+                btnIcon.textContent = '💡';
+            }
+        }
+
+        function hideCurrentSolution() {
+            const card = document.getElementById('live-solution-card');
+            const btnText = document.getElementById('toggle-solution-text');
+            const btnIcon = document.getElementById('toggle-solution-icon');
+            if (card && !card.classList.contains('hidden')) {
+                card.classList.add('hidden');
+                if (btnText) btnText.textContent = 'Show Step-by-Step Explanation & Shortcut';
+                if (btnIcon) btnIcon.textContent = '💡';
             }
         }
 
