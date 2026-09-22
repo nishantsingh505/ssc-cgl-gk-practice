@@ -1,6 +1,6 @@
-# SSC CGL & CHSL Practice Platform (Maths & English)
+# SSC CGL & CHSL Complete Practice Platform (Maths, English & GK)
 
-A mobile-friendly, interactive exam practice platform featuring authentic **SSC CGL & CHSL Previous Year Questions (PYQs)** for **Quantitative Aptitude (Average)** and **English Language (Spotting Errors, Idioms & Phrases, One Word Substitution)** with user profiles, progress tracking, and detailed explanations.
+A mobile-friendly, interactive exam practice platform featuring authentic **SSC CGL & CHSL 2023–2024 Previous Year Questions (PYQs)** across **Quantitative Aptitude**, **English Language**, and **General Awareness (GK)** with user profiles, progress tracking, and detailed explanations.
 
 ## 🌐 Live Demo
 Access the live platform on GitHub Pages:  
@@ -10,7 +10,7 @@ Access the live platform on GitHub Pages:
 
 ## 📚 What's Included:
 
-### 1. 📐 Quantitative Aptitude • Average (100 PYQs)
+### 1. 📐 Quantitative Aptitude • Maths (100 PYQs)
 - **100 Authentic SSC CGL PYQs** in **5 Curated Sets** of 20 questions each:
   - 📘 **Set M1 (Medium):** Replacements, Inclusions, Exclusions & Consecutive Series
   - 📘 **Set M2 (Medium):** Batting & Bowling Averages, Score Correction & Temperature Variations
@@ -31,12 +31,25 @@ Access the live platform on GitHub Pages:
 - **Detailed Grammar Explanations:**
   - Identifies the specific **Grammar Rule**, **Mistake**, and **Corrected Form**.
 
+### 3. 🌍 General Awareness • GK (100 PYQs from 2023–2024)
+- **100 Authentic SSC CGL & CHSL 2023–2024 PYQs** in **5 Curated Sets** of 20 questions each:
+  - ⚖️ **Set G1: Indian Polity & Constitution:** Articles, Amendments, Fundamental Rights, Writs, Parliament, CAG, and President's powers.
+  - 📜 **Set G2: Indian History:** Indus Valley, Mauryas, Guptas, Delhi Sultanate, Mughals, and the Freedom Struggle.
+  - 🗺️ **Set G3: Physical & Indian Geography:** Rivers, Tributaries, Mountain Passes, Soils, National Parks, Climate & Census.
+  - 🔬 **Set G4: General Science (Phy, Chem & Bio):** Cell biology, Human physiology, Vitamins, Optics, Chemical formulas, and SI Units.
+  - 🎭 **Set G5: Static GK, Dances & Culture:** Classical dances (Kathak, Mohiniyattam, Sattriya), Gharanas, UNESCO World Heritage, and Books & Authors.
+- **Detailed SSC Fact Explanations:**
+  - Comprehensive contextual insights for each question covering background and related exam facts.
+
 ---
 
-## 👑 User Profile & Progress Tracking
+## 👑 User Profile & Progress Tracking (Zero Progress Loss)
 - **Pre-configured Profile:** **Himanshi** (password: `admin`).
 - **Real-time Stats:** Tests attempted, questions solved, overall accuracy %, and study time.
-- **Set Mastery (10 Sets Total):** Visual progress bars for Sets M1–M5 (Maths) and Sets E1–E5 (English).
+- **Set Mastery (15 Sets Total):** Visual progress bars for:
+  - 📐 Maths Sets (`M1`–`M5`)
+  - 📖 English Sets (`E1`–`E5`)
+  - 🌍 GK Sets (`G1`–`G5`)
 - **Activity Log & Timeline:** Chronological record of completed sessions.
 - **Data Portability:** One-click JSON export/import for device backups.
 

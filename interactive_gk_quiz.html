@@ -138,17 +138,22 @@
                     </div>
                 </div>
 
-                <!-- TOP-LEVEL SUBJECT SWITCHER -->
+                <!-- TOP-LEVEL SUBJECT SWITCHER (3 SUBJECTS: MATHS, ENGLISH, GK) -->
                 <div class="flex items-center p-1.5 bg-slate-200/80 rounded-2xl mb-4 text-xs sm:text-sm font-extrabold shadow-inner border border-slate-300/60">
-                    <button type="button" onclick="switchSubject('maths')" id="subj-tab-maths" class="flex-1 py-2.5 px-3 rounded-xl bg-white text-indigo-900 shadow-sm transition-all flex items-center justify-center space-x-2 border border-slate-200 font-extrabold">
-                        <span class="text-base">📐</span>
-                        <span>Maths (Average)</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-extrabold">5 Sets</span>
+                    <button type="button" onclick="switchSubject('maths')" id="subj-tab-maths" class="flex-1 py-2 px-1.5 rounded-xl bg-white text-indigo-900 shadow-sm transition-all flex items-center justify-center space-x-1.5 border border-slate-200 font-extrabold text-[11px] sm:text-xs">
+                        <span>📐</span>
+                        <span>Maths</span>
+                        <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-extrabold">5 Sets</span>
                     </button>
-                    <button type="button" onclick="switchSubject('english')" id="subj-tab-english" class="flex-1 py-2.5 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-2 font-bold">
-                        <span class="text-base">📖</span>
-                        <span>English Language</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold">100 Qs</span>
+                    <button type="button" onclick="switchSubject('english')" id="subj-tab-english" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-1.5 font-bold text-[11px] sm:text-xs">
+                        <span>📖</span>
+                        <span>English</span>
+                        <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold">100 Qs</span>
+                    </button>
+                    <button type="button" onclick="switchSubject('gk')" id="subj-tab-gk" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-1.5 font-bold text-[11px] sm:text-xs">
+                        <span>🌍</span>
+                        <span>GK / GA</span>
+                        <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-extrabold">100 Qs</span>
                     </button>
                 </div>
 
@@ -4094,6 +4099,1761 @@
         }
 ];
 
+
+        // ==================== GENERAL KNOWLEDGE QUESTION BANK (SSC CGL & CHSL 2023-2024) ====================
+        const GK_SETS = [
+        {
+                "id": 1,
+                "code": "G1",
+                "title": "Set G1: Indian Polity & Constitution",
+                "category": "polity",
+                "difficulty": "Medium",
+                "desc": "Articles, Amendments, Fundamental Rights, Writs, Parliament & Judiciary (SSC CGL 2023-24)",
+                "questions": [
+                        {
+                                "q": "Which Article of the Indian Constitution guarantees the 'Right to Freedom of Religion'?",
+                                "o": [
+                                        "Articles 14 to 18",
+                                        "Articles 19 to 22",
+                                        "Articles 25 to 28",
+                                        "Articles 29 to 30"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Fundamental Rights (Part III)",
+                                        "explanation": "Articles 25 to 28 of the Indian Constitution deal with the Right to Freedom of Religion. Article 25 guarantees freedom of conscience and free profession, practice, and propagation of religion."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Fundamental Rights (Part III)<br><strong>Explanation:</strong> Articles 25 to 28 of the Indian Constitution deal with the Right to Freedom of Religion. Article 25 guarantees freedom of conscience and free profession, practice, and propagation of religion."
+                        },
+                        {
+                                "q": "By which Constitutional Amendment Act was the voting age reduced from 21 years to 18 years in India?",
+                                "o": [
+                                        "42nd Amendment Act, 1976",
+                                        "44th Amendment Act, 1978",
+                                        "61st Amendment Act, 1988",
+                                        "73rd Amendment Act, 1992"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Constitutional Amendments (Article 326)",
+                                        "explanation": "The 61st Constitutional Amendment Act, 1988 (which came into force in 1989) amended Article 326 to lower the voting age for Lok Sabha and State Legislative Assemblies from 21 to 18 years."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Constitutional Amendments (Article 326)<br><strong>Explanation:</strong> The 61st Constitutional Amendment Act, 1988 (which came into force in 1989) amended Article 326 to lower the voting age for Lok Sabha and State Legislative Assemblies from 21 to 18 years."
+                        },
+                        {
+                                "q": "Which writ is issued by the High Court or Supreme Court to quash the order of an inferior court or tribunal that acted without jurisdiction?",
+                                "o": [
+                                        "Habeas Corpus",
+                                        "Mandamus",
+                                        "Certiorari",
+                                        "Quo-Warranto"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Writs under Article 32 & 226",
+                                        "explanation": "Certiorari ('to be certified') is a judicial writ issued to quash an order already passed by a lower court or quasi-judicial body exceeding its jurisdiction. Mandamus commands a public official to perform a duty."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Writs under Article 32 & 226<br><strong>Explanation:</strong> Certiorari ('to be certified') is a judicial writ issued to quash an order already passed by a lower court or quasi-judicial body exceeding its jurisdiction. Mandamus commands a public official to perform a duty."
+                        },
+                        {
+                                "q": "Under which Article of the Constitution can the President of India declare a Financial Emergency?",
+                                "o": [
+                                        "Article 352",
+                                        "Article 356",
+                                        "Article 360",
+                                        "Article 368"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Emergency Provisions (Part XVIII)",
+                                        "explanation": "Article 360 empowers the President to proclaim a Financial Emergency if the financial stability or credit of India is threatened. Financial Emergency has never been declared in India so far."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Emergency Provisions (Part XVIII)<br><strong>Explanation:</strong> Article 360 empowers the President to proclaim a Financial Emergency if the financial stability or credit of India is threatened. Financial Emergency has never been declared in India so far."
+                        },
+                        {
+                                "q": "Who presided over the inaugural meeting of the Constituent Assembly of India on December 9, 1946 as its temporary President?",
+                                "o": [
+                                        "Dr. Rajendra Prasad",
+                                        "Dr. B.R. Ambedkar",
+                                        "Dr. Sachchidananda Sinha",
+                                        "Jawaharlal Nehru"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Making of the Indian Constitution",
+                                        "explanation": "Dr. Sachchidananda Sinha, being the oldest member, was elected temporary Chairman on 9 December 1946 following the French practice. Dr. Rajendra Prasad was elected permanent President on 11 December 1946."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Making of the Indian Constitution<br><strong>Explanation:</strong> Dr. Sachchidananda Sinha, being the oldest member, was elected temporary Chairman on 9 December 1946 following the French practice. Dr. Rajendra Prasad was elected permanent President on 11 December 1946."
+                        },
+                        {
+                                "q": "Which Schedule of the Indian Constitution contains provisions regarding the disqualification of members on ground of defection (Anti-Defection Law)?",
+                                "o": [
+                                        "Seventh Schedule",
+                                        "Eighth Schedule",
+                                        "Tenth Schedule",
+                                        "Eleventh Schedule"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Anti-Defection Law (52nd Amendment, 1985)",
+                                        "explanation": "The 10th Schedule was added by the 52nd Amendment Act, 1985 to curb political defections. The decision on disqualification under the 10th Schedule is taken by the Presiding Officer of the House."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Anti-Defection Law (52nd Amendment, 1985)<br><strong>Explanation:</strong> The 10th Schedule was added by the 52nd Amendment Act, 1985 to curb political defections. The decision on disqualification under the 10th Schedule is taken by the Presiding Officer of the House."
+                        },
+                        {
+                                "q": "Article 21A, which provides for free and compulsory education for all children aged 6 to 14 years, was inserted by which Amendment?",
+                                "o": [
+                                        "86th Amendment Act, 2002",
+                                        "84th Amendment Act, 2001",
+                                        "91st Amendment Act, 2003",
+                                        "44th Amendment Act, 1978"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Fundamental Right to Education",
+                                        "explanation": "The 86th Constitutional Amendment Act, 2002 inserted Article 21A making elementary education a Fundamental Right. It also added Fundamental Duty 51A(k)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Fundamental Right to Education<br><strong>Explanation:</strong> The 86th Constitutional Amendment Act, 2002 inserted Article 21A making elementary education a Fundamental Right. It also added Fundamental Duty 51A(k)."
+                        },
+                        {
+                                "q": "The concept of 'Directive Principles of State Policy' (DPSP) in the Indian Constitution was borrowed from which country?",
+                                "o": [
+                                        "United Kingdom",
+                                        "United States of America",
+                                        "Ireland",
+                                        "USSR"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Sources of the Indian Constitution",
+                                        "explanation": "Directive Principles of State Policy (Articles 36 to 51, Part IV) were borrowed from the Irish Constitution of 1937, which had originally borrowed them from the Spanish Constitution."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Sources of the Indian Constitution<br><strong>Explanation:</strong> Directive Principles of State Policy (Articles 36 to 51, Part IV) were borrowed from the Irish Constitution of 1937, which had originally borrowed them from the Spanish Constitution."
+                        },
+                        {
+                                "q": "What is the minimum age required to become a member of the Rajya Sabha (Council of States)?",
+                                "o": [
+                                        "21 years",
+                                        "25 years",
+                                        "30 years",
+                                        "35 years"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Qualifications for Parliament (Article 84)",
+                                        "explanation": "Article 84(b) prescribes a minimum age of 30 years for Rajya Sabha (Upper House) and 25 years for Lok Sabha (Lower House). For President and Vice-President, the minimum age is 35 years."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Qualifications for Parliament (Article 84)<br><strong>Explanation:</strong> Article 84(b) prescribes a minimum age of 30 years for Rajya Sabha (Upper House) and 25 years for Lok Sabha (Lower House). For President and Vice-President, the minimum age is 35 years."
+                        },
+                        {
+                                "q": "Which Article of the Indian Constitution abolishes 'Untouchability' and forbids its practice in any form?",
+                                "o": [
+                                        "Article 14",
+                                        "Article 15",
+                                        "Article 17",
+                                        "Article 18"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Right to Equality (Articles 14-18)",
+                                        "explanation": "Article 17 abolishes 'Untouchability'. The Parliament enacted the Untouchability (Offences) Act, 1955, later renamed as the Protection of Civil Rights Act, 1955."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Right to Equality (Articles 14-18)<br><strong>Explanation:</strong> Article 17 abolishes 'Untouchability'. The Parliament enacted the Untouchability (Offences) Act, 1955, later renamed as the Protection of Civil Rights Act, 1955."
+                        },
+                        {
+                                "q": "Who appoints the Comptroller and Auditor General (CAG) of India under Article 148?",
+                                "o": [
+                                        "Prime Minister of India",
+                                        "President of India",
+                                        "Chief Justice of India",
+                                        "Speaker of Lok Sabha"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Constitutional Bodies (Article 148)",
+                                        "explanation": "The CAG of India is appointed by the President of India by warrant under his hand and seal. The CAG holds office for a term of 6 years or until the age of 65 years, whichever is earlier."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Constitutional Bodies (Article 148)<br><strong>Explanation:</strong> The CAG of India is appointed by the President of India by warrant under his hand and seal. The CAG holds office for a term of 6 years or until the age of 65 years, whichever is earlier."
+                        },
+                        {
+                                "q": "In which landmark case did the Supreme Court of India propound the 'Basic Structure Doctrine' of the Constitution?",
+                                "o": [
+                                        "Golaknath Case (1967)",
+                                        "Kesavananda Bharati Case (1973)",
+                                        "Minerva Mills Case (1980)",
+                                        "Maneka Gandhi Case (1978)"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Judicial Review & Basic Structure",
+                                        "explanation": "In Kesavananda Bharati v. State of Kerala (1973), a 13-judge constitutional bench ruled that Parliament can amend any part of the Constitution under Article 368, but cannot alter its 'Basic Structure'."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Judicial Review & Basic Structure<br><strong>Explanation:</strong> In Kesavananda Bharati v. State of Kerala (1973), a 13-judge constitutional bench ruled that Parliament can amend any part of the Constitution under Article 368, but cannot alter its 'Basic Structure'."
+                        },
+                        {
+                                "q": "How many Fundamental Duties are currently incorporated in Article 51A of the Indian Constitution?",
+                                "o": [
+                                        "9",
+                                        "10",
+                                        "11",
+                                        "12"
+                                ],
+                                "a": 2,
+                                "exp": {
+                                        "rule": "Fundamental Duties (Part IVA)",
+                                        "explanation": "Originally, 10 Fundamental Duties were added by the 42nd Amendment Act, 1976 on the recommendation of the Swaran Singh Committee. The 11th duty (education for children 6-14 years) was added by the 86th Amendment, 2002."
+                                },
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Fundamental Duties (Part IVA)<br><strong>Explanation:</strong> Originally, 10 Fundamental Duties were added by the 42nd Amendment Act, 1976 on the recommendation of the Swaran Singh Committee. The 11th duty (education for children 6-14 years) was added by the 86th Amendment, 2002."
+                        },
+                        {
+                                "q": "Under which Article can the Governor of an Indian State reserve a bill passed by the state legislature for the consideration of the President?",
+                                "o": [
+                                        "Article 161",
+                                        "Article 200",
+                                        "Article 213",
+                                        "Article 214"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-2",
+                                "exp": {
+                                        "rule": "State Legislature & Governor Powers",
+                                        "explanation": "Under Article 200, the Governor can assent, withhold assent, return the bill (if not a Money Bill), or reserve the bill for the consideration of the President. Article 201 deals with the President's action on such bills."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> State Legislature & Governor Powers<br><strong>Explanation:</strong> Under Article 200, the Governor can assent, withhold assent, return the bill (if not a Money Bill), or reserve the bill for the consideration of the President. Article 201 deals with the President's action on such bills."
+                        },
+                        {
+                                "q": "What is the quorum required to constitute a sitting of either House of the Parliament of India?",
+                                "o": [
+                                        "One-fifth (1/5) of total members",
+                                        "One-tenth (1/10) of total members",
+                                        "One-third (1/3) of total members",
+                                        "One-twelfth (1/12) of total members"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Parliamentary Quorum (Article 100(3))",
+                                        "explanation": "Article 100(3) states that the quorum to constitute a meeting of either House of Parliament is one-tenth (10%) of the total number of members of the House, including the presiding officer."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Parliamentary Quorum (Article 100(3))<br><strong>Explanation:</strong> Article 100(3) states that the quorum to constitute a meeting of either House of Parliament is one-tenth (10%) of the total number of members of the House, including the presiding officer."
+                        },
+                        {
+                                "q": "Which Constitutional Amendment Act granted Constitutional status to the Panchayati Raj Institutions in India?",
+                                "o": [
+                                        "71st Amendment Act, 1992",
+                                        "73rd Amendment Act, 1992",
+                                        "74th Amendment Act, 1992",
+                                        "86th Amendment Act, 2002"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Panchayati Raj (Part IX, Schedule 11)",
+                                        "explanation": "The 73rd Amendment Act, 1992 added Part IX and the 11th Schedule (29 functional items) to constitutionally empower rural local self-governance. 74th Amendment deals with Urban Local Bodies (Municipalities)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Panchayati Raj (Part IX, Schedule 11)<br><strong>Explanation:</strong> The 73rd Amendment Act, 1992 added Part IX and the 11th Schedule (29 functional items) to constitutionally empower rural local self-governance. 74th Amendment deals with Urban Local Bodies (Municipalities)."
+                        },
+                        {
+                                "q": "Under Article 72 of the Indian Constitution, who possesses the power to grant pardons, reprieves, respites, or remissions of punishment?",
+                                "o": [
+                                        "Chief Justice of India",
+                                        "Prime Minister",
+                                        "President of India",
+                                        "Attorney General of India"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Pardoning Power of the President",
+                                        "explanation": "Article 72 grants pardoning powers to the President of India in all cases where punishment is for an offence against Union law, by a Court Martial, or in all cases of death sentences."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Pardoning Power of the President<br><strong>Explanation:</strong> Article 72 grants pardoning powers to the President of India in all cases where punishment is for an offence against Union law, by a Court Martial, or in all cases of death sentences."
+                        },
+                        {
+                                "q": "Which Article defines the 'Money Bill' in the Indian Parliament?",
+                                "o": [
+                                        "Article 108",
+                                        "Article 110",
+                                        "Article 112",
+                                        "Article 114"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Money Bills (Article 110)",
+                                        "explanation": "Article 110 defines Money Bills. A Money Bill can only be introduced in Lok Sabha on the prior recommendation of the President. The decision of the Speaker of Lok Sabha on whether a bill is a Money Bill is final."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Money Bills (Article 110)<br><strong>Explanation:</strong> Article 110 defines Money Bills. A Money Bill can only be introduced in Lok Sabha on the prior recommendation of the President. The decision of the Speaker of Lok Sabha on whether a bill is a Money Bill is final."
+                        },
+                        {
+                                "q": "Who is known as the 'First Law Officer' of the Government of India?",
+                                "o": [
+                                        "Chief Justice of India",
+                                        "Law Minister of India",
+                                        "Attorney General of India",
+                                        "Solicitor General of India"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Attorney General of India (Article 76)",
+                                        "explanation": "The Attorney General of India, appointed under Article 76 by the President, is the highest and first law officer in the country. He has the right of audience in all courts in India and can participate in parliamentary proceedings without voting right."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Attorney General of India (Article 76)<br><strong>Explanation:</strong> The Attorney General of India, appointed under Article 76 by the President, is the highest and first law officer in the country. He has the right of audience in all courts in India and can participate in parliamentary proceedings without voting right."
+                        },
+                        {
+                                "q": "Which words were added to the Preamble of the Indian Constitution by the 42nd Constitutional Amendment Act, 1976?",
+                                "o": [
+                                        "Socialist, Secular, Integrity",
+                                        "Sovereign, Democratic, Republic",
+                                        "Justice, Liberty, Equality",
+                                        "Fraternity, Dignity, Unity"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Preamble Amendment (42nd Amendment, 1976)",
+                                        "explanation": "The Preamble has been amended only once till date, by the 42nd Amendment Act 1976, which added three words: 'Socialist', 'Secular', and 'Integrity'."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Preamble Amendment (42nd Amendment, 1976)<br><strong>Explanation:</strong> The Preamble has been amended only once till date, by the 42nd Amendment Act 1976, which added three words: 'Socialist', 'Secular', and 'Integrity'."
+                        }
+                ]
+        },
+        {
+                "id": 2,
+                "code": "G2",
+                "title": "Set G2: Indian History (Ancient, Medieval & Modern)",
+                "category": "history",
+                "difficulty": "Medium",
+                "desc": "Indus Valley, Maurya, Delhi Sultanate, Mughals & Freedom Struggle (SSC CGL 2023-24)",
+                "questions": [
+                        {
+                                "q": "At which Harappan site was the famous dockyard and port facility discovered?",
+                                "o": [
+                                        "Kalibangan",
+                                        "Lothal",
+                                        "Mohenjo-daro",
+                                        "Dholavira"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Indus Valley Civilization",
+                                        "explanation": "Lothal, located in Gujarat along the Bhogava river, was a prominent port city of the Indus Valley Civilization featuring a massive tidal dockyard, bead factory, and rice husk remains."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Indus Valley Civilization<br><strong>Explanation:</strong> Lothal, located in Gujarat along the Bhogava river, was a prominent port city of the Indus Valley Civilization featuring a massive tidal dockyard, bead factory, and rice husk remains."
+                        },
+                        {
+                                "q": "Who was the founder of the Maurya Empire, who overthrew the Nanda Dynasty with the help of Chanakya in 322 BCE?",
+                                "o": [
+                                        "Ashoka",
+                                        "Chandragupta Maurya",
+                                        "Bindusara",
+                                        "Brihadratha"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Mauryan Dynasty",
+                                        "explanation": "Chandragupta Maurya founded the Mauryan Empire in 322 BCE after overthrowing Dhana Nanda with the guidance of his mentor Kautilya (Chanakya/Vishnugupta), author of the Arthashastra."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Mauryan Dynasty<br><strong>Explanation:</strong> Chandragupta Maurya founded the Mauryan Empire in 322 BCE after overthrowing Dhana Nanda with the guidance of his mentor Kautilya (Chanakya/Vishnugupta), author of the Arthashastra."
+                        },
+                        {
+                                "q": "Which battle fought in 1526 marked the beginning of the Mughal Empire in India?",
+                                "o": [
+                                        "First Battle of Panipat",
+                                        "Battle of Khanwa",
+                                        "Second Battle of Panipat",
+                                        "Battle of Chausa"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Mughal Empire (Babur)",
+                                        "explanation": "On 21 April 1526, Babur defeated Ibrahim Lodi in the First Battle of Panipat using artillery (cannons) and the Tulghuma tactical formation, founding the Mughal Empire."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Mughal Empire (Babur)<br><strong>Explanation:</strong> On 21 April 1526, Babur defeated Ibrahim Lodi in the First Battle of Panipat using artillery (cannons) and the Tulghuma tactical formation, founding the Mughal Empire."
+                        },
+                        {
+                                "q": "The famous rock-cut Kailash Temple at Ellora (Cave 16) was built under the patronage of which Rashtrakuta king?",
+                                "o": [
+                                        "Amoghavarsha I",
+                                        "Krishna I",
+                                        "Dantidurga",
+                                        "Govinda III"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Ancient Indian Architecture (Rashtrakutas)",
+                                        "explanation": "The monolithic Kailash Temple (Cave 16 at Ellora) was carved top-down out of a single basalt rock cliff during the 8th century under Rashtrakuta King Krishna I."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Ancient Indian Architecture (Rashtrakutas)<br><strong>Explanation:</strong> The monolithic Kailash Temple (Cave 16 at Ellora) was carved top-down out of a single basalt rock cliff during the 8th century under Rashtrakuta King Krishna I."
+                        },
+                        {
+                                "q": "Who founded the 'Arya Samaj' in Bombay in the year 1875 with the motto 'Go back to the Vedas'?",
+                                "o": [
+                                        "Raja Ram Mohan Roy",
+                                        "Swami Dayanand Saraswati",
+                                        "Swami Vivekananda",
+                                        "Ishwar Chandra Vidyasagar"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Socio-Religious Reform Movements",
+                                        "explanation": "Swami Dayanand Saraswati founded the Arya Samaj in 1875 in Bombay. He wrote the famous book 'Satyarth Prakash' and advocated the supremacy of Vedic philosophy."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Socio-Religious Reform Movements<br><strong>Explanation:</strong> Swami Dayanand Saraswati founded the Arya Samaj in 1875 in Bombay. He wrote the famous book 'Satyarth Prakash' and advocated the supremacy of Vedic philosophy."
+                        },
+                        {
+                                "q": "Who among the following was the Governor-General of India when the Revolt of 1857 broke out?",
+                                "o": [
+                                        "Lord Dalhousie",
+                                        "Lord Canning",
+                                        "Lord Curzon",
+                                        "Lord William Bentinck"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Revolt of 1857 & Viceroys",
+                                        "explanation": "Lord Canning was the Governor-General during the Revolt of 1857. After the Government of India Act 1858, he became the first Viceroy of India."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Revolt of 1857 & Viceroys<br><strong>Explanation:</strong> Lord Canning was the Governor-General during the Revolt of 1857. After the Government of India Act 1858, he became the first Viceroy of India."
+                        },
+                        {
+                                "q": "Which Delhi Sultan introduced the market control regulations and price control policy along with the Dagh (branding horses) and Chehra system?",
+                                "o": [
+                                        "Iltutmish",
+                                        "Balban",
+                                        "Alauddin Khalji",
+                                        "Muhammad bin Tughlaq"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Delhi Sultanate (Khalji Dynasty)",
+                                        "explanation": "Alauddin Khalji (1296–1316) established strict market control with fixed prices for commodities overseen by the Shahna-i-Mandi, and introduced Dagh and Chehra in the army."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Delhi Sultanate (Khalji Dynasty)<br><strong>Explanation:</strong> Alauddin Khalji (1296–1316) established strict market control with fixed prices for commodities overseen by the Shahna-i-Mandi, and introduced Dagh and Chehra in the army."
+                        },
+                        {
+                                "q": "The historic Lucknow Pact of 1916 was signed between the Indian National Congress and which organization?",
+                                "o": [
+                                        "All India Muslim League",
+                                        "Ghadar Party",
+                                        "Swaraj Party",
+                                        "Hindu Mahasabha"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Indian National Movement (1916)",
+                                        "explanation": "The Lucknow Pact of 1916 was an agreement between the Indian National Congress (headed by Bal Gangadhar Tilak) and the All India Muslim League (headed by M.A. Jinnah) for joint political demands."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Indian National Movement (1916)<br><strong>Explanation:</strong> The Lucknow Pact of 1916 was an agreement between the Indian National Congress (headed by Bal Gangadhar Tilak) and the All India Muslim League (headed by M.A. Jinnah) for joint political demands."
+                        },
+                        {
+                                "q": "Who was known by the title 'Kaviraja' and was depicted playing the Veena on his gold coins?",
+                                "o": [
+                                        "Chandragupta I",
+                                        "Samudragupta",
+                                        "Chandragupta II (Vikramaditya)",
+                                        "Skandagupta"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Gupta Empire (Golden Age)",
+                                        "explanation": "Samudragupta, described as the 'Napoleon of India' by V.A. Smith, was a great patron of arts, titled 'Kaviraja', and depicted playing the lyre/veena on his coins. His conquests are recorded in the Prayag Prashasti by Harisena."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Gupta Empire (Golden Age)<br><strong>Explanation:</strong> Samudragupta, described as the 'Napoleon of India' by V.A. Smith, was a great patron of arts, titled 'Kaviraja', and depicted playing the lyre/veena on his coins. His conquests are recorded in the Prayag Prashasti by Harisena."
+                        },
+                        {
+                                "q": "In which year did the tragic Jallianwala Bagh massacre take place in Amritsar on Baisakhi day?",
+                                "o": [
+                                        "1916",
+                                        "1918",
+                                        "1919",
+                                        "1920"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Freedom Struggle (Rowlatt Satyagraha)",
+                                        "explanation": "On 13 April 1919, British troops under General Reginald Dyer opened fire on an unarmed gathering in Jallianwala Bagh protesting the arrest of Dr. Saifuddin Kitchlew and Dr. Satyapal under the Rowlatt Act."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Freedom Struggle (Rowlatt Satyagraha)<br><strong>Explanation:</strong> On 13 April 1919, British troops under General Reginald Dyer opened fire on an unarmed gathering in Jallianwala Bagh protesting the arrest of Dr. Saifuddin Kitchlew and Dr. Satyapal under the Rowlatt Act."
+                        },
+                        {
+                                "q": "Which Chinese Buddhist pilgrim visited India during the reign of King Harshavardhana in the 7th century CE?",
+                                "o": [
+                                        "Fa-Hien",
+                                        "Hiuen Tsang (Xuanzang)",
+                                        "I-Tsing",
+                                        "Megasthenes"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Foreign Travelers in Ancient India",
+                                        "explanation": "Hiuen Tsang (Xuanzang) visited India during the reign of Harsha (606–647 CE) and studied at Nalanda University. His travel account is titled 'Si-Yu-Ki'. Fa-Hien visited during Chandragupta II's reign."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Foreign Travelers in Ancient India<br><strong>Explanation:</strong> Hiuen Tsang (Xuanzang) visited India during the reign of Harsha (606–647 CE) and studied at Nalanda University. His travel account is titled 'Si-Yu-Ki'. Fa-Hien visited during Chandragupta II's reign."
+                        },
+                        {
+                                "q": "Who founded the 'Servants of India Society' in Pune in 1905?",
+                                "o": [
+                                        "Gopal Krishna Gokhale",
+                                        "Bal Gangadhar Tilak",
+                                        "Mahadev Govind Ranade",
+                                        "Dadabhai Naoroji"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Early Nationalist Leaders",
+                                        "explanation": "Gopal Krishna Gokhale, political mentor of Mahatma Gandhi, founded the Servants of India Society in 1905 to train national missionaries for the service of India."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Early Nationalist Leaders<br><strong>Explanation:</strong> Gopal Krishna Gokhale, political mentor of Mahatma Gandhi, founded the Servants of India Society in 1905 to train national missionaries for the service of India."
+                        },
+                        {
+                                "q": "The Battle of Plassey was fought on 23 June 1757 between the British East India Company led by Robert Clive and which Nawab of Bengal?",
+                                "o": [
+                                        "Mir Jafar",
+                                        "Mir Qasim",
+                                        "Siraj-ud-Daulah",
+                                        "Alivardi Khan"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Establishment of British Rule in India",
+                                        "explanation": "In the Battle of Plassey (1757), Robert Clive defeated Nawab Siraj-ud-Daulah after Mir Jafar betrayed the Nawab. This battle laid the foundation of British dominion in Bengal."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Establishment of British Rule in India<br><strong>Explanation:</strong> In the Battle of Plassey (1757), Robert Clive defeated Nawab Siraj-ud-Daulah after Mir Jafar betrayed the Nawab. This battle laid the foundation of British dominion in Bengal."
+                        },
+                        {
+                                "q": "Who was the court poet of King Harshavardhana, who composed the biographical work 'Harshacharita' and 'Kadambari'?",
+                                "o": [
+                                        "Banabhatta",
+                                        "Kalidasa",
+                                        "Bhavabhuti",
+                                        "Dandin"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Ancient Indian Sanskrit Literature",
+                                        "explanation": "Banabhatta was the Asthana Kavi (court poet) of King Harshavardhana of Kannauj. He composed 'Harshacharita' (biography of Harsha) and 'Kadambari' (one of the world's earliest novels)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Ancient Indian Sanskrit Literature<br><strong>Explanation:</strong> Banabhatta was the Asthana Kavi (court poet) of King Harshavardhana of Kannauj. He composed 'Harshacharita' (biography of Harsha) and 'Kadambari' (one of the world's earliest novels)."
+                        },
+                        {
+                                "q": "In which INC Session was the historic resolution of 'Poorna Swaraj' (Complete Independence) passed in 1929?",
+                                "o": [
+                                        "Calcutta Session",
+                                        "Lahore Session",
+                                        "Karachi Session",
+                                        "Belgaum Session"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "INC Sessions & Resolutions",
+                                        "explanation": "At the Lahore Session in December 1929, under the presidency of Jawaharlal Nehru, the Congress declared 'Poorna Swaraj' as its goal and unfurled the tricolour flag on the banks of the Ravi on 31 December 1929."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> INC Sessions & Resolutions<br><strong>Explanation:</strong> At the Lahore Session in December 1929, under the presidency of Jawaharlal Nehru, the Congress declared 'Poorna Swaraj' as its goal and unfurled the tricolour flag on the banks of the Ravi on 31 December 1929."
+                        },
+                        {
+                                "q": "The famous 'Iron Pillar' situated in the Qutb Complex at Mehrauli, Delhi, belongs to which dynasty?",
+                                "o": [
+                                        "Mauryan Dynasty",
+                                        "Gupta Dynasty",
+                                        "Kushan Dynasty",
+                                        "Chola Dynasty"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Ancient Metallurgy & Guptas",
+                                        "explanation": "The rust-resistant Iron Pillar at Mehrauli bears an inscription of King 'Chandra', identified with Chandragupta II (Vikramaditya) of the Gupta Dynasty (4th century CE)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Ancient Metallurgy & Guptas<br><strong>Explanation:</strong> The rust-resistant Iron Pillar at Mehrauli bears an inscription of King 'Chandra', identified with Chandragupta II (Vikramaditya) of the Gupta Dynasty (4th century CE)."
+                        },
+                        {
+                                "q": "Who among the following founded the revolutionary organisation 'Abhinav Bharat Society' in 1904?",
+                                "o": [
+                                        "Vinayak Damodar Savarkar",
+                                        "Bhagat Singh",
+                                        "Barindra Kumar Ghosh",
+                                        "Rash Behari Bose"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Revolutionary Freedom Movement",
+                                        "explanation": "V.D. Savarkar (along with his brother Ganesh Savarkar) founded the secret revolutionary society 'Abhinav Bharat Society' in Nashik in 1904, which evolved from the Mitra Mela (1899)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Revolutionary Freedom Movement<br><strong>Explanation:</strong> V.D. Savarkar (along with his brother Ganesh Savarkar) founded the secret revolutionary society 'Abhinav Bharat Society' in Nashik in 1904, which evolved from the Mitra Mela (1899)."
+                        },
+                        {
+                                "q": "The Grand Trunk (GT) Road from Chittagong to Kabul was rebuilt and modernized during the reign of which medieval ruler?",
+                                "o": [
+                                        "Akbar",
+                                        "Sher Shah Suri",
+                                        "Alauddin Khalji",
+                                        "Shah Jahan"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Suri Empire (1540–1545)",
+                                        "explanation": "Sher Shah Suri rebuilt and extended the ancient Mauryan highway 'Uttarapatha', naming it 'Sadak-e-Azam' (later called Grand Trunk Road by the British), and introduced the Rupiya currency coin."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Suri Empire (1540–1545)<br><strong>Explanation:</strong> Sher Shah Suri rebuilt and extended the ancient Mauryan highway 'Uttarapatha', naming it 'Sadak-e-Azam' (later called Grand Trunk Road by the British), and introduced the Rupiya currency coin."
+                        },
+                        {
+                                "q": "Who presided over the only INC Session attended and presided over by Mahatma Gandhi in 1924?",
+                                "o": [
+                                        "Belgaum Session",
+                                        "Kanpur Session",
+                                        "Gaya Session",
+                                        "Nagpur Session"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Gandhian Era & INC",
+                                        "explanation": "The 39th Session of the Indian National Congress held at Belgaum (Karnataka) in 1924 was the only session ever presided over by Mahatma Gandhi."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Gandhian Era & INC<br><strong>Explanation:</strong> The 39th Session of the Indian National Congress held at Belgaum (Karnataka) in 1924 was the only session ever presided over by Mahatma Gandhi."
+                        },
+                        {
+                                "q": "The treaty of Seringapatam (1792) was signed after which Anglo-Mysore War?",
+                                "o": [
+                                        "First Anglo-Mysore War",
+                                        "Second Anglo-Mysore War",
+                                        "Third Anglo-Mysore War",
+                                        "Fourth Anglo-Mysore War"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Anglo-Mysore Wars",
+                                        "explanation": "The Treaty of Seringapatam (1792) concluded the Third Anglo-Mysore War, wherein Tipu Sultan was forced to cede half of his kingdom to the British and their allies (Marathas and Nizam)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Anglo-Mysore Wars<br><strong>Explanation:</strong> The Treaty of Seringapatam (1792) concluded the Third Anglo-Mysore War, wherein Tipu Sultan was forced to cede half of his kingdom to the British and their allies (Marathas and Nizam)."
+                        }
+                ]
+        },
+        {
+                "id": 3,
+                "code": "G3",
+                "title": "Set G3: Physical & Indian Geography",
+                "category": "geography",
+                "difficulty": "Medium",
+                "desc": "Rivers, Mountain Passes, Soils, National Parks & Climate (SSC CGL 2023-24)",
+                "questions": [
+                        {
+                                "q": "Which river is famously known as the 'Sorrow of Bengal' due to its devastating monsoon floods?",
+                                "o": [
+                                        "Kosi River",
+                                        "Damodar River",
+                                        "Hooghly River",
+                                        "Subarnarekha River"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Indian River Systems",
+                                        "explanation": "Damodar River was traditionally called the 'Sorrow of Bengal'. The Damodar Valley Corporation (DVC) multipurpose river project in 1948 helped control these floods. Kosi is the 'Sorrow of Bihar'."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Indian River Systems<br><strong>Explanation:</strong> Damodar River was traditionally called the 'Sorrow of Bengal'. The Damodar Valley Corporation (DVC) multipurpose river project in 1948 helped control these floods. Kosi is the 'Sorrow of Bihar'."
+                        },
+                        {
+                                "q": "Which is the highest peak in the Western Ghats and in Peninsular South India?",
+                                "o": [
+                                        "Doddabetta",
+                                        "Anamudi",
+                                        "Kalsubai",
+                                        "Mahendragiri"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Physiography of India",
+                                        "explanation": "Anamudi (2,695 metres), located in the Anaimalai Hills of Kerala, is the highest peak in South India and the Western Ghats. Doddabetta (2,637 m) is the highest in the Nilgiri Hills."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Physiography of India<br><strong>Explanation:</strong> Anamudi (2,695 metres), located in the Anaimalai Hills of Kerala, is the highest peak in South India and the Western Ghats. Doddabetta (2,637 m) is the highest in the Nilgiri Hills."
+                        },
+                        {
+                                "q": "Through how many Indian states does the 'Tropic of Cancer' (23.5° N) pass?",
+                                "o": [
+                                        "6 states",
+                                        "7 states",
+                                        "8 states",
+                                        "9 states"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Latitudinal Extent of India",
+                                        "explanation": "The Tropic of Cancer passes through 8 Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Latitudinal Extent of India<br><strong>Explanation:</strong> The Tropic of Cancer passes through 8 Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram."
+                        },
+                        {
+                                "q": "Which mountain pass connects the Kashmir Valley with the Ladakh region?",
+                                "o": [
+                                        "Rohtang Pass",
+                                        "Zoji La Pass",
+                                        "Shipki La Pass",
+                                        "Nathu La Pass"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Himalayan Mountain Passes",
+                                        "explanation": "Zoji La Pass (altitude 3,528 m) on the Great Himalayas connects Srinagar with Kargil and Leh. Shipki La is in Himachal connecting with Tibet; Nathu La connects Sikkim with Tibet."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Himalayan Mountain Passes<br><strong>Explanation:</strong> Zoji La Pass (altitude 3,528 m) on the Great Himalayas connects Srinagar with Kargil and Leh. Shipki La is in Himachal connecting with Tibet; Nathu La connects Sikkim with Tibet."
+                        },
+                        {
+                                "q": "Majuli, the world's largest inhabited riverine island, is situated on which river in Assam?",
+                                "o": [
+                                        "Ganga",
+                                        "Brahmaputra",
+                                        "Meghna",
+                                        "Godavari"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Drainage System of India",
+                                        "explanation": "Majuli island is situated on the Brahmaputra River in Assam, formed where the Brahmaputra branches and meets the Subansiri River. It became India's first island district in 2016."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Drainage System of India<br><strong>Explanation:</strong> Majuli island is situated on the Brahmaputra River in Assam, formed where the Brahmaputra branches and meets the Subansiri River. It became India's first island district in 2016."
+                        },
+                        {
+                                "q": "Which type of soil in India is also known as 'Regur Soil' and is ideal for cotton cultivation?",
+                                "o": [
+                                        "Alluvial Soil",
+                                        "Black Soil",
+                                        "Red & Yellow Soil",
+                                        "Laterite Soil"
+                                ],
+                                "a": 1,
+                                "exp": {
+                                        "rule": "Indian Soil Classifications",
+                                        "explanation": "Black Soil (Regur or Black Cotton Soil) is rich in clay minerals (montmorillonite), lime, iron, and potash, with high moisture retention. It is formed by the weathering of Deccan basalt trap lava."
+                                },
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Indian Soil Classifications<br><strong>Explanation:</strong> Black Soil (Regur or Black Cotton Soil) is rich in clay minerals (montmorillonite), lime, iron, and potash, with high moisture retention. It is formed by the weathering of Deccan basalt trap lava."
+                        },
+                        {
+                                "q": "Which is the largest brackish water coastal lagoon in India, situated in Odisha?",
+                                "o": [
+                                        "Vembanad Lake",
+                                        "Chilika Lake",
+                                        "Pulicat Lake",
+                                        "Kolleru Lake"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Lakes & Wetlands of India",
+                                        "explanation": "Chilika Lake in Odisha is the largest brackish water lagoon in India and second largest in the world. It was designated the first Indian wetland of international importance under the Ramsar Convention in 1981."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Lakes & Wetlands of India<br><strong>Explanation:</strong> Chilika Lake in Odisha is the largest brackish water lagoon in India and second largest in the world. It was designated the first Indian wetland of international importance under the Ramsar Convention in 1981."
+                        },
+                        {
+                                "q": "The 'Duncan Passage' strait separates which two island groups in the Indian Ocean?",
+                                "o": [
+                                        "North Andaman and Middle Andaman",
+                                        "South Andaman and Little Andaman",
+                                        "Little Andaman and Car Nicobar",
+                                        "Minicoy and Maldives"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Island Geography of India",
+                                        "explanation": "Duncan Passage is a strait separating South Andaman and Little Andaman. The 10 Degree Channel separates Andaman islands from Nicobar islands."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Island Geography of India<br><strong>Explanation:</strong> Duncan Passage is a strait separating South Andaman and Little Andaman. The 10 Degree Channel separates Andaman islands from Nicobar islands."
+                        },
+                        {
+                                "q": "Kaziranga National Park in Assam is globally renowned as the premier sanctuary for which endangered animal?",
+                                "o": [
+                                        "Royal Bengal Tiger",
+                                        "Great Indian One-horned Rhinoceros",
+                                        "Asiatic Lion",
+                                        "Snow Leopard"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "National Parks & Wildlife Sanctuaries",
+                                        "explanation": "Kaziranga National Park (a UNESCO World Heritage Site) hosts two-thirds of the world's great one-horned rhinoceros population along the floodplains of the Brahmaputra."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> National Parks & Wildlife Sanctuaries<br><strong>Explanation:</strong> Kaziranga National Park (a UNESCO World Heritage Site) hosts two-thirds of the world's great one-horned rhinoceros population along the floodplains of the Brahmaputra."
+                        },
+                        {
+                                "q": "Which atmospheric boundary layer contains the 'Ozone Layer' that absorbs harmful solar ultraviolet (UV) radiation?",
+                                "o": [
+                                        "Troposphere",
+                                        "Stratosphere",
+                                        "Mesosphere",
+                                        "Thermosphere"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Layers of the Atmosphere",
+                                        "explanation": "The Stratosphere (extending from roughly 12 to 50 km above Earth's surface) contains the high-concentration ozone layer (ozonosphere) that shields Earth from harmful solar UV-B rays."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Layers of the Atmosphere<br><strong>Explanation:</strong> The Stratosphere (extending from roughly 12 to 50 km above Earth's surface) contains the high-concentration ozone layer (ozonosphere) that shields Earth from harmful solar UV-B rays."
+                        },
+                        {
+                                "q": "Which Indian state has the longest coastline among all peninsular mainland states?",
+                                "o": [
+                                        "Tamil Nadu",
+                                        "Gujarat",
+                                        "Andhra Pradesh",
+                                        "Maharashtra"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Coastal Geography of India",
+                                        "explanation": "Gujarat has the longest coastline in mainland India at approximately 1,600 km due to its indented shores, the Gulf of Kutch, and Gulf of Khambhat. Andhra Pradesh has the second longest."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Coastal Geography of India<br><strong>Explanation:</strong> Gujarat has the longest coastline in mainland India at approximately 1,600 km due to its indented shores, the Gulf of Kutch, and Gulf of Khambhat. Andhra Pradesh has the second longest."
+                        },
+                        {
+                                "q": "The famous 'Jog Falls' (Gersoppa Falls), one of the highest plunge waterfalls in India, is situated on which river?",
+                                "o": [
+                                        "Kaveri River",
+                                        "Sharavathi River",
+                                        "Narmada River",
+                                        "Krishna River"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Waterfalls & River Morphology",
+                                        "explanation": "Jog Falls (253 metres height) is located on the Sharavathi River in the Shimoga district of Karnataka, plunging down in four distinct cascades called Raja, Roarer, Rocket, and Rani."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Waterfalls & River Morphology<br><strong>Explanation:</strong> Jog Falls (253 metres height) is located on the Sharavathi River in the Shimoga district of Karnataka, plunging down in four distinct cascades called Raja, Roarer, Rocket, and Rani."
+                        },
+                        {
+                                "q": "Which west-flowing Indian river flows through a rift valley between the Vindhya and Satpura mountain ranges?",
+                                "o": [
+                                        "Godavari",
+                                        "Narmada",
+                                        "Mahanadi",
+                                        "Cauvery"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Peninsular Rivers",
+                                        "explanation": "The Narmada River originates from the Amarkantak plateau in Madhya Pradesh and flows westward in a rift valley between the Vindhyas (north) and Satpuras (south) into the Arabian Sea via the Gulf of Khambhat."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Peninsular Rivers<br><strong>Explanation:</strong> The Narmada River originates from the Amarkantak plateau in Madhya Pradesh and flows westward in a rift valley between the Vindhyas (north) and Satpuras (south) into the Arabian Sea via the Gulf of Khambhat."
+                        },
+                        {
+                                "q": "What is the standard time meridian of India (Indian Standard Time - IST)?",
+                                "o": [
+                                        "80° 30' E",
+                                        "82° 30' E",
+                                        "84° 30' E",
+                                        "85° 30' E"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Standard Time of India",
+                                        "explanation": "The Standard Meridian of India is 82°30' E longitude, passing through Mirzapur (near Prayagraj, UP). It is 5 hours and 30 minutes ahead of Greenwich Mean Time (UTC+05:30)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Standard Time of India<br><strong>Explanation:</strong> The Standard Meridian of India is 82°30' E longitude, passing through Mirzapur (near Prayagraj, UP). It is 5 hours and 30 minutes ahead of Greenwich Mean Time (UTC+05:30)."
+                        },
+                        {
+                                "q": "Which Indian biosphere reserve was the first to be included in UNESCO's World Network of Biosphere Reserves in 2000?",
+                                "o": [
+                                        "Sundarbans",
+                                        "Nanda Devi",
+                                        "Nilgiri Biosphere Reserve",
+                                        "Gulf of Mannar"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Biosphere Reserves of India",
+                                        "explanation": "The Nilgiri Biosphere Reserve (established in 1986, spanning Tamil Nadu, Kerala, and Karnataka) was the first biosphere reserve in India and the first to join UNESCO's MAB network in 2000."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Biosphere Reserves of India<br><strong>Explanation:</strong> The Nilgiri Biosphere Reserve (established in 1986, spanning Tamil Nadu, Kerala, and Karnataka) was the first biosphere reserve in India and the first to join UNESCO's MAB network in 2000."
+                        },
+                        {
+                                "q": "Which is the southernmost point of the Indian Union territory?",
+                                "o": [
+                                        "Kanyakumari",
+                                        "Indira Point",
+                                        "Indira Col",
+                                        "Kibithu"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Extreme Points of India",
+                                        "explanation": "Indira Point (6°45' N), located on Great Nicobar Island, is the southernmost point of the Indian Union. Kanyakumari (Cape Comorin, 8°4' N) is the southernmost point of the mainland."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Extreme Points of India<br><strong>Explanation:</strong> Indira Point (6°45' N), located on Great Nicobar Island, is the southernmost point of the Indian Union. Kanyakumari (Cape Comorin, 8°4' N) is the southernmost point of the mainland."
+                        },
+                        {
+                                "q": "Which winds are responsible for bringing rainfall to the Coromandel Coast (Tamil Nadu) during winter months (Oct–Dec)?",
+                                "o": [
+                                        "South-West Monsoons",
+                                        "North-East Monsoons (Retreating Monsoon)",
+                                        "Western Disturbances",
+                                        "Mango Showers"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Indian Climate & Monsoon",
+                                        "explanation": "The North-East (Retreating) Monsoons pick up moisture as they blow over the Bay of Bengal and deposit winter rainfall along the Coromandel Coast in coastal Tamil Nadu."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Indian Climate & Monsoon<br><strong>Explanation:</strong> The North-East (Retreating) Monsoons pick up moisture as they blow over the Bay of Bengal and deposit winter rainfall along the Coromandel Coast in coastal Tamil Nadu."
+                        },
+                        {
+                                "q": "In which ocean trench is the 'Mariana Trench', the deepest point on Earth (Challenger Deep), located?",
+                                "o": [
+                                        "Atlantic Ocean",
+                                        "Indian Ocean",
+                                        "Pacific Ocean",
+                                        "Arctic Ocean"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Oceanography & World Physical Geography",
+                                        "explanation": "The Mariana Trench is located in the western Pacific Ocean. Its deepest point, Challenger Deep, plunges approximately 10,994 metres below sea level."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Oceanography & World Physical Geography<br><strong>Explanation:</strong> The Mariana Trench is located in the western Pacific Ocean. Its deepest point, Challenger Deep, plunges approximately 10,994 metres below sea level."
+                        },
+                        {
+                                "q": "Which Indian state has the highest percentage of forest cover in terms of geographical area as per the India State of Forest Report (ISFR)?",
+                                "o": [
+                                        "Madhya Pradesh",
+                                        "Mizoram",
+                                        "Arunachal Pradesh",
+                                        "Meghalaya"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Forest Resources & ISFR",
+                                        "explanation": "In terms of percentage of total geographical area, Mizoram ranks first (over 84% forest cover). In terms of absolute total forest area, Madhya Pradesh has the largest forest cover in India."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Forest Resources & ISFR<br><strong>Explanation:</strong> In terms of percentage of total geographical area, Mizoram ranks first (over 84% forest cover). In terms of absolute total forest area, Madhya Pradesh has the largest forest cover in India."
+                        },
+                        {
+                                "q": "The 'Palk Strait' is a maritime strait that lies between which two countries?",
+                                "o": [
+                                        "India and Maldives",
+                                        "India and Sri Lanka",
+                                        "India and Bangladesh",
+                                        "India and Myanmar"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Neighboring Countries of India",
+                                        "explanation": "The Palk Strait connects the Bay of Bengal with Palk Bay and separates the Tamil Nadu state of India from the Jaffna District of Sri Lanka."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Neighboring Countries of India<br><strong>Explanation:</strong> The Palk Strait connects the Bay of Bengal with Palk Bay and separates the Tamil Nadu state of India from the Jaffna District of Sri Lanka."
+                        }
+                ]
+        },
+        {
+                "id": 4,
+                "code": "G4",
+                "title": "Set G4: General Science (Phy, Chem & Bio)",
+                "category": "science",
+                "difficulty": "Medium",
+                "desc": "Physics Laws, Chemical Compounds, Human Body & Diseases (SSC CGL 2023-24)",
+                "questions": [
+                        {
+                                "q": "What is the powerhouse of the eukaryotic cell responsible for cellular ATP synthesis?",
+                                "o": [
+                                        "Ribosome",
+                                        "Lysosome",
+                                        "Mitochondria",
+                                        "Golgi Apparatus"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Cell Biology & Cytology",
+                                        "explanation": "Mitochondria are double-membrane cell organelles known as the 'powerhouse of the cell' because they generate adenosine triphosphate (ATP), the primary biochemical energy currency."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Cell Biology & Cytology<br><strong>Explanation:</strong> Mitochondria are double-membrane cell organelles known as the 'powerhouse of the cell' because they generate adenosine triphosphate (ATP), the primary biochemical energy currency."
+                        },
+                        {
+                                "q": "Which vitamin is synthesized in the human skin upon exposure to sunlight and is essential for calcium absorption?",
+                                "o": [
+                                        "Vitamin A",
+                                        "Vitamin C",
+                                        "Vitamin D",
+                                        "Vitamin K"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Vitamins & Human Physiology",
+                                        "explanation": "Vitamin D (Cholecalciferol) is synthesized endogenously in the skin from 7-dehydrocholesterol on exposure to solar UV-B rays. Its deficiency causes rickets in children and osteomalacia in adults."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Vitamins & Human Physiology<br><strong>Explanation:</strong> Vitamin D (Cholecalciferol) is synthesized endogenously in the skin from 7-dehydrocholesterol on exposure to solar UV-B rays. Its deficiency causes rickets in children and osteomalacia in adults."
+                        },
+                        {
+                                "q": "What is the SI unit of electric potential difference (electromotive force)?",
+                                "o": [
+                                        "Ampere",
+                                        "Ohm",
+                                        "Volt",
+                                        "Coulomb"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Physics SI Units & Measurements",
+                                        "explanation": "The Volt (V) is the SI unit of electric potential and voltage, named after Alessandro Volta. 1 Volt = 1 Joule per Coulomb. Ampere measures current; Ohm measures resistance."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Physics SI Units & Measurements<br><strong>Explanation:</strong> The Volt (V) is the SI unit of electric potential and voltage, named after Alessandro Volta. 1 Volt = 1 Joule per Coulomb. Ampere measures current; Ohm measures resistance."
+                        },
+                        {
+                                "q": "Which acid is present in vinegar, giving it its characteristic sour taste and pungent smell?",
+                                "o": [
+                                        "Formic acid",
+                                        "Acetic acid",
+                                        "Lactic acid",
+                                        "Citric acid"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Everyday Chemistry & Organic Acids",
+                                        "explanation": "Vinegar is an aqueous solution containing 5–8% Acetic acid ($CH_3COOH$, ethanoic acid). Formic acid is found in ant stings; Lactic acid in sour milk/curd; Citric acid in citrus fruits."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Everyday Chemistry & Organic Acids<br><strong>Explanation:</strong> Vinegar is an aqueous solution containing 5–8% Acetic acid ($CH_3COOH$, ethanoic acid). Formic acid is found in ant stings; Lactic acid in sour milk/curd; Citric acid in citrus fruits."
+                        },
+                        {
+                                "q": "Which blood group is universally known as the 'Universal Donor' in the ABO blood group system?",
+                                "o": [
+                                        "AB positive (AB+)",
+                                        "AB negative (AB-)",
+                                        "O positive (O+)",
+                                        "O negative (O-)"
+                                ],
+                                "a": 3,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Human Circulatory System (Blood Groups)",
+                                        "explanation": "O-negative ($O^-$) lacks A, B, and Rh antigens on red blood cells, so it can be transfused into individuals of any blood group without eliciting an immune reaction. $AB^+$ is the universal recipient."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Human Circulatory System (Blood Groups)<br><strong>Explanation:</strong> O-negative ($O^-$) lacks A, B, and Rh antigens on red blood cells, so it can be transfused into individuals of any blood group without eliciting an immune reaction. $AB^+$ is the universal recipient."
+                        },
+                        {
+                                "q": "What is the chemical formula of 'Baking Soda' commonly used in cooking and baking?",
+                                "o": [
+                                        "$Na_2CO_3 \\cdot 10H_2O$",
+                                        "$NaHCO_3$",
+                                        "$NaOH$",
+                                        "$Ca(OH)_2$"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Common Chemical Compounds",
+                                        "explanation": "Baking Soda is Sodium Hydrogen Carbonate ($NaHCO_3$ or sodium bicarbonate). Washing soda is $Na_2CO_3 \\cdot 10H_2O$; Caustic soda is $NaOH$; Slaked lime is $Ca(OH)_2$."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Common Chemical Compounds<br><strong>Explanation:</strong> Baking Soda is Sodium Hydrogen Carbonate ($NaHCO_3$ or sodium bicarbonate). Washing soda is $Na_2CO_3 \\cdot 10H_2O$; Caustic soda is $NaOH$; Slaked lime is $Ca(OH)_2$."
+                        },
+                        {
+                                "q": "Which law of physics states that 'for every action, there is an equal and opposite reaction'?",
+                                "o": [
+                                        "Newton's First Law of Motion",
+                                        "Newton's Second Law of Motion",
+                                        "Newton's Third Law of Motion",
+                                        "Law of Conservation of Energy"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Newtonian Mechanics",
+                                        "explanation": "Newton's Third Law states that when one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Newtonian Mechanics<br><strong>Explanation:</strong> Newton's Third Law states that when one body exerts a force on a second body, the second body simultaneously exerts a force equal in magnitude and opposite in direction on the first body."
+                        },
+                        {
+                                "q": "Which enzyme present in human saliva begins the chemical digestion of dietary starch into maltose?",
+                                "o": [
+                                        "Pepsin",
+                                        "Salivary Amylase (Ptyalin)",
+                                        "Lipase",
+                                        "Trypsin"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Human Digestive System",
+                                        "explanation": "Salivary Amylase (also called Ptyalin), secreted by salivary glands in the mouth, breaks down complex dietary starch into disaccharide maltose at an optimum pH of about 6.8."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Human Digestive System<br><strong>Explanation:</strong> Salivary Amylase (also called Ptyalin), secreted by salivary glands in the mouth, breaks down complex dietary starch into disaccharide maltose at an optimum pH of about 6.8."
+                        },
+                        {
+                                "q": "Which metal is liquid at room temperature (25°C)?",
+                                "o": [
+                                        "Mercury (Hg)",
+                                        "Bromine (Br)",
+                                        "Gallium (Ga)",
+                                        "Sodium (Na)"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Properties of Elements",
+                                        "explanation": "Mercury ($Hg$) is the only metallic element that is liquid at standard room temperature. Bromine ($Br$) is the only liquid non-metal at room temperature."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Properties of Elements<br><strong>Explanation:</strong> Mercury ($Hg$) is the only metallic element that is liquid at standard room temperature. Bromine ($Br$) is the only liquid non-metal at room temperature."
+                        },
+                        {
+                                "q": "Deficiency of which hormone causes 'Diabetes Mellitus' characterized by high blood glucose levels?",
+                                "o": [
+                                        "Thyroxine",
+                                        "Insulin",
+                                        "Glucagon",
+                                        "Adrenaline"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Endocrine System & Hormones",
+                                        "explanation": "Insulin, secreted by beta ($\beta$) cells of the Islets of Langerhans in the pancreas, facilitates the uptake of glucose by body tissues. Its deficiency leads to Diabetes Mellitus."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Endocrine System & Hormones<br><strong>Explanation:</strong> Insulin, secreted by beta ($\beta$) cells of the Islets of Langerhans in the pancreas, facilitates the uptake of glucose by body tissues. Its deficiency leads to Diabetes Mellitus."
+                        },
+                        {
+                                "q": "What phenomenon of light causes the sparkling brilliance of a cut diamond and optical fiber communication?",
+                                "o": [
+                                        "Refraction of light",
+                                        "Total Internal Reflection",
+                                        "Diffraction of light",
+                                        "Dispersion of light"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Optics & Light Phenomena",
+                                        "explanation": "Total Internal Reflection (TIR) occurs when light travels from an optically denser to a rarer medium at an angle of incidence greater than the critical angle ($24.4^\\circ$ for diamond)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Optics & Light Phenomena<br><strong>Explanation:</strong> Total Internal Reflection (TIR) occurs when light travels from an optically denser to a rarer medium at an angle of incidence greater than the critical angle ($24.4^\\circ$ for diamond)."
+                        },
+                        {
+                                "q": "What is the main constituent gas of Compressed Natural Gas (CNG) and Biogas (Gobar Gas)?",
+                                "o": [
+                                        "Ethane",
+                                        "Propane",
+                                        "Methane ($CH_4$)",
+                                        "Butane"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Fuels & Hydrocarbons",
+                                        "explanation": "Methane ($CH_4$) constitutes roughly 85–95% of CNG and 55–70% of Biogas. Liquefied Petroleum Gas (LPG) consists mainly of Propane and Butane."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Fuels & Hydrocarbons<br><strong>Explanation:</strong> Methane ($CH_4$) constitutes roughly 85–95% of CNG and 55–70% of Biogas. Liquefied Petroleum Gas (LPG) consists mainly of Propane and Butane."
+                        },
+                        {
+                                "q": "Which human blood cells are colloquially known as 'soldiers of the body' because they fight pathogens?",
+                                "o": [
+                                        "Erythrocytes (RBCs)",
+                                        "Leukocytes (WBCs)",
+                                        "Thrombocytes (Platelets)",
+                                        "Plasma proteins"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Human Immune System",
+                                        "explanation": "White Blood Cells (Leukocytes - neutrophils, lymphocytes, monocytes, eosinophils, basophils) provide immune defense against bacterial, viral, and parasitic infections."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Human Immune System<br><strong>Explanation:</strong> White Blood Cells (Leukocytes - neutrophils, lymphocytes, monocytes, eosinophils, basophils) provide immune defense against bacterial, viral, and parasitic infections."
+                        },
+                        {
+                                "q": "What is the escape velocity required for an object to break free from Earth's gravitational pull?",
+                                "o": [
+                                        "$9.8\\text{ km/s}$",
+                                        "$11.2\\text{ km/s}$",
+                                        "$15.4\\text{ km/s}$",
+                                        "$25.0\\text{ km/s}$"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Gravitation (Escape Velocity)",
+                                        "explanation": "Escape velocity from the surface of the Earth is calculated by $v_e = \\sqrt{2gR} \\approx 11.2\\text{ km/s}$ (approx. $40,320\\text{ km/h}$)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Gravitation (Escape Velocity)<br><strong>Explanation:</strong> Escape velocity from the surface of the Earth is calculated by $v_e = \\sqrt{2gR} \\approx 11.2\\text{ km/s}$ (approx. $40,320\\text{ km/h}$)."
+                        },
+                        {
+                                "q": "Which gas is commonly known as 'Laughing Gas' and used as a mild dental anesthetic?",
+                                "o": [
+                                        "Nitric oxide ($NO$)",
+                                        "Nitrous oxide ($N_2O$)",
+                                        "Nitrogen dioxide ($NO_2$)",
+                                        "Sulfur dioxide ($SO_2$)"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Inorganic Chemistry Compounds",
+                                        "explanation": "Nitrous oxide ($N_2O$), discovered by Joseph Priestley in 1772, is known as laughing gas because it produces mild euphoria and acts as an anesthetic."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Inorganic Chemistry Compounds<br><strong>Explanation:</strong> Nitrous oxide ($N_2O$), discovered by Joseph Priestley in 1772, is known as laughing gas because it produces mild euphoria and acts as an anesthetic."
+                        },
+                        {
+                                "q": "Rabbits, cows, and horses have an enlarged blind sac called what to ferment cellulose with bacteria?",
+                                "o": [
+                                        "Caecum",
+                                        "Duodenum",
+                                        "Gallbladder",
+                                        "Pancreas"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Comparative Animal Physiology",
+                                        "explanation": "Herbivores have an enlarged Caecum containing symbiotic microflora (bacteria and protozoa) producing cellulase enzymes to digest fibrous plant cellulose."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Comparative Animal Physiology<br><strong>Explanation:</strong> Herbivores have an enlarged Caecum containing symbiotic microflora (bacteria and protozoa) producing cellulase enzymes to digest fibrous plant cellulose."
+                        },
+                        {
+                                "q": "Which instrument is used to measure atmospheric pressure?",
+                                "o": [
+                                        "Hygrometer",
+                                        "Barometer",
+                                        "Manometer",
+                                        "Anemometer"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Scientific Instruments",
+                                        "explanation": "A Barometer (invented by Evangelista Torricelli in 1643) measures atmospheric pressure. A Hygrometer measures humidity; Anemometer measures wind speed."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Scientific Instruments<br><strong>Explanation:</strong> A Barometer (invented by Evangelista Torricelli in 1643) measures atmospheric pressure. A Hygrometer measures humidity; Anemometer measures wind speed."
+                        },
+                        {
+                                "q": "What is the chemical name of 'Plaster of Paris' (POP)?",
+                                "o": [
+                                        "Calcium Sulfate Dihydrate",
+                                        "Calcium Sulfate Hemihydrate",
+                                        "Calcium Carbonate",
+                                        "Magnesium Sulfate"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Chemical Nomenclature",
+                                        "explanation": "Plaster of Paris is Calcium Sulfate Hemihydrate ($CaSO_4 \\cdot \\frac{1}{2}H_2O$). It is prepared by heating Gypsum ($CaSO_4 \\cdot 2H_2O$) to $373\\text{ K}$ ($100^\\circ\\text{C}$)."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Chemical Nomenclature<br><strong>Explanation:</strong> Plaster of Paris is Calcium Sulfate Hemihydrate ($CaSO_4 \\cdot \\frac{1}{2}H_2O$). It is prepared by heating Gypsum ($CaSO_4 \\cdot 2H_2O$) to $373\\text{ K}$ ($100^\\circ\\text{C}$)."
+                        },
+                        {
+                                "q": "Which part of the human brain controls involuntary vital functions such as breathing, heart rate, and blood pressure?",
+                                "o": [
+                                        "Cerebrum",
+                                        "Cerebellum",
+                                        "Medulla Oblongata",
+                                        "Hypothalamus"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Human Nervous System",
+                                        "explanation": "The Medulla Oblongata (part of the brainstem) houses autonomic cardiac, vasomotor, and respiratory reflex centers that regulate involuntary survival activities."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Human Nervous System<br><strong>Explanation:</strong> The Medulla Oblongata (part of the brainstem) houses autonomic cardiac, vasomotor, and respiratory reflex centers that regulate involuntary survival activities."
+                        },
+                        {
+                                "q": "According to Ohm's Law ($V = IR$), if resistance is doubled while voltage remains constant, the electric current will:",
+                                "o": [
+                                        "Be doubled",
+                                        "Be halved",
+                                        "Remain unchanged",
+                                        "Become quadruple"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Current Electricity & Circuits",
+                                        "explanation": "By Ohm's law, $I = \\frac{V}{R}$. Current ($I$) is inversely proportional to resistance ($R$). Doubling resistance with constant voltage halves the resulting electric current."
+                                },
+                                "diff": "Medium",
+                                "sol": "<strong>Topic:</strong> Current Electricity & Circuits<br><strong>Explanation:</strong> By Ohm's law, $I = \\frac{V}{R}$. Current ($I$) is inversely proportional to resistance ($R$). Doubling resistance with constant voltage halves the resulting electric current."
+                        }
+                ]
+        },
+        {
+                "id": 5,
+                "code": "G5",
+                "title": "Set G5: Static GK, Dances & Culture",
+                "category": "culture",
+                "difficulty": "Hard",
+                "desc": "Classical Dances, Gharanas, Festivals, UNESCO Sites & Census (SSC CGL 2023-24)",
+                "questions": [
+                        {
+                                "q": "Pandit Birju Maharaj, who passed away in 2022, was a legendary doyen of which Indian classical dance form?",
+                                "o": [
+                                        "Kathak",
+                                        "Kathakali",
+                                        "Bharatanatyam",
+                                        "Odissi"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Indian Classical Dances & Exponents",
+                                        "explanation": "Pandit Birju Maharaj was the torchbearer of the Kalka-Bindadin Gharana of Lucknow, representing the northern Indian classical dance form 'Kathak'."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Indian Classical Dances & Exponents<br><strong>Explanation:</strong> Pandit Birju Maharaj was the torchbearer of the Kalka-Bindadin Gharana of Lucknow, representing the northern Indian classical dance form 'Kathak'."
+                        },
+                        {
+                                "q": "'Mohiniyattam' is a traditional classical dance form that originated and developed in which Indian state?",
+                                "o": [
+                                        "Tamil Nadu",
+                                        "Kerala",
+                                        "Andhra Pradesh",
+                                        "Karnataka"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Sangeet Natak Akademi Classical Dances",
+                                        "explanation": "Mohiniyattam ('dance of the enchantress') is a solo feminine classical dance from Kerala characterized by graceful swaying movements in white and gold kasavu costumes."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Sangeet Natak Akademi Classical Dances<br><strong>Explanation:</strong> Mohiniyattam ('dance of the enchantress') is a solo feminine classical dance from Kerala characterized by graceful swaying movements in white and gold kasavu costumes."
+                        },
+                        {
+                                "q": "Ustad Bismillah Khan was a world-renowned maestro of which Indian musical instrument?",
+                                "o": [
+                                        "Sitar",
+                                        "Sarod",
+                                        "Shehnai",
+                                        "Tabla"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Musical Instruments & Bharat Ratna Awardees",
+                                        "explanation": "Bharat Ratna awardee Ustad Bismillah Khan elevated the woodwind instrument 'Shehnai' from weddings to the classical concert stage. He played it from the Red Fort on 15 August 1947."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Musical Instruments & Bharat Ratna Awardees<br><strong>Explanation:</strong> Bharat Ratna awardee Ustad Bismillah Khan elevated the woodwind instrument 'Shehnai' from weddings to the classical concert stage. He played it from the Red Fort on 15 August 1947."
+                        },
+                        {
+                                "q": "The vibrant hornbill festival, celebrating regional tribal heritage, is organized annually in which northeastern state?",
+                                "o": [
+                                        "Manipur",
+                                        "Nagaland",
+                                        "Mizoram",
+                                        "Meghalaya"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Folk Festivals of India",
+                                        "explanation": "The Hornbill Festival (dubbed 'Festival of Festivals') is celebrated every year from 1 to 10 December at the Naga Heritage Village, Kisama, near Kohima, Nagaland."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Folk Festivals of India<br><strong>Explanation:</strong> The Hornbill Festival (dubbed 'Festival of Festivals') is celebrated every year from 1 to 10 December at the Naga Heritage Village, Kisama, near Kohima, Nagaland."
+                        },
+                        {
+                                "q": "According to the 2011 Census of India, which state recorded the highest literacy rate in the country?",
+                                "o": [
+                                        "Mizoram",
+                                        "Kerala",
+                                        "Goa",
+                                        "Himachal Pradesh"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Census of India 2011",
+                                        "explanation": "As per Census 2011, Kerala had the highest literacy rate at 94.00%, followed by Lakshadweep (91.85%) and Mizoram (91.33%). Bihar had the lowest literacy rate at 61.80%."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Census of India 2011<br><strong>Explanation:</strong> As per Census 2011, Kerala had the highest literacy rate at 94.00%, followed by Lakshadweep (91.85%) and Mizoram (91.33%). Bihar had the lowest literacy rate at 61.80%."
+                        },
+                        {
+                                "q": "Which monument was declared a UNESCO World Heritage Site in 2023 as the 42nd site of India?",
+                                "o": [
+                                        "Santiniketan",
+                                        "Sacred Ensembles of the Hoysalas",
+                                        "Dholavira",
+                                        "Ramappa Temple"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "UNESCO World Heritage Sites in India",
+                                        "explanation": "The Sacred Ensembles of the Hoysalas (at Belur, Halebidu, and Somanathapura in Karnataka) became India's 42nd UNESCO site in 2023. Santiniketan in West Bengal was inscribed as the 41st."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> UNESCO World Heritage Sites in India<br><strong>Explanation:</strong> The Sacred Ensembles of the Hoysalas (at Belur, Halebidu, and Somanathapura in Karnataka) became India's 42nd UNESCO site in 2023. Santiniketan in West Bengal was inscribed as the 41st."
+                        },
+                        {
+                                "q": "Who is the author of the celebrated historical autobiography 'Wings of Fire'?",
+                                "o": [
+                                        "Dr. A.P.J. Abdul Kalam",
+                                        "Atal Bihari Vajpayee",
+                                        "Vikram Sarabhai",
+                                        "Homi J. Bhabha"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Famous Books & Authors",
+                                        "explanation": "'Wings of Fire' (1999) is the inspirational autobiography of Dr. A.P.J. Abdul Kalam, India's renowned missile scientist and 11th President, co-authored with Arun Tiwari."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Famous Books & Authors<br><strong>Explanation:</strong> 'Wings of Fire' (1999) is the inspirational autobiography of Dr. A.P.J. Abdul Kalam, India's renowned missile scientist and 11th President, co-authored with Arun Tiwari."
+                        },
+                        {
+                                "q": "'Sattriya', one of the eight classical dance traditions of India, was introduced by which 15th-century Vaishnavite saint?",
+                                "o": [
+                                        "Chaitanya Mahaprabhu",
+                                        "Srimanta Sankaradeva",
+                                        "Vallabhacharya",
+                                        "Kabir Das"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Classical Dances & Bhakti Saints",
+                                        "explanation": "Sattriya dance originated in the monasteries (Sattras) of Assam, created in the 15th century by great Vaishnava saint and reformer Mahapurusha Srimanta Sankaradeva."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Classical Dances & Bhakti Saints<br><strong>Explanation:</strong> Sattriya dance originated in the monasteries (Sattras) of Assam, created in the 15th century by great Vaishnava saint and reformer Mahapurusha Srimanta Sankaradeva."
+                        },
+                        {
+                                "q": "Pt. Shivkumar Sharma, who passed away in 2022, was a pioneer and legendary exponent of which folk string instrument?",
+                                "o": [
+                                        "Santoor",
+                                        "Sarangi",
+                                        "Veena",
+                                        "Violin"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Indian Classical Instrumentalists",
+                                        "explanation": "Pandit Shivkumar Sharma transformed the folk stringed instrument 'Santoor' from Jammu & Kashmir into a celebrated classical concert instrument worldwide."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Indian Classical Instrumentalists<br><strong>Explanation:</strong> Pandit Shivkumar Sharma transformed the folk stringed instrument 'Santoor' from Jammu & Kashmir into a celebrated classical concert instrument worldwide."
+                        },
+                        {
+                                "q": "Which state of India celebrates the harvest festival of 'Lohri' with festive bonfires in January?",
+                                "o": [
+                                        "Assam",
+                                        "Punjab",
+                                        "Kerala",
+                                        "Tamil Nadu"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Harvest Festivals of India",
+                                        "explanation": "Lohri is a popular winter harvest festival celebrated mainly in Punjab and Haryana on the eve of Makar Sankranti, marking the harvesting of Rabi crops (especially sugarcane and wheat)."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Harvest Festivals of India<br><strong>Explanation:</strong> Lohri is a popular winter harvest festival celebrated mainly in Punjab and Haryana on the eve of Makar Sankranti, marking the harvesting of Rabi crops (especially sugarcane and wheat)."
+                        },
+                        {
+                                "q": "Which is the official language of the state of Nagaland?",
+                                "o": [
+                                        "Nagamese",
+                                        "Ao",
+                                        "English",
+                                        "Hindi"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "State Official Languages",
+                                        "explanation": "English is the official state language of Nagaland. It was adopted in 1967 as the state has numerous diverse indigenous tribal languages."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> State Official Languages<br><strong>Explanation:</strong> English is the official state language of Nagaland. It was adopted in 1967 as the state has numerous diverse indigenous tribal languages."
+                        },
+                        {
+                                "q": "Who was the first Indian woman to win an Olympic medal?",
+                                "o": [
+                                        "Karnam Malleswari",
+                                        "Mary Kom",
+                                        "P.V. Sindhu",
+                                        "Saina Nehwal"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Sports History of India",
+                                        "explanation": "Weightlifter Karnam Malleswari became the first Indian woman to win an Olympic medal when she secured a Bronze medal in the 69 kg weightlifting division at the 2000 Sydney Olympics."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Sports History of India<br><strong>Explanation:</strong> Weightlifter Karnam Malleswari became the first Indian woman to win an Olympic medal when she secured a Bronze medal in the 69 kg weightlifting division at the 2000 Sydney Olympics."
+                        },
+                        {
+                                "q": "The 'Kumbh Mela' is held every 12 years by rotation across four sacred river cities: Haridwar, Prayagraj, Nashik, and which fourth city?",
+                                "o": [
+                                        "Varanasi",
+                                        "Ujjain",
+                                        "Rishikesh",
+                                        "Ayodhya"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Cultural Gatherings of India",
+                                        "explanation": "The Kumbh Mela rotates among four pilgrimage destinations: Haridwar (Ganga), Prayagraj (Triveni Sangam), Nashik (Godavari), and Ujjain (Shipra river)."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Cultural Gatherings of India<br><strong>Explanation:</strong> The Kumbh Mela rotates among four pilgrimage destinations: Haridwar (Ganga), Prayagraj (Triveni Sangam), Nashik (Godavari), and Ujjain (Shipra river)."
+                        },
+                        {
+                                "q": "'Ghoomar' is a traditional and charismatic women's folk dance belonging to which Indian state?",
+                                "o": [
+                                        "Gujarat",
+                                        "Rajasthan",
+                                        "Punjab",
+                                        "Haryana"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Folk Dances of India",
+                                        "explanation": "Ghoomar is a traditional Rajasthani folk dance originally developed by the Bhil tribe and later embraced by royal Rajput clans, performed in swirling flared ghaghras."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Folk Dances of India<br><strong>Explanation:</strong> Ghoomar is a traditional Rajasthani folk dance originally developed by the Bhil tribe and later embraced by royal Rajput clans, performed in swirling flared ghaghras."
+                        },
+                        {
+                                "q": "According to Census 2011, which Indian state has the lowest sex ratio (number of females per 1,000 males)?",
+                                "o": [
+                                        "Punjab",
+                                        "Haryana",
+                                        "Bihar",
+                                        "Rajasthan"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Census 2011 Demographics",
+                                        "explanation": "As per Census 2011, Haryana recorded the lowest sex ratio among all Indian states at 879 females per 1,000 males. Kerala recorded the highest sex ratio at 1,084 females per 1,000 males."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Census 2011 Demographics<br><strong>Explanation:</strong> As per Census 2011, Haryana recorded the lowest sex ratio among all Indian states at 879 females per 1,000 males. Kerala recorded the highest sex ratio at 1,084 females per 1,000 males."
+                        },
+                        {
+                                "q": "Who was the founder of the 'Gwalior Gharana', considered the oldest classical Khayal Gharana in Hindustani music?",
+                                "o": [
+                                        "Ustad Bade Ghulam Ali Khan",
+                                        "Nathan Pir Bakhsh",
+                                        "Ustad Faiyaz Khan",
+                                        "Pandit Jasraj"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "Hindustani Music Gharanas",
+                                        "explanation": "The Gwalior Gharana is regarded as the mother of all Khayal Gharanas, founded in the 16th century by Nathan Pir Bakhsh and his grandsons Haddu, Hassu, and Nathu Khan under Scindia royal patronage."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Hindustani Music Gharanas<br><strong>Explanation:</strong> The Gwalior Gharana is regarded as the mother of all Khayal Gharanas, founded in the 16th century by Nathan Pir Bakhsh and his grandsons Haddu, Hassu, and Nathu Khan under Scindia royal patronage."
+                        },
+                        {
+                                "q": "The world-famous 'Sun Temple' built by King Narasimhadeva I of the Eastern Ganga Dynasty is located at which place in Odisha?",
+                                "o": [
+                                        "Puri",
+                                        "Bhubaneswar",
+                                        "Konark",
+                                        "Cuttack"
+                                ],
+                                "a": 2,
+                                "exam": "SSC CHSL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Temple Architecture of India",
+                                        "explanation": "The 13th-century Konark Sun Temple (known as the 'Black Pagoda' to European sailors) was designed as a gigantic 24-wheeled chariot pulled by seven horses, inscribed as a UNESCO site in 1984."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Temple Architecture of India<br><strong>Explanation:</strong> The 13th-century Konark Sun Temple (known as the 'Black Pagoda' to European sailors) was designed as a gigantic 24-wheeled chariot pulled by seven horses, inscribed as a UNESCO site in 1984."
+                        },
+                        {
+                                "q": "'Bihu' is the quintessential harvest festival celebrated in three seasonal forms in which state?",
+                                "o": [
+                                        "Manipur",
+                                        "Assam",
+                                        "Tripura",
+                                        "Meghalaya"
+                                ],
+                                "a": 1,
+                                "exam": "SSC CGL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "State Festivals of India",
+                                        "explanation": "Bihu is celebrated in Assam in three phases: Rongali/Bohag Bihu (April, New Year), Kongali/Kati Bihu (October, crop protection), and Bhogali/Magh Bihu (January, harvest banquet)."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> State Festivals of India<br><strong>Explanation:</strong> Bihu is celebrated in Assam in three phases: Rongali/Bohag Bihu (April, New Year), Kongali/Kati Bihu (October, crop protection), and Bhogali/Magh Bihu (January, harvest banquet)."
+                        },
+                        {
+                                "q": "Who was the first Indian recipient of the prestigious Nobel Prize in Literature in 1913 for his poetry collection 'Gitanjali'?",
+                                "o": [
+                                        "Rabindranath Tagore",
+                                        "C.V. Raman",
+                                        "Sarojini Naidu",
+                                        "Sri Aurobindo"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CGL 2022 Tier-1",
+                                "exp": {
+                                        "rule": "Famous Personalities & Honors",
+                                        "explanation": "Gurudev Rabindranath Tagore became the first non-European to be awarded the Nobel Prize in Literature in 1913 for his spiritual and lyrical song-offerings in 'Gitanjali'."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> Famous Personalities & Honors<br><strong>Explanation:</strong> Gurudev Rabindranath Tagore became the first non-European to be awarded the Nobel Prize in Literature in 1913 for his spiritual and lyrical song-offerings in 'Gitanjali'."
+                        },
+                        {
+                                "q": "Which Indian sportsperson is popularly revered as the 'Hockey Wizard' (Hockey ka Jadoogar)?",
+                                "o": [
+                                        "Major Dhyan Chand",
+                                        "Balbir Singh Sr.",
+                                        "Dhanraj Pillay",
+                                        "K.D. Singh Babu"
+                                ],
+                                "a": 0,
+                                "exam": "SSC CHSL 2023 Tier-1",
+                                "exp": {
+                                        "rule": "National Sports Day & Icons",
+                                        "explanation": "Major Dhyan Chand earned 3 Olympic gold medals (1928, 1932, 1936) for Indian field hockey. His birth anniversary on 29 August is celebrated annually as National Sports Day (Rashtriya Khel Divas)."
+                                },
+                                "diff": "Hard",
+                                "sol": "<strong>Topic:</strong> National Sports Day & Icons<br><strong>Explanation:</strong> Major Dhyan Chand earned 3 Olympic gold medals (1928, 1932, 1936) for Indian field hockey. His birth anniversary on 29 August is celebrated annually as National Sports Day (Rashtriya Khel Divas)."
+                        }
+                ]
+        }
+];
+
         // SESSION STATE
         let currentSubject = 'maths'; // 'maths' | 'english'
         let activeSetIndex = 0; // 0 to 4
@@ -4107,7 +5867,9 @@
         let activeTabFilter = 'all';
 
         function getCurrentSets() {
-            return currentSubject === 'english' ? ENGLISH_SETS : MATHS_AVERAGE_SETS;
+            if (currentSubject === 'english') return ENGLISH_SETS;
+            if (currentSubject === 'gk') return GK_SETS;
+            return MATHS_AVERAGE_SETS;
         }
 
         // LOCAL STORAGE HELPERS
@@ -4664,6 +6426,52 @@
                 `;
                 container.appendChild(item);
             });
+
+            // Section 3: General Knowledge (GK / GA)
+            const gHeader = document.createElement('div');
+            gHeader.className = 'font-bold text-xs text-amber-900 uppercase tracking-wider pt-3 pb-1 flex items-center space-x-1.5';
+            gHeader.innerHTML = '<span>🌍 General Awareness (Sets G1 - G5)</span>';
+            container.appendChild(gHeader);
+
+            GK_SETS.forEach(s => {
+                const prog = (user.setsProgress && user.setsProgress[`gk_${s.id}`]) || null;
+                const item = document.createElement('div');
+                item.className = 'p-3 rounded-xl border border-slate-200 bg-amber-50/40 flex items-center justify-between';
+
+                let scoreBadge = '';
+                if (prog) {
+                    const isMastered = prog.percentage >= 80;
+                    scoreBadge = `
+                        <div class="text-right">
+                            <span class="inline-block px-2 py-0.5 rounded text-xs font-bold ${isMastered ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+                                ${prog.bestScore}/20 (${prog.percentage}%)
+                            </span>
+                            <span class="block text-[10px] text-slate-400 mt-0.5 font-medium">${isMastered ? '🌟 Mastered' : '⏳ In Progress'}</span>
+                        </div>
+                    `;
+                } else {
+                    scoreBadge = `
+                        <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-600">Not Started</span>
+                    `;
+                }
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-amber-600 text-white font-black text-xs flex items-center justify-center">
+                            ${s.code || 'G' + s.id}
+                        </span>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-slate-800">${s.title}</span>
+                                <span class="text-[10px] font-semibold text-slate-400">(${s.difficulty})</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 block truncate max-w-[180px] sm:max-w-xs">${s.desc}</span>
+                        </div>
+                    </div>
+                    ${scoreBadge}
+                `;
+                container.appendChild(item);
+            });
         }
 
         function renderDashboardActivityList(user) {
@@ -4819,28 +6627,33 @@
 
             const btnMaths = document.getElementById('subj-tab-maths');
             const btnEnglish = document.getElementById('subj-tab-english');
+            const btnGk = document.getElementById('subj-tab-gk');
             const headerContainer = document.getElementById('subject-header-container');
             const filterContainer = document.getElementById('subject-filter-tabs');
             const conceptCard = document.getElementById('subject-concept-card');
 
+            const resetClass = 'flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-1.5 font-bold text-[11px] sm:text-xs';
+            if (btnMaths) btnMaths.className = resetClass;
+            if (btnEnglish) btnEnglish.className = resetClass;
+            if (btnGk) btnGk.className = resetClass;
+
             if (subject === 'maths') {
-                btnMaths.className = 'flex-1 py-2.5 px-3 rounded-xl bg-white text-indigo-900 shadow-sm transition-all flex items-center justify-center space-x-2 border border-slate-200 font-extrabold';
-                btnEnglish.className = 'flex-1 py-2.5 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-2 font-bold';
+                if (btnMaths) btnMaths.className = 'flex-1 py-2 px-1.5 rounded-xl bg-white text-indigo-900 shadow-sm transition-all flex items-center justify-center space-x-1.5 border border-slate-200 font-extrabold text-[11px] sm:text-xs';
 
                 headerContainer.innerHTML = `
                     <div class="inline-flex items-center space-x-1 px-3 py-1 bg-violet-50 border border-violet-200 text-violet-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                        <span>📐 Quantitative Aptitude • Average (औसत)</span>
+                        <span>📐 Quantitative Aptitude • 2023-2024 PYQs</span>
                     </div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">SSC CGL Average PYQs</h2>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">SSC CGL Maths Practice</h2>
                     <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
-                        Practice 100 authentic SSC CGL Previous Year Questions (Medium & Hard difficulty) arranged in 5 curated sets of 20 questions each.
+                        Practice 100 authentic SSC CGL Previous Year Questions (Medium & Hard levels) with step-by-step KaTeX & Shortcut methods.
                     </p>
                 `;
 
                 filterContainer.innerHTML = `
-                    <button onclick="setTabFilter('all')" id="tab-btn-all" class="flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold">All Sets (5)</button>
-                    <button onclick="setTabFilter('medium')" id="tab-btn-medium" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold">Medium Level (2)</button>
-                    <button onclick="setTabFilter('hard')" id="tab-btn-hard" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold">Hard / Tier-2 (3)</button>
+                    <button onclick="setTabFilter('all')" id="tab-btn-all" class="flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold text-xs">All Sets (5)</button>
+                    <button onclick="setTabFilter('medium')" id="tab-btn-medium" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-xs">Medium Level (2)</button>
+                    <button onclick="setTabFilter('hard')" id="tab-btn-hard" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-xs">Hard / Tier-2 (3)</button>
                 `;
 
                 conceptCard.innerHTML = `
@@ -4869,9 +6682,8 @@
                 if (window.renderMathInElement) {
                     renderMathInElement(conceptCard, { delimiters: [{left: "$", right: "$", display: false}] });
                 }
-            } else {
-                btnEnglish.className = 'flex-1 py-2.5 px-3 rounded-xl bg-white text-emerald-900 shadow-sm transition-all flex items-center justify-center space-x-2 border border-slate-200 font-extrabold';
-                btnMaths.className = 'flex-1 py-2.5 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all flex items-center justify-center space-x-2 font-bold';
+            } else if (subject === 'english') {
+                if (btnEnglish) btnEnglish.className = 'flex-1 py-2 px-1.5 rounded-xl bg-white text-emerald-900 shadow-sm transition-all flex items-center justify-center space-x-1.5 border border-slate-200 font-extrabold text-[11px] sm:text-xs';
 
                 headerContainer.innerHTML = `
                     <div class="inline-flex items-center space-x-1 px-3 py-1 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
@@ -4913,6 +6725,51 @@
                         </div>
                     </div>
                 `;
+            } else if (subject === 'gk') {
+                if (btnGk) btnGk.className = 'flex-1 py-2 px-1.5 rounded-xl bg-white text-amber-900 shadow-sm transition-all flex items-center justify-center space-x-1.5 border border-slate-200 font-extrabold text-[11px] sm:text-xs';
+
+                headerContainer.innerHTML = `
+                    <div class="inline-flex items-center space-x-1 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-900 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                        <span>🌍 General Awareness • SSC CGL & CHSL 2023-24</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Polity, History, Geography, Science & Culture</h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
+                        100 authentic SSC CGL & CHSL 2023-2024 Previous Year Questions with comprehensive factual explanations and exam references.
+                    </p>
+                `;
+
+                filterContainer.innerHTML = `
+                    <button onclick="setTabFilter('all')" id="tab-btn-all" class="flex-1 py-2 px-1.5 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold text-[10px] sm:text-xs">All Sets (5)</button>
+                    <button onclick="setTabFilter('polity')" id="tab-btn-polity" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-[10px] sm:text-xs">Polity (G1)</button>
+                    <button onclick="setTabFilter('history')" id="tab-btn-history" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-[10px] sm:text-xs">History (G2)</button>
+                    <button onclick="setTabFilter('geography')" id="tab-btn-geography" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-[10px] sm:text-xs">Geography (G3)</button>
+                    <button onclick="setTabFilter('science')" id="tab-btn-science" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-[10px] sm:text-xs">Science (G4)</button>
+                    <button onclick="setTabFilter('culture')" id="tab-btn-culture" class="flex-1 py-2 px-1.5 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold text-[10px] sm:text-xs">Culture (G5)</button>
+                `;
+
+                conceptCard.innerHTML = `
+                    <div class="font-bold text-amber-950 text-sm flex items-center space-x-1.5">
+                        <span>🏛️ High-Yield SSC GK Facts & Memory Hooks</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 pt-1 text-[11px] text-amber-950">
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-100">
+                            <strong>Important Articles:</strong><br>
+                            Art 17 (Untouchability), Art 21A (Education), Art 32 (Writs), Art 360 (Financial Emergency).
+                        </div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-100">
+                            <strong>Landmark Battles:</strong><br>
+                            Panipat 1 (1526), Plassey (1757), Buxar (1764), Seringapatam (1792).
+                        </div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-100">
+                            <strong>Key Geography:</strong><br>
+                            Anamudi (highest peak South India), Majuli (largest river island), Chilika (largest lagoon).
+                        </div>
+                        <div class="bg-white/80 p-2.5 rounded-xl border border-amber-100">
+                            <strong>Classical Dances:</strong><br>
+                            Kathak (UP), Bharatanatyam (TN), Kathakali/Mohiniyattam (Kerala), Sattriya (Assam).
+                        </div>
+                    </div>
+                `;
             }
             renderSetCards();
         }
@@ -4942,21 +6799,42 @@
                     if (activeTabFilter === 'medium') return s.difficulty === 'Medium';
                     if (activeTabFilter === 'hard') return s.difficulty === 'Hard';
                     return true;
-                } else {
+                } else if (currentSubject === 'english') {
                     if (activeTabFilter === 'errors') return s.category === 'errors';
                     if (activeTabFilter === 'idioms') return s.category === 'idioms';
                     if (activeTabFilter === 'ows') return s.category === 'ows';
                     return true;
+                } else if (currentSubject === 'gk') {
+                    if (activeTabFilter === 'polity') return s.category === 'polity';
+                    if (activeTabFilter === 'history') return s.category === 'history';
+                    if (activeTabFilter === 'geography') return s.category === 'geography';
+                    if (activeTabFilter === 'science') return s.category === 'science';
+                    if (activeTabFilter === 'culture') return s.category === 'culture';
+                    return true;
                 }
+                return true;
             });
 
             filteredSets.forEach((setObj) => {
                 const realIndex = sets.findIndex(s => s.id === setObj.id);
-                const setId = currentSubject === 'english' ? `eng_${setObj.id}` : setObj.id;
+                let setId = setObj.id;
+                if (currentSubject === 'english') setId = `eng_${setObj.id}`;
+                else if (currentSubject === 'gk') setId = `gk_${setObj.id}`;
                 const stored = getStoredSetScore(setId);
                 const card = document.createElement('div');
-                const brandColor = currentSubject === 'english' ? 'hover:border-emerald-500 group-hover:bg-emerald-600' : 'hover:border-indigo-400 group-hover:bg-indigo-600';
-                card.className = `p-4 rounded-2xl border-2 border-slate-200 bg-white ${currentSubject === 'english' ? 'hover:border-emerald-400' : 'hover:border-indigo-400'} hover:shadow-md transition-all flex items-center justify-between group cursor-pointer`;
+                let brandColor = 'hover:border-indigo-400 group-hover:bg-indigo-600';
+                let cardBorderHover = 'hover:border-indigo-400';
+                let startBtnClass = 'bg-indigo-50 text-indigo-700 group-hover:bg-indigo-600';
+                if (currentSubject === 'english') {
+                    brandColor = 'hover:border-emerald-500 group-hover:bg-emerald-600';
+                    cardBorderHover = 'hover:border-emerald-400';
+                    startBtnClass = 'bg-emerald-50 text-emerald-700 group-hover:bg-emerald-600';
+                } else if (currentSubject === 'gk') {
+                    brandColor = 'hover:border-amber-500 group-hover:bg-amber-600';
+                    cardBorderHover = 'hover:border-amber-400';
+                    startBtnClass = 'bg-amber-50 text-amber-800 group-hover:bg-amber-600';
+                }
+                card.className = `p-4 rounded-2xl border-2 border-slate-200 bg-white ${cardBorderHover} hover:shadow-md transition-all flex items-center justify-between group cursor-pointer`;
 
                 let statusBadge = '';
                 if (stored) {
@@ -4970,11 +6848,8 @@
                         </div>
                     `;
                 } else {
-                    const btnClass = currentSubject === 'english' 
-                        ? 'bg-emerald-50 text-emerald-700 group-hover:bg-emerald-600' 
-                        : 'bg-indigo-50 text-indigo-700 group-hover:bg-indigo-600';
                     statusBadge = `
-                        <span class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-bold ${btnClass} group-hover:text-white transition-colors">
+                        <span class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl text-xs font-bold ${startBtnClass} group-hover:text-white transition-colors">
                             <span>Start</span>
                             <span>→</span>
                         </span>
@@ -4982,7 +6857,9 @@
                 }
 
                 const diffColor = setObj.difficulty === 'Hard' ? 'text-rose-700 bg-rose-50 border-rose-200' : 'text-blue-700 bg-blue-50 border-blue-200';
-                const codeBadge = currentSubject === 'english' ? (setObj.code || `E${setObj.id}`) : `M${setObj.id}`;
+                let codeBadge = `M${setObj.id}`;
+                if (currentSubject === 'english') codeBadge = setObj.code || `E${setObj.id}`;
+                else if (currentSubject === 'gk') codeBadge = setObj.code || `G${setObj.id}`;
 
                 card.innerHTML = `
                     <div class="flex items-center space-x-3.5">
@@ -5016,8 +6893,16 @@
             elapsedSeconds = 0;
 
             // UI Header updates
-            const setLabel = currentSubject === 'english' ? (setObj.code || `E${setObj.id}`) : `Set ${setObj.id}`;
-            UI.headerSetBadge.textContent = `${currentSubject === 'english' ? 'English ' : 'Maths '}${setLabel} • ${setObj.difficulty}`;
+            let subjectPrefix = 'Maths';
+            let setLabel = `Set ${setObj.id}`;
+            if (currentSubject === 'english') {
+                subjectPrefix = 'English';
+                setLabel = setObj.code || `E${setObj.id}`;
+            } else if (currentSubject === 'gk') {
+                subjectPrefix = 'GK';
+                setLabel = setObj.code || `G${setObj.id}`;
+            }
+            UI.headerSetBadge.textContent = `${subjectPrefix} ${setLabel} • ${setObj.difficulty}`;
             UI.headerSubtitle.textContent = `Q 1/20 • ${setObj.title}`;
 
             // Switch screens
@@ -5236,13 +7121,21 @@
             const percentage = Math.round((correctCount / 20) * 100);
             const sets = getCurrentSets();
             const setObj = sets[activeSetIndex];
-            const setId = currentSubject === 'english' ? `eng_${setObj.id}` : (activeSetIndex + 1);
+            let setId = activeSetIndex + 1;
+            let setPrefix = 'Maths';
+            if (currentSubject === 'english') {
+                setId = `eng_${setObj.id}`;
+                setPrefix = 'English';
+            } else if (currentSubject === 'gk') {
+                setId = `gk_${setObj.id}`;
+                setPrefix = 'GK';
+            }
             saveSetScore(setId, correctCount, 20, percentage);
 
             // Record attempt into UserManager so all progress is saved
             UserManager.recordTestAttempt({
                 setId: setId,
-                setName: `${currentSubject === 'english' ? 'English ' : 'Maths '}${setObj.code || 'Set ' + setObj.id}: ${setObj.title}`,
+                setName: `${setPrefix} ${setObj.code || 'Set ' + setObj.id}: ${setObj.title}`,
                 score: correctCount,
                 total: 20,
                 percentage: percentage,
@@ -5256,7 +7149,6 @@
             }
             updateHeaderAndHomeUserUI();
 
-            const setPrefix = currentSubject === 'english' ? 'English' : 'Maths';
             UI.resultSetPill.textContent = `${setPrefix} ${setObj.code || 'Set ' + (activeSetIndex + 1)} (${setObj.difficulty}) Completed`;
             UI.finalScoreVal.textContent = correctCount;
             UI.finalPercentageVal.textContent = `${percentage}% Accuracy`;
@@ -5482,6 +7374,19 @@
                         <div class="font-bold text-emerald-700 flex items-center space-x-2 mb-2.5 pb-2 border-b border-slate-100 text-xs uppercase tracking-wider">
                             <span class="w-5 h-5 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">📖</span>
                             <span>Grammar Rule & Concept Explanation</span>
+                        </div>
+                        <div class="leading-relaxed text-slate-800 space-y-1.5 text-xs sm:text-sm">${rawSol}</div>
+                    </div>
+                `;
+            }
+
+            // Handle rich structured GK question explanations
+            if (typeof rawSol === 'string' && rawSol.includes('<strong>Topic:</strong>')) {
+                return `
+                    <div class="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-sm text-slate-800 text-sm leading-relaxed mb-3">
+                        <div class="font-bold text-amber-800 flex items-center space-x-2 mb-2.5 pb-2 border-b border-slate-100 text-xs uppercase tracking-wider">
+                            <span class="w-5 h-5 rounded-md bg-amber-100 text-amber-800 flex items-center justify-center text-xs font-black">🌍</span>
+                            <span>SSC General Awareness Fact & Concept</span>
                         </div>
                         <div class="leading-relaxed text-slate-800 space-y-1.5 text-xs sm:text-sm">${rawSol}</div>
                     </div>
