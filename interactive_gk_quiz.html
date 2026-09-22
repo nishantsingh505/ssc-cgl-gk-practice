@@ -64,7 +64,7 @@
     <!-- Container wrapper: max width on desktop, edge-to-edge on mobile -->
     <div id="app" class="w-full max-w-xl md:max-w-2xl lg:max-w-3xl min-h-screen bg-white shadow-xl flex flex-col relative">
 
-        <!-- STICKY TOP HEADER -->
+                <!-- STICKY TOP HEADER -->
         <header id="quiz-header" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 sm:px-6 transition-all">
             <div class="flex items-center justify-between">
                 <!-- Left: Title & Set info -->
@@ -81,23 +81,32 @@
                     </div>
                 </div>
 
-                <!-- Right: Timer & Palette Toggle (Visible during test) -->
-                <div id="header-test-controls" class="hidden flex items-center space-x-2">
-                    <div class="flex items-center space-x-1 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full text-xs font-semibold border border-slate-200">
-                        <svg class="w-3.5 h-3.5 text-indigo-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span id="timer-display">00:00</span>
+                <!-- Right Side: Profile Pill & Controls -->
+                <div class="flex items-center space-x-2">
+                    <!-- User Profile Quick Button -->
+                    <button id="header-profile-btn" onclick="openProfileModal()" class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-700 transition-all shadow-2xs">
+                        <span id="header-user-avatar" class="text-sm">🎯</span>
+                        <span id="header-user-name" class="max-w-[70px] sm:max-w-[90px] truncate">Guest</span>
+                    </button>
+
+                    <!-- Timer & Palette Toggle (Visible during test) -->
+                    <div id="header-test-controls" class="hidden flex items-center space-x-2">
+                        <div class="flex items-center space-x-1 text-slate-700 bg-slate-100 px-2.5 py-1 rounded-full text-xs font-semibold border border-slate-200">
+                            <svg class="w-3.5 h-3.5 text-indigo-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span id="timer-display">00:00</span>
+                        </div>
+
+                        <button onclick="togglePaletteModal()" class="flex items-center space-x-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1 rounded-full text-xs font-bold transition-colors">
+                            <span id="palette-count-badge">1/20</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
                     </div>
 
-                    <button onclick="togglePaletteModal()" class="flex items-center space-x-1 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1 rounded-full text-xs font-bold transition-colors">
-                        <span id="palette-count-badge">1/20</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <!-- Home button when on results screen -->
+                    <button id="header-home-btn" onclick="goToHome()" class="hidden px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors">
+                        All Sets
                     </button>
                 </div>
-
-                <!-- Home button when on results screen -->
-                <button id="header-home-btn" onclick="goToHome()" class="hidden px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-colors">
-                    All Sets
-                </button>
             </div>
 
             <!-- Progress bar -->
@@ -111,6 +120,24 @@
 
             <!-- 1. SET SELECTION / INTRO SCREEN -->
             <div id="intro-screen" class="flex-1 flex flex-col py-2 fade-in max-w-xl mx-auto w-full">
+                <!-- Aspirant Profile Banner -->
+                <div id="home-user-card" onclick="openProfileModal()" class="mb-4 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-indigo-950 via-indigo-900 to-slate-900 text-white shadow-md border border-indigo-800/40 flex items-center justify-between cursor-pointer hover:border-indigo-500/50 hover:shadow-lg transition-all group">
+                    <div class="flex items-center space-x-3 min-w-0">
+                        <div id="home-user-avatar-circle" class="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-2xl flex-shrink-0 shadow-inner group-hover:scale-105 transition-transform">🎯</div>
+                        <div class="min-w-0">
+                            <div class="flex items-center space-x-2">
+                                <h3 id="home-user-name-display" class="font-bold text-sm sm:text-base text-white truncate">Guest Aspirant</h3>
+                                <span id="home-user-badge" class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-indigo-500/30 border border-indigo-400/30 text-indigo-200 uppercase tracking-wide">Practice</span>
+                            </div>
+                            <p id="home-user-substats" class="text-xs text-indigo-200/80 truncate mt-0.5">0 of 5 sets completed • Tap to view activity log</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1 text-indigo-200 text-xs font-semibold bg-white/10 hover:bg-white/20 py-1.5 px-3 rounded-xl transition-colors flex-shrink-0 ml-2">
+                        <span>Profile</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+
                 
                 <div class="text-center mb-5">
                     <div class="inline-flex items-center space-x-1 px-3 py-1 bg-violet-50 border border-violet-200 text-violet-800 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
@@ -233,6 +260,9 @@
                             <span id="result-set-pill" class="inline-block px-3 py-1 bg-indigo-500/30 border border-indigo-400/30 rounded-full text-xs font-semibold text-indigo-200 mb-2">
                                 Practice Set 1 Completed
                             </span>
+                            <span id="result-saved-user-pill" onclick="openProfileModal('activity')" class="cursor-pointer inline-flex items-center space-x-1 px-2.5 py-0.5 bg-emerald-500/20 border border-emerald-400/30 rounded-full text-[11px] font-bold text-emerald-300 hover:bg-emerald-500/30 transition-colors ml-2">
+                                <span>💾 Saved to Profile</span>
+                            </span>
                             <h2 id="result-badge-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Great Performance!</h2>
                             <p id="result-badge-subtitle" class="text-xs sm:text-sm text-indigo-200 mt-1">Here is your Maths score breakdown</p>
                         </div>
@@ -339,6 +369,227 @@
                 </button>
             </div>
         </footer>
+
+
+        <!-- USER AUTHENTICATION MODAL (LOGIN / REGISTER) -->
+        <div id="auth-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-md rounded-3xl p-5 sm:p-6 shadow-2xl fade-in max-h-[90vh] overflow-y-auto">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-lg sm:text-xl">Aspirant Account</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Save progress, set mastery & activity logs</p>
+                    </div>
+                    <button onclick="closeAuthModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 font-bold">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Tabs: Sign In / Create Account -->
+                <div class="flex items-center p-1 bg-slate-100 rounded-2xl my-4 text-xs font-bold">
+                    <button id="auth-tab-signin" onclick="switchAuthTab('signin')" class="flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all">
+                        Sign In
+                    </button>
+                    <button id="auth-tab-register" onclick="switchAuthTab('register')" class="flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all">
+                        Create Account
+                    </button>
+                </div>
+
+                <!-- Sign In Form -->
+                <div id="auth-form-signin" class="space-y-4">
+                    <!-- Quick Switcher for Existing Accounts on this browser -->
+                    <div id="auth-existing-accounts" class="hidden space-y-2">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Saved Profiles on this Device:</label>
+                        <div id="auth-accounts-list" class="space-y-1.5 max-h-36 overflow-y-auto">
+                            <!-- Injected by JS -->
+                        </div>
+                        <div class="relative py-2 flex items-center">
+                            <div class="flex-grow border-t border-slate-200"></div>
+                            <span class="flex-shrink mx-2 text-[11px] text-slate-400 font-medium">or sign in with name</span>
+                            <div class="flex-grow border-t border-slate-200"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Aspirant Name or Username</label>
+                        <input id="signin-name-input" type="text" placeholder="e.g. Nishant" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">PIN (if you set one)</label>
+                        <input id="signin-pin-input" type="password" maxlength="6" placeholder="Optional 4-digit PIN" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div id="signin-error" class="hidden text-xs text-rose-600 font-medium bg-rose-50 p-2 rounded-lg border border-rose-200"></div>
+                    <button onclick="handleSignInSubmit()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-sm shadow-md transition-all active:scale-[0.99]">
+                        Sign In & Load Progress
+                    </button>
+                </div>
+
+                <!-- Create Account Form -->
+                <div id="auth-form-register" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Your Name / Aspirant Handle <span class="text-rose-500">*</span></label>
+                        <input id="reg-name-input" type="text" placeholder="e.g. Nishant Singh" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Choose your Avatar</label>
+                        <div id="avatar-picker" class="grid grid-cols-4 gap-2">
+                            <button type="button" onclick="selectAvatar('🎯')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-indigo-600 bg-indigo-50 flex items-center justify-center transition-all">🎯</button>
+                            <button type="button" onclick="selectAvatar('🦁')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">🦁</button>
+                            <button type="button" onclick="selectAvatar('⚡')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">⚡</button>
+                            <button type="button" onclick="selectAvatar('📚')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">📚</button>
+                            <button type="button" onclick="selectAvatar('🏆')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">🏆</button>
+                            <button type="button" onclick="selectAvatar('🧠')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">🧠</button>
+                            <button type="button" onclick="selectAvatar('🚀')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">🚀</button>
+                            <button type="button" onclick="selectAvatar('🛡️')" class="avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all">🛡️</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Target Exam</label>
+                        <select id="reg-exam-select" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                            <option value="SSC CGL 2024/25">SSC CGL 2024 / 2025</option>
+                            <option value="SSC CHSL 2024/25">SSC CHSL</option>
+                            <option value="SSC CPO / SI">SSC CPO / SI</option>
+                            <option value="SSC MTS / GD">SSC MTS / GD</option>
+                            <option value="CDS / AFCAT">CDS / AFCAT</option>
+                            <option value="General Maths">General Maths Practice</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Security PIN (Optional)</label>
+                        <input id="reg-pin-input" type="password" maxlength="6" placeholder="Optional 4-digit PIN for privacy" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div id="reg-error" class="hidden text-xs text-rose-600 font-medium bg-rose-50 p-2 rounded-lg border border-rose-200"></div>
+                    <button onclick="handleRegisterSubmit()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm shadow-md transition-all active:scale-[0.99]">
+                        Create Profile & Start Saving
+                    </button>
+                </div>
+
+                <!-- Footer Guest Option -->
+                <div class="mt-4 pt-3 border-t border-slate-100 text-center">
+                    <button onclick="continueAsGuest()" class="text-xs text-slate-500 hover:text-slate-800 font-medium transition-colors">
+                        Continue as Guest (No login required)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- USER PROFILE & ACTIVITY DASHBOARD MODAL -->
+        <div id="profile-dashboard-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+            <div class="bg-white w-full max-w-lg rounded-3xl p-5 sm:p-6 shadow-2xl fade-in max-h-[92vh] flex flex-col">
+                
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100 flex-shrink-0">
+                    <div class="flex items-center space-x-3">
+                        <div id="profile-avatar-display" class="w-12 h-12 rounded-2xl bg-indigo-100 text-2xl flex items-center justify-center shadow-xs">🎯</div>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <h3 id="profile-name-display" class="font-extrabold text-slate-900 text-base sm:text-lg">Guest Aspirant</h3>
+                                <span id="profile-exam-tag" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 border border-indigo-200 text-indigo-700">SSC CGL</span>
+                            </div>
+                            <p id="profile-join-date" class="text-[11px] text-slate-400">Practice progress is synced locally</p>
+                        </div>
+                    </div>
+                    <button onclick="closeProfileModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 font-bold">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Dashboard View Tabs: Overview / Set Mastery / Activity Log -->
+                <div class="flex items-center p-1 bg-slate-100 rounded-2xl my-3 text-xs font-bold flex-shrink-0">
+                    <button id="dash-tab-overview" onclick="switchDashboardTab('overview')" class="flex-1 py-1.5 px-2 rounded-xl bg-white text-slate-900 shadow-sm transition-all">
+                        Stats
+                    </button>
+                    <button id="dash-tab-mastery" onclick="switchDashboardTab('mastery')" class="flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition-all">
+                        Set Mastery (5)
+                    </button>
+                    <button id="dash-tab-activity" onclick="switchDashboardTab('activity')" class="flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition-all">
+                        Activity Log
+                    </button>
+                </div>
+
+                <!-- Scrollable Content Area -->
+                <div class="flex-1 overflow-y-auto space-y-4 pr-1">
+
+                    <!-- 1. STATS OVERVIEW TAB -->
+                    <div id="dash-pane-overview" class="space-y-4">
+                        <!-- 4 Stat Metric Cards -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <div class="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-3 text-center">
+                                <span class="block text-indigo-600 text-lg">📝</span>
+                                <span id="dash-stat-tests" class="text-lg sm:text-xl font-black text-indigo-950">0</span>
+                                <span class="block text-[11px] font-semibold text-indigo-800/80">Tests Taken</span>
+                            </div>
+                            <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 text-center">
+                                <span class="block text-blue-600 text-lg">❓</span>
+                                <span id="dash-stat-questions" class="text-lg sm:text-xl font-black text-blue-950">0</span>
+                                <span class="block text-[11px] font-semibold text-blue-800/80">Questions</span>
+                            </div>
+                            <div class="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-3 text-center">
+                                <span class="block text-emerald-600 text-lg">🎯</span>
+                                <span id="dash-stat-accuracy" class="text-lg sm:text-xl font-black text-emerald-950">0%</span>
+                                <span class="block text-[11px] font-semibold text-emerald-800/80">Accuracy</span>
+                            </div>
+                            <div class="bg-purple-50/70 border border-purple-100 rounded-2xl p-3 text-center">
+                                <span class="block text-purple-600 text-lg">⏱️</span>
+                                <span id="dash-stat-time" class="text-lg sm:text-xl font-black text-purple-950">0m</span>
+                                <span class="block text-[11px] font-semibold text-purple-800/80">Total Time</span>
+                            </div>
+                        </div>
+
+                        <!-- Mastery Summary Card -->
+                        <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-2xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Topic Progress: Average (औसत)</span>
+                                <span id="dash-mastery-count" class="text-xs font-extrabold text-emerald-400">0 / 5 Mastered</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-white/20 rounded-full overflow-hidden">
+                                <div id="dash-overall-bar" class="h-full bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                            <p id="dash-mastery-eval" class="text-xs text-slate-300 mt-2">Complete practice sets with >= 80% score to achieve Mastery!</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. SET MASTERY TAB -->
+                    <div id="dash-pane-mastery" class="hidden space-y-2.5">
+                        <div id="dash-sets-list" class="space-y-2">
+                            <!-- Injected by JS: 5 set cards with best score, progress bar, and status -->
+                        </div>
+                    </div>
+
+                    <!-- 3. RECENT ACTIVITY TIMELINE TAB -->
+                    <div id="dash-pane-activity" class="hidden space-y-3">
+                        <div class="flex items-center justify-between pb-1">
+                            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Practice History Timeline</h4>
+                            <span id="dash-activity-count" class="text-xs text-slate-400">0 sessions</span>
+                        </div>
+                        <div id="dash-activity-list" class="space-y-2.5">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- DATA BACKUP / ACCOUNT ACTIONS -->
+                    <div class="pt-3 border-t border-slate-100 space-y-2 text-xs">
+                        <div class="flex items-center justify-between gap-2">
+                            <button onclick="exportUserDataJson()" class="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 font-semibold text-slate-700 rounded-xl transition-all flex items-center justify-center space-x-1">
+                                <span>📥 Export Progress (JSON)</span>
+                            </button>
+                            <label class="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 font-semibold text-slate-700 rounded-xl transition-all flex items-center justify-center space-x-1 cursor-pointer">
+                                <span>📤 Import Progress</span>
+                                <input type="file" id="import-json-file" accept=".json" onchange="importUserDataJson(event)" class="hidden">
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between pt-1">
+                            <button onclick="openAuthModal()" class="text-indigo-600 hover:text-indigo-800 font-bold py-1">
+                                🔄 Switch / Create Account
+                            </button>
+                            <button id="logout-btn" onclick="handleLogout()" class="text-rose-500 hover:text-rose-700 font-medium py-1">
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <!-- QUESTION PALETTE / OVERVIEW MODAL -->
         <div id="palette-modal" class="hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
@@ -1303,6 +1554,560 @@
             } catch (e) {}
         }
 
+
+        // ==================== USER AUTHENTICATION & ACTIVITY MANAGER ====================
+        const UserManager = {
+            USERS_KEY: 'ssc_cgl_users_v1',
+            ACTIVE_KEY: 'ssc_cgl_active_user_v1',
+
+            getUsers() {
+                try {
+                    return JSON.parse(localStorage.getItem(this.USERS_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            },
+
+            saveUsers(users) {
+                try {
+                    localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
+                } catch (e) {}
+            },
+
+            getActiveUsername() {
+                return localStorage.getItem(this.ACTIVE_KEY) || 'guest';
+            },
+
+            getCurrentUser() {
+                const users = this.getUsers();
+                const activeId = this.getActiveUsername();
+                if (users[activeId]) return users[activeId];
+
+                // Check guest user
+                if (!users['guest']) {
+                    users['guest'] = {
+                        id: 'guest',
+                        name: 'Guest Aspirant',
+                        avatar: '🎯',
+                        targetExam: 'SSC CGL 2024/25',
+                        pin: '',
+                        createdAt: Date.now(),
+                        setsProgress: {},
+                        activityLog: []
+                    };
+                    this.saveUsers(users);
+                }
+                return users['guest'];
+            },
+
+            registerUser(name, avatar = '🎯', targetExam = 'SSC CGL 2024/25', pin = '') {
+                const users = this.getUsers();
+                const cleanId = name.trim().toLowerCase().replace(/\s+/g, '_');
+                if (!cleanId) return { success: false, error: 'Please enter a valid name.' };
+                if (users[cleanId]) return { success: false, error: 'An account with this name already exists. Please sign in.' };
+
+                const newUser = {
+                    id: cleanId,
+                    name: name.trim(),
+                    avatar: avatar || '🎯',
+                    targetExam: targetExam || 'SSC CGL',
+                    pin: pin ? pin.trim() : '',
+                    createdAt: Date.now(),
+                    setsProgress: {},
+                    activityLog: []
+                };
+
+                // Migrate existing guest progress into the new user account if available
+                const guestUser = users['guest'];
+                if (guestUser && guestUser.activityLog && guestUser.activityLog.length > 0) {
+                    newUser.setsProgress = JSON.parse(JSON.stringify(guestUser.setsProgress || {}));
+                    newUser.activityLog = JSON.parse(JSON.stringify(guestUser.activityLog || []));
+                }
+
+                users[cleanId] = newUser;
+                this.saveUsers(users);
+                localStorage.setItem(this.ACTIVE_KEY, cleanId);
+                return { success: true, user: newUser };
+            },
+
+            loginUser(usernameOrId, pin = '') {
+                const users = this.getUsers();
+                const cleanId = usernameOrId.trim().toLowerCase().replace(/\s+/g, '_');
+                const user = users[cleanId] || Object.values(users).find(u => u.name.toLowerCase() === usernameOrId.trim().toLowerCase());
+                if (!user) return { success: false, error: 'User account not found.' };
+
+                if (user.pin && user.pin !== pin.trim()) {
+                    return { success: false, error: 'Incorrect PIN. Please try again.' };
+                }
+
+                localStorage.setItem(this.ACTIVE_KEY, user.id);
+                return { success: true, user };
+            },
+
+            logout() {
+                localStorage.setItem(this.ACTIVE_KEY, 'guest');
+            },
+
+            recordTestAttempt({ setId, setName, score, total, percentage, timeSeconds }) {
+                const users = this.getUsers();
+                const activeId = this.getActiveUsername();
+                if (!users[activeId]) {
+                    users[activeId] = this.getCurrentUser();
+                }
+                const user = users[activeId];
+                if (!user.setsProgress) user.setsProgress = {};
+                if (!user.activityLog) user.activityLog = [];
+
+                const prev = user.setsProgress[setId] || { bestScore: 0, percentage: 0, attemptsCount: 0 };
+                user.setsProgress[setId] = {
+                    bestScore: Math.max(prev.bestScore, score),
+                    total,
+                    percentage: Math.max(prev.percentage, percentage),
+                    lastAttempt: Date.now(),
+                    attemptsCount: (prev.attemptsCount || 0) + 1
+                };
+
+                const entry = {
+                    id: 'act_' + Date.now(),
+                    setId,
+                    setName: setName || `Set ${setId}`,
+                    score,
+                    total,
+                    percentage,
+                    timeSeconds,
+                    timestamp: Date.now()
+                };
+                user.activityLog.unshift(entry);
+                if (user.activityLog.length > 60) user.activityLog.pop();
+
+                users[activeId] = user;
+                this.saveUsers(users);
+                return entry;
+            },
+
+            getAnalytics(user) {
+                if (!user) user = this.getCurrentUser();
+                const log = user.activityLog || [];
+                const totalTests = log.length;
+                let totalQuestions = 0;
+                let totalCorrect = 0;
+                let totalTimeSeconds = 0;
+
+                log.forEach(entry => {
+                    totalQuestions += (entry.total || 20);
+                    totalCorrect += (entry.score || 0);
+                    totalTimeSeconds += (entry.timeSeconds || 0);
+                });
+
+                const overallAccuracy = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+                const setsMastered = Object.values(user.setsProgress || {}).filter(s => s.percentage >= 80).length;
+
+                return {
+                    totalTests,
+                    totalQuestions,
+                    totalCorrect,
+                    totalTimeSeconds,
+                    overallAccuracy,
+                    setsMastered
+                };
+            }
+        };
+
+        // PROFILE UI STATE & HANDLERS
+        let selectedAvatarChoice = '🎯';
+
+        function selectAvatar(emoji) {
+            selectedAvatarChoice = emoji;
+            document.querySelectorAll('.avatar-option').forEach(btn => {
+                if (btn.textContent.trim() === emoji) {
+                    btn.className = 'avatar-option p-2.5 rounded-xl text-2xl border-2 border-indigo-600 bg-indigo-50 flex items-center justify-center transition-all scale-105 shadow-sm';
+                } else {
+                    btn.className = 'avatar-option p-2.5 rounded-xl text-2xl border-2 border-slate-200 bg-white hover:border-slate-300 flex items-center justify-center transition-all';
+                }
+            });
+        }
+
+        function updateHeaderAndHomeUserUI() {
+            const user = UserManager.getCurrentUser();
+            const isGuest = user.id === 'guest';
+
+            // Header profile pill
+            const headerAvatar = document.getElementById('header-user-avatar');
+            const headerName = document.getElementById('header-user-name');
+            if (headerAvatar) headerAvatar.textContent = user.avatar || '🎯';
+            if (headerName) headerName.textContent = isGuest ? 'Guest' : (user.name.split(' ')[0] || 'User');
+
+            // Home user card
+            const homeAvatar = document.getElementById('home-user-avatar-circle');
+            const homeName = document.getElementById('home-user-name-display');
+            const homeBadge = document.getElementById('home-user-badge');
+            const homeSubstats = document.getElementById('home-user-substats');
+
+            if (homeAvatar) homeAvatar.textContent = user.avatar || '🎯';
+            if (homeName) homeName.textContent = user.name || 'Guest Aspirant';
+            if (homeBadge) homeBadge.textContent = isGuest ? 'Practice Mode' : (user.targetExam || 'Aspirant');
+
+            const analytics = UserManager.getAnalytics(user);
+            if (homeSubstats) {
+                if (analytics.totalTests === 0) {
+                    homeSubstats.textContent = '0 sets attempted • Tap to view profile & activity log';
+                } else {
+                    homeSubstats.textContent = `${analytics.setsMastered} of 5 sets mastered • ${analytics.overallAccuracy}% accuracy (${analytics.totalTests} tests)`;
+                }
+            }
+        }
+
+        // AUTH MODAL HANDLERS
+        function openAuthModal() {
+            closeProfileModal();
+            const modal = document.getElementById('auth-modal');
+            if (!modal) return;
+            renderSavedAccountsList();
+            modal.classList.remove('hidden');
+        }
+
+        function closeAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function switchAuthTab(tab) {
+            const tabIn = document.getElementById('auth-tab-signin');
+            const tabUp = document.getElementById('auth-tab-register');
+            const formIn = document.getElementById('auth-form-signin');
+            const formUp = document.getElementById('auth-form-register');
+
+            if (tab === 'signin') {
+                tabIn.className = 'flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold';
+                tabUp.className = 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold';
+                formIn.classList.remove('hidden');
+                formUp.classList.add('hidden');
+            } else {
+                tabUp.className = 'flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold';
+                tabIn.className = 'flex-1 py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold';
+                formUp.classList.remove('hidden');
+                formIn.classList.add('hidden');
+            }
+        }
+
+        function renderSavedAccountsList() {
+            const users = UserManager.getUsers();
+            const listEl = document.getElementById('auth-accounts-list');
+            const wrapEl = document.getElementById('auth-existing-accounts');
+            if (!listEl || !wrapEl) return;
+
+            const accounts = Object.values(users).filter(u => u.id !== 'guest');
+            if (accounts.length === 0) {
+                wrapEl.classList.add('hidden');
+                return;
+            }
+
+            wrapEl.classList.remove('hidden');
+            listEl.innerHTML = '';
+            accounts.forEach(acc => {
+                const item = document.createElement('button');
+                item.type = 'button';
+                item.className = 'w-full p-2 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 flex items-center justify-between text-left transition-all';
+                item.onclick = () => {
+                    document.getElementById('signin-name-input').value = acc.name;
+                    if (!acc.pin) {
+                        handleSignInSubmit();
+                    } else {
+                        document.getElementById('signin-pin-input').focus();
+                    }
+                };
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xl">${acc.avatar || '🎯'}</span>
+                        <div>
+                            <span class="font-bold text-xs text-slate-800 block">${acc.name}</span>
+                            <span class="text-[10px] text-slate-400">${acc.targetExam || 'SSC CGL'}</span>
+                        </div>
+                    </div>
+                    <span class="text-xs font-semibold text-indigo-600">Select →</span>
+                `;
+                listEl.appendChild(item);
+            });
+        }
+
+        function handleSignInSubmit() {
+            const nameInput = document.getElementById('signin-name-input');
+            const pinInput = document.getElementById('signin-pin-input');
+            const errEl = document.getElementById('signin-error');
+            const name = nameInput.value.trim();
+            const pin = pinInput.value.trim();
+
+            if (!name) {
+                errEl.textContent = 'Please enter your name or handle.';
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            const res = UserManager.loginUser(name, pin);
+            if (!res.success) {
+                errEl.textContent = res.error;
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            errEl.classList.add('hidden');
+            closeAuthModal();
+            updateHeaderAndHomeUserUI();
+            renderSetCards();
+            openProfileModal('overview');
+        }
+
+        function handleRegisterSubmit() {
+            const nameInput = document.getElementById('reg-name-input');
+            const examSelect = document.getElementById('reg-exam-select');
+            const pinInput = document.getElementById('reg-pin-input');
+            const errEl = document.getElementById('reg-error');
+
+            const name = nameInput.value.trim();
+            const exam = examSelect.value;
+            const pin = pinInput.value.trim();
+
+            if (!name) {
+                errEl.textContent = 'Please enter your name or aspirant handle.';
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            const res = UserManager.registerUser(name, selectedAvatarChoice, exam, pin);
+            if (!res.success) {
+                errEl.textContent = res.error;
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            errEl.classList.add('hidden');
+            closeAuthModal();
+            updateHeaderAndHomeUserUI();
+            renderSetCards();
+            openProfileModal('overview');
+        }
+
+        function continueAsGuest() {
+            UserManager.logout();
+            closeAuthModal();
+            updateHeaderAndHomeUserUI();
+            renderSetCards();
+        }
+
+        function handleLogout() {
+            UserManager.logout();
+            closeProfileModal();
+            updateHeaderAndHomeUserUI();
+            renderSetCards();
+        }
+
+        // PROFILE DASHBOARD MODAL HANDLERS
+        function openProfileModal(initialTab = 'overview') {
+            const modal = document.getElementById('profile-dashboard-modal');
+            if (!modal) return;
+
+            const user = UserManager.getCurrentUser();
+            const analytics = UserManager.getAnalytics(user);
+            const isGuest = user.id === 'guest';
+
+            // User Info
+            document.getElementById('profile-avatar-display').textContent = user.avatar || '🎯';
+            document.getElementById('profile-name-display').textContent = user.name || 'Guest Aspirant';
+            document.getElementById('profile-exam-tag').textContent = user.targetExam || 'SSC CGL';
+            document.getElementById('logout-btn').textContent = isGuest ? 'Close Profile' : 'Sign Out';
+
+            const createdDate = new Date(user.createdAt || Date.now());
+            document.getElementById('profile-join-date').textContent = isGuest ? 'Practice progress saved locally' : `Member since ${createdDate.toLocaleDateString()}`;
+
+            // Stats
+            document.getElementById('dash-stat-tests').textContent = analytics.totalTests;
+            document.getElementById('dash-stat-questions').textContent = analytics.totalQuestions;
+            document.getElementById('dash-stat-accuracy').textContent = `${analytics.overallAccuracy}%`;
+
+            const mins = Math.round((analytics.totalTimeSeconds || 0) / 60);
+            document.getElementById('dash-stat-time').textContent = `${mins}m`;
+
+            // Topic Mastery Bar
+            document.getElementById('dash-mastery-count').textContent = `${analytics.setsMastered} / 5 Mastered`;
+            const masteryPct = (analytics.setsMastered / 5) * 100;
+            document.getElementById('dash-overall-bar').style.width = `${masteryPct}%`;
+
+            let evalText = 'Complete practice sets with >= 80% score to achieve Mastery!';
+            if (analytics.setsMastered === 5) evalText = '🏆 Outstanding! You have fully mastered all Average PYQ sets!';
+            else if (analytics.setsMastered >= 3) evalText = '🔥 Great progress! You are performing at Tier-2 Mains level.';
+            document.getElementById('dash-mastery-eval').textContent = evalText;
+
+            // Render Set Mastery list
+            renderDashboardSetsList(user);
+
+            // Render Activity Timeline
+            renderDashboardActivityList(user);
+
+            switchDashboardTab(initialTab);
+            modal.classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('profile-dashboard-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function switchDashboardTab(tab) {
+            ['overview', 'mastery', 'activity'].forEach(t => {
+                const btn = document.getElementById(`dash-tab-${t}`);
+                const pane = document.getElementById(`dash-pane-${t}`);
+                if (btn && pane) {
+                    if (t === tab) {
+                        btn.className = 'flex-1 py-1.5 px-2 rounded-xl bg-white text-slate-900 shadow-sm transition-all font-bold';
+                        pane.classList.remove('hidden');
+                    } else {
+                        btn.className = 'flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition-all font-semibold';
+                        pane.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function renderDashboardSetsList(user) {
+            const container = document.getElementById('dash-sets-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            MATHS_AVERAGE_SETS.forEach(s => {
+                const prog = (user.setsProgress && user.setsProgress[s.id]) || null;
+                const item = document.createElement('div');
+                item.className = 'p-3 rounded-xl border border-slate-200 bg-slate-50/70 flex items-center justify-between';
+
+                let scoreBadge = '';
+                if (prog) {
+                    const isMastered = prog.percentage >= 80;
+                    scoreBadge = `
+                        <div class="text-right">
+                            <span class="inline-block px-2 py-0.5 rounded text-xs font-bold ${isMastered ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
+                                ${prog.bestScore}/20 (${prog.percentage}%)
+                            </span>
+                            <span class="block text-[10px] text-slate-400 mt-0.5 font-medium">${isMastered ? '🌟 Mastered' : '⏳ In Progress'}</span>
+                        </div>
+                    `;
+                } else {
+                    scoreBadge = `
+                        <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-600">Not Started</span>
+                    `;
+                }
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white font-black text-xs flex items-center justify-center">
+                            M${s.id}
+                        </span>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <span class="font-bold text-xs text-slate-800">${s.title}</span>
+                                <span class="text-[10px] font-semibold text-slate-400">(${s.difficulty})</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 block truncate max-w-[180px] sm:max-w-xs">${s.desc}</span>
+                        </div>
+                    </div>
+                    ${scoreBadge}
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function renderDashboardActivityList(user) {
+            const container = document.getElementById('dash-activity-list');
+            const countEl = document.getElementById('dash-activity-count');
+            if (!container) return;
+
+            const log = user.activityLog || [];
+            if (countEl) countEl.textContent = `${log.length} sessions`;
+
+            if (log.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 text-xs">
+                        No activity yet. Start your first practice set to track scores here!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            log.forEach(entry => {
+                const item = document.createElement('div');
+                item.className = 'p-3 rounded-xl border border-slate-100 bg-white shadow-2xs flex items-center justify-between';
+
+                const timeStr = new Date(entry.timestamp).toLocaleString(undefined, {
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                const mins = Math.floor((entry.timeSeconds || 0) / 60);
+                const secs = (entry.timeSeconds || 0) % 60;
+                const duration = `${mins}m ${secs}s`;
+
+                const isHigh = entry.percentage >= 70;
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold flex items-center justify-center">
+                            Set ${entry.setId}
+                        </span>
+                        <div>
+                            <span class="font-bold text-xs text-slate-800 block">${entry.setName}</span>
+                            <span class="text-[10px] text-slate-400">${timeStr} • ${duration}</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-block px-2 py-0.5 rounded text-xs font-bold ${isHigh ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
+                            ${entry.score}/${entry.total} (${entry.percentage}%)
+                        </span>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // DATA EXPORT & IMPORT (JSON BACKUP)
+        function exportUserDataJson() {
+            const user = UserManager.getCurrentUser();
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(user, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `ssc_cgl_maths_progress_${user.id}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importUserDataJson(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (!imported.name || !imported.setsProgress) {
+                        alert("Invalid progress backup file format.");
+                        return;
+                    }
+                    const users = UserManager.getUsers();
+                    users[imported.id || 'imported_user'] = imported;
+                    UserManager.saveUsers(users);
+                    localStorage.setItem(UserManager.ACTIVE_KEY, imported.id || 'imported_user');
+                    updateHeaderAndHomeUserUI();
+                    renderSetCards();
+                    openProfileModal('overview');
+                    alert(`Welcome back, ${imported.name}! Your progress has been restored.`);
+                } catch (err) {
+                    alert("Error parsing JSON file. Please make sure it's a valid backup.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
         // DOM REFERENCES
         const UI = {
             headerSetBadge: document.getElementById('header-set-badge'),
@@ -1656,6 +2461,11 @@
 
             const percentage = Math.round((correctCount / 20) * 100);
             saveSetScore(activeSetIndex + 1, correctCount, 20, percentage);
+            const user = UserManager.getCurrentUser();
+            const savedPill = document.getElementById('result-saved-user-pill');
+            if (savedPill) {
+                savedPill.innerHTML = `<span>💾 Saved to ${user.avatar || '🎯'} ${user.name}</span>`;
+            }
 
             UI.resultSetPill.textContent = `Maths Set ${activeSetIndex + 1} (${MATHS_AVERAGE_SETS[activeSetIndex].difficulty}) Completed`;
             UI.finalScoreVal.textContent = correctCount;
