@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SSC CGL Maths Practice - Average (100 PYQs: Medium & Hard)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <!-- KaTeX for Beautiful Mathematical Formula Rendering -->
+    <!-- KaTeX for Beautiful Mathematical Formula Rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="ensureKaTeXLoaded()"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase App, Auth & Firestore Cloud Database SDKs (Compat CDN) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
     
     <style>
         * {
@@ -83,6 +89,12 @@
 
                 <!-- Right Side: Profile Pill & Controls -->
                 <div class="flex items-center space-x-2">
+                    <!-- Cloud Sync Pill -->
+                    <button id="header-cloud-btn" onclick="openCloudConfigModal()" title="Firebase Cloud Database Status & Settings" class="hidden sm:flex items-center space-x-1 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-600 transition-all shadow-2xs">
+                        <span id="header-cloud-icon">☁️</span>
+                        <span id="header-cloud-text" class="hidden md:inline text-[11px]">Local</span>
+                    </button>
+
                     <!-- User Profile Quick Button -->
                     <button id="header-profile-btn" onclick="openProfileModal()" class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-700 transition-all shadow-2xs">
                         <span id="header-user-avatar" class="text-sm">🎯</span>
@@ -403,8 +415,22 @@
                     </button>
                 </div>
 
+                <!-- Google Cloud One-Click Sign In -->
+                <div class="mt-4">
+                    <button type="button" onclick="handleGoogleSignIn()" class="w-full py-2.5 px-4 bg-white hover:bg-slate-50 border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold rounded-2xl text-xs sm:text-sm shadow-xs flex items-center justify-center space-x-2.5 transition-all active:scale-[0.99]">
+                        <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.33 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+                        <span>Continue with Google (Cloud Sync)</span>
+                    </button>
+                </div>
+
+                <div class="relative my-3 flex items-center">
+                    <div class="flex-grow border-t border-slate-200"></div>
+                    <span class="flex-shrink mx-2 text-[10px] uppercase tracking-wider text-slate-400 font-bold">or local profile</span>
+                    <div class="flex-grow border-t border-slate-200"></div>
+                </div>
+
                 <!-- Tabs: Sign In / Create Account -->
-                <div class="flex items-center p-1 bg-slate-100 rounded-2xl my-4 text-xs font-bold">
+                <div class="flex items-center p-1 bg-slate-100 rounded-2xl mb-4 text-xs font-bold">
                     <button id="auth-tab-signin" onclick="switchAuthTab('signin')" class="flex-1 py-2 px-3 rounded-xl bg-white text-slate-900 shadow-sm transition-all">
                         Sign In
                     </button>
@@ -486,10 +512,13 @@
                     </button>
                 </div>
 
-                <!-- Footer Guest Option -->
-                <div class="mt-4 pt-3 border-t border-slate-100 text-center">
-                    <button onclick="continueAsGuest()" class="text-xs text-slate-500 hover:text-slate-800 font-medium transition-colors">
-                        Continue as Guest (No login required)
+                <!-- Footer Guest Option & Cloud Settings -->
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <button onclick="continueAsGuest()" class="text-slate-500 hover:text-slate-800 font-medium transition-colors">
+                        Continue as Guest
+                    </button>
+                    <button type="button" onclick="openCloudConfigModal()" class="text-indigo-600 hover:text-indigo-800 font-bold flex items-center space-x-1 transition-colors">
+                        <span>☁️ Cloud DB Settings</span>
                     </button>
                 </div>
             </div>
@@ -589,6 +618,25 @@
                         </div>
                     </div>
 
+                    <!-- CLOUD DATABASE SYNC STATUS & CONTROLS -->
+                    <div class="p-3 rounded-2xl bg-gradient-to-r from-slate-50 to-indigo-50/50 border border-slate-200 text-xs space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-1.5">
+                                <span id="dash-cloud-icon" class="text-sm">☁️</span>
+                                <span id="dash-cloud-status" class="font-bold text-slate-800">Local Storage Only</span>
+                            </div>
+                            <button type="button" onclick="openCloudConfigModal()" class="text-indigo-600 hover:text-indigo-800 font-bold underline text-[11px]">
+                                Configure Firebase
+                            </button>
+                        </div>
+                        <div id="dash-cloud-sync-row" class="hidden flex items-center justify-between pt-1 border-t border-slate-200/60">
+                            <span id="dash-cloud-user-email" class="text-[11px] text-slate-500 truncate max-w-[170px]"></span>
+                            <button type="button" onclick="manualCloudSync()" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[11px] shadow-2xs transition-all">
+                                🔄 Sync Now
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- DATA BACKUP / ACCOUNT ACTIONS -->
                     <div class="pt-3 border-t border-slate-100 space-y-2 text-xs">
                         <div class="flex items-center justify-between gap-2">
@@ -610,6 +658,78 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- CLOUD CONFIGURATION & FIREBASE SETTINGS MODAL -->
+        <div id="cloud-config-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-lg rounded-3xl p-5 sm:p-6 shadow-2xl fade-in max-h-[90vh] overflow-y-auto">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 font-black flex items-center justify-center text-lg">☁️</div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg">Firebase Cloud Database</h3>
+                            <p class="text-xs text-slate-500">Cross-device sync & Google Authentication</p>
+                        </div>
+                    </div>
+                    <button onclick="closeCloudConfigModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 font-bold">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Current Cloud Status Banner -->
+                <div class="my-4 p-3.5 rounded-2xl border flex items-center justify-between bg-slate-50 border-slate-200" id="cloud-modal-status-box">
+                    <div class="flex items-center space-x-2.5">
+                        <span id="cloud-modal-status-indicator" class="w-3 h-3 rounded-full bg-slate-400"></span>
+                        <div>
+                            <span id="cloud-modal-status-title" class="font-bold text-xs text-slate-800 block">Not Connected</span>
+                            <span id="cloud-modal-status-desc" class="text-[11px] text-slate-500">Using browser localStorage. Add your Firebase keys below for cloud sync.</span>
+                        </div>
+                    </div>
+                    <button id="cloud-modal-sync-btn" onclick="manualCloudSync()" class="hidden px-2.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-xs transition-all">
+                        Sync Now
+                    </button>
+                </div>
+
+                <!-- Quick Setup Instructions -->
+                <div class="bg-indigo-50/60 border border-indigo-100 rounded-2xl p-3.5 mb-4 text-xs text-indigo-950 space-y-1.5">
+                    <div class="font-bold flex items-center space-x-1.5 text-indigo-900">
+                        <span>⚡ 2-Minute Free Setup:</span>
+                    </div>
+                    <ol class="list-decimal list-inside space-y-1 text-[11px] text-indigo-900/90 leading-relaxed">
+                        <li>Visit <a href="https://console.firebase.google.com/" target="_blank" class="font-bold underline text-indigo-700">console.firebase.google.com</a> & create a free project.</li>
+                        <li>Click <strong>Firestore Database</strong> -> Create Database (Start in test mode).</li>
+                        <li>Click <strong>Authentication</strong> -> Sign-in method -> Enable <strong>Google</strong> & <strong>Email</strong>.</li>
+                        <li>Go to <strong>Project Settings</strong> -> Web app (<code class="bg-indigo-100 px-1 rounded">&lt;/&gt;</code>) -> Copy <code class="bg-indigo-100 px-1 rounded">firebaseConfig</code> and paste it below!</li>
+                    </ol>
+                </div>
+
+                <!-- Configuration Paste Form -->
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-xs font-bold text-slate-700">Paste Firebase Config JSON / Snippet:</label>
+                            <span class="text-[10px] text-slate-400">Saved securely in your browser</span>
+                        </div>
+                        <textarea id="cloud-config-textarea" rows="5" placeholder='Paste either your full firebaseConfig object or JSON, e.g.:&#10;{&#10;  "apiKey": "AIzaSy...",&#10;  "authDomain": "myproject.firebaseapp.com",&#10;  "projectId": "myproject",&#10;  "storageBucket": "myproject.firebasestorage.app",&#10;  "messagingSenderId": "...",&#10;  "appId": "..."&#10;}' class="w-full p-3 rounded-2xl border border-slate-300 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50"></textarea>
+                    </div>
+
+                    <div id="cloud-config-error" class="hidden text-xs text-rose-600 bg-rose-50 p-2.5 rounded-xl border border-rose-200 font-medium"></div>
+                    <div id="cloud-config-success" class="hidden text-xs text-emerald-700 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 font-bold"></div>
+
+                    <div class="flex items-center gap-2 pt-1">
+                        <button type="button" onclick="saveCloudConfigFromUI()" class="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all active:scale-[0.99]">
+                            Save & Connect Cloud
+                        </button>
+                        <button type="button" onclick="clearCloudConfigFromUI()" class="py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold rounded-xl text-xs transition-all">
+                            Reset / Disconnect
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-100 text-center text-xs text-slate-400">
+                    SSC CGL & CHSL Exam Practice Platform • Firebase Firestore Integration
                 </div>
             </div>
         </div>
@@ -6041,6 +6161,12 @@
 
                 users[activeId] = user;
                 this.saveUsers(users);
+
+                // Auto-sync with Firebase Cloud Firestore if active
+                if (window.CloudDB && CloudDB.currentUser) {
+                    CloudDB.syncUserToCloud(user);
+                }
+
                 return entry;
             },
 
@@ -6255,7 +6381,10 @@
             renderSetCards();
         }
 
-        function handleLogout() {
+        async function handleLogout() {
+            if (window.CloudDB && CloudDB.currentUser) {
+                try { await CloudDB.signOut(); } catch (e) {}
+            }
             UserManager.logout();
             closeProfileModal();
             openAuthModal();
@@ -6566,6 +6695,269 @@
                 }
             };
             reader.readAsText(file);
+        }
+
+        // ==================== FIREBASE CLOUD DATABASE & AUTH INTEGRATION ====================
+        function updateCloudUIStatus(status, user) {
+            const headerIcon = document.getElementById('header-cloud-icon');
+            const headerText = document.getElementById('header-cloud-text');
+            const dashIcon = document.getElementById('dash-cloud-icon');
+            const dashStatus = document.getElementById('dash-cloud-status');
+            const dashSyncRow = document.getElementById('dash-cloud-sync-row');
+            const dashUserEmail = document.getElementById('dash-cloud-user-email');
+
+            const modalBox = document.getElementById('cloud-modal-status-box');
+            const modalIndicator = document.getElementById('cloud-modal-status-indicator');
+            const modalTitle = document.getElementById('cloud-modal-status-title');
+            const modalDesc = document.getElementById('cloud-modal-status-desc');
+            const modalSyncBtn = document.getElementById('cloud-modal-sync-btn');
+
+            const isConfigured = window.CloudDB && CloudDB.isConfigured();
+            const isUserLoggedIn = !!user;
+
+            if (!isConfigured) {
+                if (headerIcon) headerIcon.textContent = '☁️';
+                if (headerText) headerText.textContent = 'Setup Cloud';
+                if (dashIcon) dashIcon.textContent = '☁️';
+                if (dashStatus) dashStatus.textContent = 'Local Storage Only (Offline)';
+                if (dashSyncRow) dashSyncRow.classList.add('hidden');
+
+                if (modalBox) modalBox.className = 'my-4 p-3.5 rounded-2xl border flex items-center justify-between bg-slate-50 border-slate-200';
+                if (modalIndicator) modalIndicator.className = 'w-3 h-3 rounded-full bg-slate-400';
+                if (modalTitle) modalTitle.textContent = 'Firebase Not Connected';
+                if (modalDesc) modalDesc.textContent = 'Using browser localStorage. Add your Firebase keys below for instant cross-device sync.';
+                if (modalSyncBtn) modalSyncBtn.classList.add('hidden');
+            } else if (status === 'syncing') {
+                if (headerIcon) headerIcon.textContent = '🔄';
+                if (headerText) headerText.textContent = 'Syncing...';
+                if (dashIcon) dashIcon.textContent = '🔄';
+                if (dashStatus) dashStatus.textContent = 'Syncing to Cloud...';
+
+                if (modalIndicator) modalIndicator.className = 'w-3 h-3 rounded-full bg-amber-400 animate-pulse';
+                if (modalTitle) modalTitle.textContent = 'Syncing in Progress';
+                if (modalDesc) modalDesc.textContent = 'Transferring progress to Cloud Firestore database...';
+            } else if (isUserLoggedIn) {
+                if (headerIcon) headerIcon.textContent = '☁️';
+                if (headerText) headerText.textContent = 'Cloud Synced';
+                if (dashIcon) dashIcon.textContent = '🟢';
+                if (dashStatus) dashStatus.textContent = 'Cloud Database Connected (Synced)';
+                if (dashSyncRow) {
+                    dashSyncRow.classList.remove('hidden');
+                    if (dashUserEmail) dashUserEmail.textContent = user.email || user.displayName || 'Google Account';
+                }
+
+                if (modalBox) modalBox.className = 'my-4 p-3.5 rounded-2xl border flex items-center justify-between bg-emerald-50/70 border-emerald-200';
+                if (modalIndicator) modalIndicator.className = 'w-3 h-3 rounded-full bg-emerald-500';
+                if (modalTitle) modalTitle.textContent = `Connected: ${user.email || user.displayName || 'User'}`;
+                if (modalDesc) modalDesc.textContent = 'Firestore is actively syncing all test attempts and set mastery!';
+                if (modalSyncBtn) modalSyncBtn.classList.remove('hidden');
+            } else {
+                // Firebase configured, but user not logged into cloud
+                if (headerIcon) headerIcon.textContent = '☁️';
+                if (headerText) headerText.textContent = 'Sign In to Sync';
+                if (dashIcon) dashIcon.textContent = '🟡';
+                if (dashStatus) dashStatus.textContent = 'Cloud Ready (Sign In to Sync)';
+                if (dashSyncRow) dashSyncRow.classList.add('hidden');
+
+                if (modalBox) modalBox.className = 'my-4 p-3.5 rounded-2xl border flex items-center justify-between bg-amber-50/60 border-amber-200';
+                if (modalIndicator) modalIndicator.className = 'w-3 h-3 rounded-full bg-amber-500';
+                if (modalTitle) modalTitle.textContent = 'Firebase Ready (Not Signed In)';
+                if (modalDesc) modalDesc.textContent = 'Sign in with Google to automatically back up progress to your cloud database.';
+                if (modalSyncBtn) modalSyncBtn.classList.add('hidden');
+            }
+        }
+
+        // Hook CloudDB status listener
+        if (window.CloudDB) {
+            CloudDB.onStatusChange(updateCloudUIStatus);
+        }
+
+        // Firebase Auth state changed hook
+        window.onCloudAuthStateChanged = async function(firebaseUser) {
+            if (firebaseUser) {
+                const uid = firebaseUser.uid;
+                const users = UserManager.getUsers();
+                let cloudData = null;
+
+                try {
+                    cloudData = await CloudDB.loadUserFromCloud(uid);
+                } catch (e) {
+                    console.warn("Could not load from Cloud Firestore:", e);
+                }
+
+                if (cloudData) {
+                    users[uid] = {
+                        id: uid,
+                        email: firebaseUser.email || '',
+                        name: cloudData.name || firebaseUser.displayName || 'Aspirant',
+                        avatar: cloudData.avatar || '👑',
+                        targetExam: cloudData.targetExam || 'SSC CGL 2024/25',
+                        createdAt: cloudData.createdAt || Date.now(),
+                        setsProgress: { ...(users[uid]?.setsProgress || {}), ...(cloudData.setsProgress || {}) },
+                        activityLog: cloudData.activityLog || users[uid]?.activityLog || []
+                    };
+                } else if (!users[uid]) {
+                    const currentActive = UserManager.getCurrentUser();
+                    users[uid] = {
+                        id: uid,
+                        email: firebaseUser.email || '',
+                        name: firebaseUser.displayName || (firebaseUser.email ? firebaseUser.email.split('@')[0] : 'Aspirant'),
+                        avatar: '👑',
+                        targetExam: 'SSC CGL 2024/25',
+                        createdAt: Date.now(),
+                        setsProgress: currentActive && currentActive.id !== 'guest' ? { ...currentActive.setsProgress } : {},
+                        activityLog: currentActive && currentActive.id !== 'guest' ? [ ...currentActive.activityLog ] : []
+                    };
+                    CloudDB.syncUserToCloud(users[uid]);
+                }
+
+                UserManager.saveUsers(users);
+                localStorage.setItem(UserManager.ACTIVE_KEY, uid);
+            }
+            updateHeaderAndHomeUserUI();
+            renderSetCards();
+            updateCloudUIStatus(CloudDB.syncStatus, firebaseUser);
+        };
+
+        async function handleGoogleSignIn() {
+            const errEl = document.getElementById('signin-error');
+            if (errEl) errEl.classList.add('hidden');
+
+            if (!window.CloudDB || !CloudDB.isConfigured()) {
+                closeAuthModal();
+                openCloudConfigModal();
+                return;
+            }
+
+            try {
+                await CloudDB.signInWithGoogle();
+                closeAuthModal();
+                updateHeaderAndHomeUserUI();
+                renderSetCards();
+                openProfileModal('overview');
+            } catch (err) {
+                console.error("Google sign in error:", err);
+                if (errEl) {
+                    errEl.textContent = err.message || "Google sign in was closed or failed. Please check popup blockers.";
+                    errEl.classList.remove('hidden');
+                }
+            }
+        }
+
+        async function manualCloudSync() {
+            if (!window.CloudDB) return;
+            if (!CloudDB.isConfigured()) {
+                openCloudConfigModal();
+                return;
+            }
+            if (!CloudDB.currentUser) {
+                openAuthModal();
+                return;
+            }
+            const user = UserManager.getCurrentUser();
+            const success = await CloudDB.syncUserToCloud(user);
+            if (success) {
+                alert("✨ All progress, scores, and activity successfully synced to Cloud Firestore!");
+            } else {
+                alert("⚠️ Cloud sync failed. Please check your internet connection.");
+            }
+        }
+
+        function openCloudConfigModal() {
+            const modal = document.getElementById('cloud-config-modal');
+            if (!modal) return;
+            const textarea = document.getElementById('cloud-config-textarea');
+            const errEl = document.getElementById('cloud-config-error');
+            const succEl = document.getElementById('cloud-config-success');
+            if (errEl) errEl.classList.add('hidden');
+            if (succEl) succEl.classList.add('hidden');
+
+            const current = CloudDB.getConfig();
+            if (current && textarea) {
+                textarea.value = JSON.stringify(current, null, 2);
+            } else if (textarea) {
+                textarea.value = '';
+            }
+
+            updateCloudUIStatus(CloudDB.syncStatus, CloudDB.currentUser);
+            modal.classList.remove('hidden');
+        }
+
+        function closeCloudConfigModal() {
+            const modal = document.getElementById('cloud-config-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function saveCloudConfigFromUI() {
+            const textarea = document.getElementById('cloud-config-textarea');
+            const errEl = document.getElementById('cloud-config-error');
+            const succEl = document.getElementById('cloud-config-success');
+            if (!textarea) return;
+
+            let raw = textarea.value.trim();
+            if (!raw) {
+                errEl.textContent = "Please paste your Firebase configuration.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            // Clean up if user pasted 'const firebaseConfig = { ... };'
+            if (raw.includes('{')) {
+                const start = raw.indexOf('{');
+                const end = raw.lastIndexOf('}');
+                if (start !== -1 && end !== -1 && end > start) {
+                    raw = raw.substring(start, end + 1);
+                }
+            }
+
+            let configObj = null;
+            try {
+                configObj = JSON.parse(raw);
+            } catch (e) {
+                try {
+                    configObj = (new Function(`return (${raw})`))();
+                } catch (e2) {
+                    errEl.textContent = "Could not parse Firebase config. Please ensure it is valid JSON or a Javascript object.";
+                    errEl.classList.remove('hidden');
+                    return;
+                }
+            }
+
+            if (!configObj || !configObj.apiKey || !configObj.projectId) {
+                errEl.textContent = "Config must include at least 'apiKey' and 'projectId'.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                CloudDB.saveConfig(configObj);
+                errEl.classList.add('hidden');
+                succEl.textContent = "✓ Firebase connected successfully! You can now use Google login and cloud sync.";
+                succEl.classList.remove('hidden');
+                updateCloudUIStatus(CloudDB.syncStatus, CloudDB.currentUser);
+                setTimeout(() => {
+                    closeCloudConfigModal();
+                }, 1400);
+            } catch (err) {
+                errEl.textContent = err.message || "Failed to initialize Firebase with provided credentials.";
+                errEl.classList.remove('hidden');
+            }
+        }
+
+        function clearCloudConfigFromUI() {
+            if (confirm("Disconnect Firebase? Your local progress will remain safe on this device.")) {
+                CloudDB.clearConfig();
+                const textarea = document.getElementById('cloud-config-textarea');
+                if (textarea) textarea.value = '';
+                const errEl = document.getElementById('cloud-config-error');
+                const succEl = document.getElementById('cloud-config-success');
+                if (errEl) errEl.classList.add('hidden');
+                if (succEl) {
+                    succEl.textContent = "Firebase disconnected. Reverted to local storage.";
+                    succEl.classList.remove('hidden');
+                }
+                updateCloudUIStatus('disconnected', null);
+            }
         }
 
         // DOM REFERENCES
@@ -7518,6 +7910,9 @@
         // Initial render
         renderSetCards();
         updateHeaderAndHomeUserUI();
+        if (window.CloudDB) {
+            updateCloudUIStatus(CloudDB.syncStatus, CloudDB.currentUser);
+        }
     </script>
 </body>
 </html>

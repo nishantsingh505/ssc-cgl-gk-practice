@@ -55,6 +55,23 @@ Access the live platform on GitHub Pages:
 
 ---
 
+## ☁️ Firebase Cloud Database & Authentication (Cross-Device Sync)
+The platform supports **Firebase Firestore & Firebase Authentication** so you can sync your progress seamlessly across your phone, tablet, and computer:
+
+- 🟢 **One-Click Google Sign-In:** Frictionless authentication with your Google account.
+- 🔄 **Real-Time Cloud Firestore Sync:** All 15 practice sets, accuracy metrics, and activity history sync automatically across devices.
+- 📱 **Offline-First Resilience:** If you don't connect Firebase or are offline, the app transparently stores everything in browser `localStorage`.
+- ⚙️ **In-App Setup:** Tap **Cloud Sync** in the header or in your profile to connect your Firebase credentials directly from the browser!
+
+### Quick 2-Minute Free Firebase Setup:
+1. Go to [Firebase Console](https://console.firebase.google.com/) and create a free project.
+2. In the left menu, select **Build > Firestore Database** and click **Create database** (start in Test Mode).
+3. In **Build > Authentication**, click **Get Started** and enable **Google** (and optionally Email/Password).
+4. Go to **Project Settings** (gear icon) > **General** > **Your apps** > Add Web App (`</>`).
+5. Copy your `firebaseConfig` object and paste it directly into the in-app **Cloud DB Settings** modal (or inside `firebase-config.js`).
+
+---
+
 ## ⚡ Interactive Exam Engine
 - Question Palette (1–20) with instant question jump.
 - Real-time exam timer & sticky navigation.
