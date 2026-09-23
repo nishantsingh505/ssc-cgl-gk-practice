@@ -8,15 +8,14 @@
  */
 
 const CloudDB = {
-    // Default pre-configured credentials for Practice Project
+    // Placeholder config. In public repositories, configure credentials via in-app Cloud Settings modal (saved in browser localStorage)
     defaultConfig: {
-        apiKey: "AIzaSyBRwCYdzHOHmbR6Bm4av_zdiRaW7a3VlnQ",
-        authDomain: "practice-project-89fc3.firebaseapp.com",
-        projectId: "practice-project-89fc3",
-        storageBucket: "practice-project-89fc3.firebasestorage.app",
-        messagingSenderId: "978612621436",
-        appId: "1:978612621436:web:c820afc4ccdcd07d1c79f9",
-        measurementId: "G-3PE7K7NDJ8"
+        apiKey: "",
+        authDomain: "",
+        projectId: "",
+        storageBucket: "",
+        messagingSenderId: "",
+        appId: ""
     },
 
     STORAGE_KEY_CONFIG: "ssc_cgl_firebase_config_v1",
